@@ -1,16 +1,20 @@
-# MediaTek Research Large Language Model
+# MediaTek Research Foundation models 聯發創新基地基礎模型
 
 ![](./assets/starry_night.jpg)
 
-##### (Please check out the English version [here](README_EN.md).)
+##### (You can find English version [here](README_EN.md).)
 
-[聯發創新基地（MediaTek Research）](https://www.mtkresearch.com/)致力於研究和開發大型語言模型，同時也為台灣使用者友善持續努力。
+[聯發創新基地（MediaTek Research)](https://www.mtkresearch.com/) 致力於研究基礎模型。我們將研究，體現在適合繁體中文使用者的模型上，並在使用權許可的情況下，提供模型給學界研究，以及商界來使用。
 
-## 互動介面開放試用
+## 試用
 
-你可以免費申請試用，方法如下：請先閱讀並同意我們的[使用條款](./APP-LICENSE)，再填寫申請表單([連結](https://www.surveycake.com/s/y6yDM))，我們會根據你提供的資料作為審核，審核通過後我們會寄出包含使用連結的通知信，請耐心等候。
+您可以申請試用，試用期間只要您不過量使用，該試用之模型算力由本基地提供。
 
-目前模型還在實驗階段，歡迎使用 [Issues](https://github.com/mtkresearch/MR-LLM/issues) 給予回饋、指正錯誤，我們也會持續精進模型，同時也歡迎跟我們洽談商業合作，如有需要可以使用信箱 info@mtkresearch.com 聯繫我們，我們殷切期盼與你交流。
+申請方法如下：請先閱讀並同意我們的[使用條款](./APP-LICENSE)，在上傳申請表單([連結](https://www.surveycake.com/s/y6yDM))之後，我們會根據您所提供的資料，寄出審核後包含使用連結的通知信，請稍稍等候。
+
+我們特別看重願意給予我們回饋，明確指出改善空間的夥伴，故煩您在試用期間，將試用的主旨，遇到的問題等等，告訴我們:[Issues](https://github.com/mtkresearch/MR-LLM/issues)。
+
+如果您沒有特別要求，您將以開源社群所熟悉的[互動介面](#互動介面開放試用) 來試用。其他的試用方法，也屬可能，請[聯繫我們](info@mtkresearch.com)。
 
 ## 新聞
 
@@ -20,11 +24,11 @@
 
 [2023.03.07] 開源 [Bloom-zh 1B1](https://huggingface.co/ckip-joint/bloom-1b1-zh) 及[論文](https://arxiv.org/abs/2303.04715)
 
-## 我們的模型
+## 模型
 
 ### Model 7
 
-Model 7 是聯發創新基地研發的語言模型，具有雙語（繁中和英文）和多輪對話能力。目前試用版 Model 7 Beta1 已放入互動介面供試用，詳情請參考[互動介面開放試用](#互動介面開放試用)。
+Model 7 是聯發創新基地研發的語言模型，具有雙語（繁中和英文）和多輪對話能力, 於 2023-08-15 Beta1 開放試用，於 TBD 停止更新，於 TBD 停止試用。
 
 #### 實測範例
 
@@ -83,20 +87,21 @@ Model 7 是聯發創新基地研發的語言模型，具有雙語（繁中和英
   [你的名字]
 ```
 
+### BLOOM-zh-3B
 
+BLOOM-zh 是由中研院 CKIP Lab、聯發創新基地、以及國家教育研究院共同合作開發的項目，該釋出模型僅針對非商業研究目的使用。相關的技術與評估可以參考此[論文](https://arxiv.org/abs/2303.04715)。
 
-### BLOOM-zh
+該模型於 2023-XX-YY [釋出](https://huggingface.co/ckip-joint/bloom-3b-zh)，之後不再更新。
+
+### BLOOM-zh-1B1
 
 BLOOM-zh 是由中研院 CKIP Lab、聯發創新基地、以及國家教育研究院共同合作開發的項目，該釋出模型僅針對非商業研究目的使用。模型權重下載請參考以下表格，相關的技術與評估可以參考此[論文](https://arxiv.org/abs/2303.04715)。
 
-| 模型        | 額外訓練的token數量 | 下載連結                                       |
-| ------------ | -------------------------- | ---------------------------------------------- |
-| Bloom-zh 1B1 | 11.5 B                     | https://huggingface.co/ckip-joint/bloom-1b1-zh |
-| Bloom-zh 3B  | 13 B                       | https://huggingface.co/ckip-joint/bloom-3b-zh  |
+該模型於 2023-XX-YY [釋出](https://huggingface.co/ckip-joint/bloom-1b1-zh)，之後不再更新。
 
 ## 團隊
 
-執行長: Da-Shan Shiu (許大山)  
+總指導: Da-Shan Shiu (許大山)  
   
 成員 (按字母順序排列):  
 - Chan-Jan Hsu (許湛然)
