@@ -4,17 +4,17 @@
 
 ##### (You can find English version [here](README_EN.md).)
 
-[聯發創新基地（MediaTek Research)](https://www.mtkresearch.com/) 致力於研究基礎模型。我們將研究，體現在適合繁體中文使用者的模型上，並在使用權許可的情況下，提供模型給學界研究，以及商界來使用。
+[聯發創新基地（MediaTek Research)](https://www.mtkresearch.com/) 致力於研究基礎模型。我們將研究體現在適合繁體中文使用者的模型上，並在使用權許可的情況下，提供模型給學術界研究或產業界使用。
 
 ## 試用
 
-您可以申請試用，試用期間只要您不過量使用，該試用之模型算力由本基地提供。
+我們提供試用申請，試用期間在正常使用量的前提下我們願意提供所需計算資源。
 
 申請方法如下：請先閱讀並同意我們的[使用條款](./APP-LICENSE)，在上傳申請表單([連結](https://www.surveycake.com/s/y6yDM))之後，我們會根據您所提供的資料，寄出審核後包含使用連結的通知信，請稍稍等候。
 
-我們特別看重願意給予我們回饋，明確指出改善空間的夥伴，故煩您在試用期間，將試用的主旨，遇到的問題等等，[聯繫我們](info@mtkresearch.com) 或 [提報問題](https://github.com/mtkresearch/MR-LLM/issues)。
+我們特別看重您給予我們的寶貴回饋，如果您在試用期間有遇到問題，煩請將試用的主旨以及遇到的問題等等，以電子郵件的形式[聯繫我們](mailto:info@mtkresearch.com)或直接在此[提報問題](https://github.com/mtkresearch/MR-LLM/issues)。
 
-如果您沒有特別要求，您將以開源社群所熟悉的[互動介面](#互動介面開放試用) 來試用。其他的試用方法，也屬可能，請[聯繫我們](info@mtkresearch.com)。
+目前我們以開源社群所熟悉的 Playground 形式試用，當然如果有需要其他的介面或合作，也相當歡迎[聯繫我們](mailto:info@mtkresearch.com)來談其他可能性。
 
 ## 新聞
 
@@ -28,7 +28,7 @@
 
 ### Model 7
 
-Model 7 是聯發創新基地研發的語言模型，具有雙語（繁中和英文）和多輪對話能力, version B 於 2023-08-15 開放試用，於 TBD 停止更新，於 TBD 停止試用。
+Model 7 是聯發創新基地研發的語言模型，具有雙語（繁中和英文）和多輪對話能力, version B 於 2023-08-15 開放試用，於 2023-08-31 停止更新。
 
 #### 實測範例
 
