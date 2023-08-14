@@ -18,7 +18,7 @@
 
 ## 新聞
 
-[2023.08.15] Model 7 - Beta 1 開放試用
+[2023.08.15] Model 7 - B 開放試用
 
 [2023.04.10] 開源 Bloom-zh 3B [模型](https://huggingface.co/ckip-joint/bloom-3b-zh) 及 [論文](https://arxiv.org/abs/2303.04715)
 
