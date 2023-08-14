@@ -91,7 +91,7 @@ The model was [released](https://huggingface.co/ckip-joint/bloom-3b-zh) on 2023-
 
 ### BLOOM-zh-1B1
 
-BLOOM-zh is a project jointly developed by Academia Sinica's CKIP Lab, MediaTek Research, and the National Institute for Educational Research. The released model is only for non-commercial research purposes. For model weight download, please refer to the following table. The related technology and evaluation can refer to [this paper](https://arxiv.org/abs/2303.04715).
+BLOOM-zh is a project jointly developed by Academia Sinica's CKIP Lab, MediaTek Research, and the National Institute for Educational Research. The released model is only for non-commercial research purposes. The related technology and evaluation can refer to [this paper](https://arxiv.org/abs/2303.04715).
 
 The model was [released](https://huggingface.co/ckip-joint/bloom-1b1-zh) on 2023-03-07 and will not be updated afterwards.
 
