@@ -14,7 +14,7 @@ Currently, we are trialing in the form of a Playground familiar to the open-sour
 
 ## News
 
-[2023.08.15] Model 7 - Beta 1 open for trial
+[2023.08.15] Model 7 - B open for trial
 
 [2023.04.10] Open source Bloom-zh 3B [model](https://huggingface.co/ckip-joint/bloom-3b-zh) and [paper](https://arxiv.org/abs/2303.04715)
 
