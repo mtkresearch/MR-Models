@@ -1,5 +1,7 @@
 # MediaTek Research Foundation Models
 
+![](./assets/starry_night.jpg)
+
 [MediaTek Research](https://www.mtkresearch.com/) is dedicated to researching foundational models. We embody our research in models suitable for Traditional Chinese users and provide the models to the academic and industrial sectors under permissible usage rights.
 
 ## Trial
