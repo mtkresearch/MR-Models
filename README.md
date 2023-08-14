@@ -1,4 +1,4 @@
-# MediaTek Research Foundation models 聯發創新基地基礎模型
+# MediaTek Research Foundation Models 聯發創新基地基礎模型
 
 ![](./assets/starry_night.jpg)
 
@@ -91,13 +91,13 @@ Model 7 是聯發創新基地研發的語言模型，具有雙語（繁中和英
 
 BLOOM-zh 是由中研院 CKIP Lab、聯發創新基地、以及國家教育研究院共同合作開發的項目，該釋出模型僅針對非商業研究目的使用。相關的技術與評估可以參考此[論文](https://arxiv.org/abs/2303.04715)。
 
-該模型於 2023-04-10 [釋出](https://huggingface.co/ckip-joint/bloom-3b-zh)，之後不再更新。
+該模型於 2023-04-10 [釋出](https://huggingface.co/ckip-joint/bloom-3b-zh)，目前不再更新。
 
 ### BLOOM-zh-1B1
 
 BLOOM-zh 是由中研院 CKIP Lab、聯發創新基地、以及國家教育研究院共同合作開發的項目，該釋出模型僅針對非商業研究目的使用。模型權重下載請參考以下表格，相關的技術與評估可以參考此[論文](https://arxiv.org/abs/2303.04715)。
 
-該模型於 2023-03-07 [釋出](https://huggingface.co/ckip-joint/bloom-1b1-zh)，之後不再更新。
+該模型於 2023-03-07 [釋出](https://huggingface.co/ckip-joint/bloom-1b1-zh)，目前不再更新。
 
 ## 團隊
 
