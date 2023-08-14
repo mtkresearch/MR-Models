@@ -24,7 +24,7 @@ Currently, we are trialing in the form of a Playground familiar to the open-sour
 
 ### Model 7
 
-Model 7 is a language model developed by MediaTek Research, with bilingual (Traditional Chinese and English) and multi-turn dialogue capabilities. Version B was open for trial on 2023-08-15 and stopped updating on 2023-08-31.
+Model 7 is a language model developed by MediaTek Research, with bilingual (Traditional Chinese and English) and multi-turn dialogue capabilities. Version B was open for trial on 2023-08-15 and scheduled to stop updating on 2023-08-31.
 
 #### Test Examples
 
