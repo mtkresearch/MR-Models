@@ -8,11 +8,11 @@
 
 We offer trial applications, and we are willing to provide the necessary computational resources under the premise of normal usage during the trial period.
 
-The application method is as follows: Please read and agree to our [Terms of Use](./APP-LICENSE) first. After uploading the application form ([link](https://www.surveycake.com/s/y6yDM)), we will send a notification email containing the usage link based on the information you provided. Please wait a moment.
+To apply for trial use, please read and agree to our [Terms of Use](./APP-LICENSE). After uploading the application form ([link](https://www.surveycake.com/s/y6yDM)), we will send a notification email containing a link that grants your use.  Your wait should be short. 
 
 We particularly value your valuable feedback. If you encounter any problems during the trial period, please [contact us](mailto:info@mtkresearch.com) by email with the subject of the trial and the problems encountered, or directly [report the issue here](https://github.com/mtkresearch/MR-LLM/issues).
 
-Currently, we are trialing in the form of a Playground familiar to the open-source community. Of course, if you need other interfaces or collaborations, we also welcome you to [contact us](mailto:info@mtkresearch.com) to discuss other possibilities.
+Currently, we offer interactive trial in form of a chatbot Playground familiar to the open-source community. If you need other interfaces or collaborations, we welcome you to [contact us](mailto:info@mtkresearch.com) to discuss those  possibilities.
 
 ## News
 
@@ -26,7 +26,7 @@ Currently, we are trialing in the form of a Playground familiar to the open-sour
 
 ### Model 7
 
-Model 7 is a language model developed by MediaTek Research, with bilingual (Traditional Chinese and English) and multi-turn dialogue capabilities. Version B was open for trial on 2023-08-15 and scheduled to stop updating on 2023-08-31.
+Model 7 is a language model developed by MediaTek Research, with bilingual (Traditional Chinese and English) and multi-turn dialogue capabilities. Version B was open for trial on 2023-08-15 and the last update is scheduled no later than  2023-08-31.
 
 #### Test Examples
 
@@ -106,7 +106,7 @@ Members (in alphabetical order):
 - Chang-Le Liu (劉昶樂)
 - Chi-Ming Chung (鍾起鳴)
 - Feng-Ting Liao (廖峰挺)
-- Philipp Ennen
+- Philipp Ennen (菲利普 艾能)
 - Po-Chun Hsu (許博竣)
 - Yen-Chen Wu (吳彥諶)
 - Yi-Chang Chen (陳宜昌)
