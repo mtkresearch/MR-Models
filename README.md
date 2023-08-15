@@ -104,11 +104,11 @@ BLOOM-zh 是由中研院 CKIP Lab、聯發創新基地、以及國家教育研�
 總指導: Da-Shan Shiu (許大山)  
   
 成員 (按字母順序排列):  
-- Chan-Jan Hsu (許湛然)
-- Chang-Le Liu (劉昶樂)
-- Chi-Ming Chung (鍾起鳴)
-- Feng-Ting Liao (廖峰挺)
-- Philipp Ennen
-- Po-Chun Hsu (許博竣)
-- Yen-Chen Wu (吳彥諶)
-- Yi-Chang Chen (陳宜昌)
+- 許湛然 (Chan-Jan Hsu)
+- 劉昶樂 (Chang-Le Liu)
+- 鍾起鳴 (Chi-Ming Chung)
+- 廖峰挺 (Feng-Ting Liao)
+- 菲利普 艾能 (Philipp Ennen)
+- 許博竣 (Po-Chun Hsu)
+- 吳彥諶 (Yen-Chen Wu)
+- 陳宜昌 (Yi-Chang Chen)
