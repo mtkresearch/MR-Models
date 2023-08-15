@@ -14,7 +14,7 @@
 
 我們特別看重您給予我們的寶貴回饋，如果您在試用期間有遇到問題，煩請將試用的主旨以及遇到的問題等等，以電子郵件的形式[聯繫我們](mailto:info@mtkresearch.com)或直接在此[提報問題](https://github.com/mtkresearch/MR-LLM/issues)。
 
-目前我們以開源社群所熟悉的 Playground 形式試用，當然如果有需要其他的介面或合作，也相當歡迎[聯繫我們](mailto:info@mtkresearch.com)來談其他可能性。
+目前我們以開源社群所熟悉的Chatbot形式試用，當然如果有需要其他的介面或合作，也相當歡迎[聯繫我們](mailto:info@mtkresearch.com)來談其他可能性。
 
 ## 新聞
 
