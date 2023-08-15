@@ -101,7 +101,7 @@ BLOOM-zh 是由中研院 CKIP Lab、聯發創新基地、以及國家教育研�
 
 ## 團隊
 
-總指導: Da-Shan Shiu (許大山)  
+總指導: 許大山 (Da-Shan Shiu)  
   
 成員 (按字母順序排列):  
 - 許湛然 (Chan-Jan Hsu)
