@@ -16,7 +16,7 @@ Currently, we offer interactive trial in form of a chatbot Playground familiar t
 
 ## News
 
-[2023.09.14] Model 7 - C open for trial
+[2023.09.14] Model 7 - C open for trial and [paper](https://arxiv.org/abs/2309.08448)
 
 [2023.08.15] Model 7 - B open for trial
 
@@ -28,7 +28,9 @@ Currently, we offer interactive trial in form of a chatbot Playground familiar t
 
 ### Model 7
 
-Model 7 is a language model developed by MediaTek Research, with bilingual (Traditional Chinese and English) and multi-turn dialogue capabilities. Version C was open for trial on 2023-09-14. In the near future, we will open related papers and conduct comprehensive benchmark.
+Model 7 is a foundation language model developed by MediaTek Research, with bilingual (Traditional Chinese and English) and multi-turn dialogue capabilities. Version C was open for trial on 2023-09-14. See our [paper](https://arxiv.org/abs/2309.08448) for the benchmark of our foundation model.
+
+In the near future, we will release the chat version.
 
 #### Test Examples
 
