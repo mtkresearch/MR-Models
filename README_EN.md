@@ -16,7 +16,7 @@ Currently, we offer interactive trial in form of a chatbot Playground familiar t
 
 ## News
 
-[2023.09.14] Model 7 - C open for trial and [paper](https://arxiv.org/abs/2309.08448)
+[2023.09.14] Model 7 - C open for trial and [paper](https://github.com/mtkresearch/MR-Models/blob/main/doc/model7c_chat_tech_report_v3.pdf)
 
 [2023.08.15] Model 7 - B open for trial
 
