@@ -18,7 +18,7 @@
 
 ## 新聞
 
-[2023.09.14] Model 7 - C 開放試用 及 [論文](https://arxiv.org/abs/2309.08448)
+[2023.09.14] Model 7 - C 開放試用 及 [論文](https://github.com/mtkresearch/MR-Models/blob/main/doc/model7c_chat_tech_report_v3.pdf)
 
 [2023.08.15] Model 7 - B 開放試用
 
