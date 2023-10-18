@@ -1,0 +1,17 @@
+{
+    "name": "fake_model",
+    "link": "fake_model_link",
+    "describe": "",
+    "results": {
+        "fake_benchmark": [
+            {
+                "id": 1,
+                "response": "The answer is (A)"
+            },
+            {
+                "id": 2,
+                "response": "Thank for your question. My answer is B becase ..."
+            }
+        ]
+    }
+}
