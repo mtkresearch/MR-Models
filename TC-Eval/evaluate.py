@@ -1,3 +1,5 @@
+import re
+import json
 from typing import List, Dict
 
 import numpy as np
@@ -21,8 +23,8 @@ class MultipleChoiceTask(Task):
         for data in list_of_response:
             response_dict[data['id']] = data['response']
 
-        for idx in self._gold_dict.keys():            
-            choice = self._extract_choice(response_dict[idx])
+        for idx in self._gold_dict.keys():
+            choice = self._extract_choice(response_dict[f'id{idx}'])  # TODO: walk-around  
             correct_list.append(1 if choice == gold_dict[idx] else 0)
         return {
             'accuracy': np.mean(correct_list)
@@ -40,8 +42,50 @@ class SummaryTask(Task):
 
 
 class TTQATask(MultipleChoiceTask):
-    pass
+    CHOICES = "ABCDEF"
+
+    def __init__(self, dir):
+        self._prepare_data(dir)
+
+    def _prepare_data(self, dir):
+        data = json.load(open(f'{dir}/TTQA_mc_1.0.0.json'))
+        self._gold_dict = {}
+        for idx in data:
+            self._gold_dict[idx] = TTQATask.CHOICES.index(data[idx]['mc_answer'])
+
+    def _extract_choice(self, response):
+        if len(response.strip()) == 0:
+            return -1
+        if response.lstrip()[0] in TTQATask.CHOICES:
+            return TTQATask.CHOICES.index(response.lstrip()[0])
+        
+        patterns = [
+            r'答案[：:]\s*([ABCDE])',
+            r'([ABCDE])'
+        ]
+        for p in patterns:
+            found_list = re.findall(p, response)
+            if len(found_list) == 1:
+                char = found_list[0]
+                return TTQATask.CHOICES.index(char)
+
+        return -1
+
 
 EVALUATION_ITEMS = [
-    ('TTQA', TTQATask('./data/TTQA/')),
+    ('ttqa_mc', TTQATask('./data/TTQA/')),
 ]
+
+
+def main(result_path):
+    results = json.load(open(result_path))
+    metrics = {}
+    for name, task in EVALUATION_ITEMS:
+        list_of_response = results['results'][name]
+        metrics[name] = task.evaluate(list_of_response)
+        print(metrics)
+
+
+if __name__ == '__main__':
+    result_path = 'results/model_7c_chat_result.json'
+    main(result_path)
