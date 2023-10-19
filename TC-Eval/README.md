@@ -7,7 +7,7 @@ TC-Eval is a Traditional Chinese evaluation suite for foundation models. It cove
 
 1. `pip install -r requirements.txt`
 
-2. Please follow the instruction in `data/DRCD_Test/README.md` and `data/FGC/README.md` to prepare the dataset DRCD and FGC.
+2. Please follow the instruction in `data/DRCD_Test/README.md` and `data/FGC_Test/README.md` to prepare the dataset DRCD and FGC.
 
 3. Put your results in `results/{MODEL_NAME}_result.json` with the format as following:
 
