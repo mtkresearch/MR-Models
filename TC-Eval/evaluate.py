@@ -17,7 +17,7 @@ def prefix_exact_match(gold: str, pred: str) -> float:
     return 1 if pred.strip().startswith(gold.strip()) else 0
 
 
-def rouge_tc_score(gold: str, pred: str, rouge_type: str, scorer: RougeCalculator) -> float:
+def rouge_tc_score(gold: str, pred: str, rouge_type: str, scorer: "RougeCalculator") -> float:
     if rouge_type == "rouge1":
         return scorer.rouge_1(summary=gold, references=pred)
     elif rouge_type == "rouge2":
@@ -112,7 +112,7 @@ class MultipleChoiceTask(Task):
             response_dict[data['id']] = data['response']
 
         for idx in self._gold_dict.keys():
-            choice = self._extract_choice(f'{idx}')
+            choice = self._extract_choice(response_dict[f'{idx}'])
             correct_list.append(1 if choice == gold_dict[idx] else 0)
         return {
             'accuracy': np.mean(correct_list)
@@ -189,9 +189,9 @@ EVALUATION_ITEMS = [
     # ['summarization_xsum_tc', XSumTCTask()],
     # ['drcd', DRCDTask()],
     # ['fgc', FGCTask()],
-    # ['ttqa_mc', TTQATask('./data/TTQA/')],
-    # *[[f'TMMLU_{subject}', TMMLUTask(f'./data/TMMLU/subjects/{subject}/')]
-    #   for subject in os.listdir('./data/TMMLU/subjects/')],
+    ['ttqa_mc', TTQATask('./data/TTQA/')],
+    *[[f'TMMLU_{subject}', TMMLUTask(f'./data/TMMLU/subjects/{subject}/')]
+      for subject in os.listdir('./data/TMMLU/subjects/')],
 
 ]
 
