@@ -3,7 +3,7 @@ import os
 import json
 from typing import List, Dict
 from functools import partial
-from sumeval.metrics.rouge import RougeCalculator
+# from sumeval.metrics.rouge import RougeCalculator
 from tqdm import tqdm
 
 import numpy as np
@@ -170,6 +170,49 @@ class TMMLUTask(MultipleChoiceTask):
             self._gold_dict[i] = self.CHOICES.index(row['content.A'])
 
 
+class IMDBTask(Task):
+    CHOICES = '負正'
+
+    def __init__(self, dir):
+        df = pd.read_csv(f'{dir}/test.csv')
+        self._gold_dict = {}
+        for i, row in df.iterrows():
+            self._gold_dict[i] = int(row['label'])
+
+    def _extract_choice(self, response):
+        if len(response.strip()) == 0:
+            return -1
+
+        patterns = [
+            r"^\s*([正|負])面",            
+        ]
+        found_set = set()
+        for p in patterns:
+            for char in re.findall(p, response):
+                found_set.add(char)
+        if len(found_set) == 1:
+            char = found_set.pop()
+            return self.CHOICES.index(char)  
+        print(response)
+        print('===')
+        return -1
+
+    def evaluate(self, list_of_response: List[Dict]) -> Dict:
+        correct_list = []
+        gold_dict= self._gold_dict
+
+        response_dict = {}
+        for data in list_of_response:
+            response_dict[data['id']] = data['response']
+
+        for idx in self._gold_dict.keys():
+            choice = self._extract_choice(response_dict[f'{idx}'])
+            correct_list.append(1 if choice == gold_dict[idx] else 0)
+        return {
+            'accuracy': np.mean(correct_list)
+        }
+
+
 class XSumTCTask(SummaryTask):
     def __init__(self):
         super().__init__()
@@ -192,8 +235,9 @@ EVALUATION_ITEMS = [
     ['ttqa_mc', TTQATask('./data/TTQA/')],
     *[[f'TMMLU_{subject}', TMMLUTask(f'./data/TMMLU/subjects/{subject}/')]
       for subject in os.listdir('./data/TMMLU/subjects/')],
-
+    ['imdb_tc_sub5000', IMDBTask('./data/IMDB_TC/')]
 ]
+
 
 def main(result_path):
     results = json.load(open(result_path))
@@ -206,5 +250,5 @@ def main(result_path):
 
 
 if __name__ == '__main__':
-    result_path = 'results/model_7c_chat_result.json'
+    result_path = 'results/tw_llama_v1.0_result.json'
     main(result_path)
