@@ -3,7 +3,7 @@
 TC-Eval is a Traditional Chinese evaluation suite for foundation models. It covers 5 capabilities, including contextual QA, world knowledge, summarization, classification, and table understanding. You may check [our paper](https://arxiv.org/abs/2309.08448) for more details.
 
 
-## Do evaluate your models
+## Evaluate your models
 
 1. `pip install -r requirements.txt`
 
