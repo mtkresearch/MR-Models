@@ -44,7 +44,7 @@ class Task:
     def _get_response_dict(self, list_of_response):
         response_dict = {}
         for data in list_of_response:
-            response_dict[int(data['id'])] = data['response']
+            response_dict[str(data['id'])] = data['response']
         return response_dict
 
     def evaluate(self, list_of_response: List[Dict]) -> Dict:
@@ -174,7 +174,7 @@ class TTQATask(MultipleChoiceTask):
         data = json.load(open(f'{dir}/TTQA_mc_1.0.0.json'))
         self._gold_dict = {}
         for idx in data:
-            self._gold_dict[int(idx)] = self.CHOICES.index(data[idx]['mc_answer'])
+            self._gold_dict[str(idx)] = self.CHOICES.index(data[idx]['mc_answer'])
 
 
 class TMMLUTask(MultipleChoiceTask):
@@ -182,7 +182,7 @@ class TMMLUTask(MultipleChoiceTask):
         df = pd.read_csv(f'{dir}/data.csv')
         self._gold_dict = {}
         for i, row in df.iterrows():
-            self._gold_dict[int(i)] = self.CHOICES.index(row['content.A'])
+            self._gold_dict[str(i)] = self.CHOICES.index(row['content.A'])
 
 
 class IMDBTask(ChoiceTask):
@@ -192,7 +192,7 @@ class IMDBTask(ChoiceTask):
         df = pd.read_csv(f'{dir}/test.csv')
         self._gold_dict = {}
         for i, row in df.iterrows():
-            self._gold_dict[int(i)] = int(row['label'])
+            self._gold_dict[str(i)] = int(row['label'])
 
     def _extract_choice(self, response):
         if len(response.strip()) == 0:
@@ -217,12 +217,15 @@ class XSumTCTask(SummaryTask):
         df = pd.read_csv(f'{dir}/test_sub5000.csv')
         self._gold_dict = {}
         for i, row in df.iterrows():
-            self._gold_dict[int(i)] = str(row['summary'])
+            self._gold_dict[str(i)] = str(row['summary'])
 
 
 class DRCDTask(QuestionAnsweringTask):
     def _prepare_data(self, dir):
-        raise NotImplementedError
+        data = json.load(open(f'{dir}/preprocessed_DRCD_test.json'))
+        self._gold_dict = {}
+        for idx in data:
+            self._gold_dict[str(idx)] = data[idx]['references']
 
 
 class FGCTask(QuestionAnsweringTask):
@@ -232,12 +235,12 @@ class FGCTask(QuestionAnsweringTask):
 
 EVALUATION_ITEMS = [
     ['summarization_xsum_tc', XSumTCTask('./data/XSum_TC_5k/')],
-    # ['drcd', DRCDTask()],
+    ['drcd', DRCDTask('./data/DRCD_Test/')],
     # ['fgc', FGCTask()],
     ['ttqa_mc', TTQATask('./data/TTQA/')],
+    ['imdb_tc_sub5000', IMDBTask('./data/IMDB_TC/')],
     *[[f'TMMLU_{subject}', TMMLUTask(f'./data/TMMLU/subjects/{subject}/')]
-      for subject in os.listdir('./data/TMMLU/subjects/')],
-    ['imdb_tc_sub5000', IMDBTask('./data/IMDB_TC/')]
+      for subject in os.listdir('./data/TMMLU/subjects/')]
 ]
 
 
