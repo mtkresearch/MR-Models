@@ -2,7 +2,7 @@
 
 TC-Eval is a Traditional Chinese evaluation suite for foundation models. It covers 5 capabilities, including contextual QA, knowledge, summarization, classification, and table understanding. You may check [our paper](https://arxiv.org/abs/2309.08448) for more details.
 
-## Compontents
+## Benchmark
 
 - **Contextual QA**
   - **DRCD** [[1]](#1): DRCD is a Traditional Chinese machine reading comprehension dataset containing 10,014 paragraphs from 2,108 Wikipedia articles and over 30,000 questions. 
