@@ -3,9 +3,8 @@ import os
 import json
 from typing import List, Dict
 from functools import partial
-# from sumeval.metrics.rouge import RougeCalculator
-from tqdm import tqdm
 
+from sumeval.metrics.rouge import RougeCalculator
 import numpy as np
 import pandas as pd
 
@@ -34,17 +33,46 @@ def get_rouge_tc_function(rouge_type: str = "rouge2") -> callable:
 
 
 class Task:
-    def evaluate(self, list_of_response: List[Dict]) -> Dict:
-        raise NotImplementedError
-        # return metrics
-
-
-class MultipleChoiceTask(Task):
-    CHOICES = "ABCDE"
-
     def __init__(self, dir):
-        super().__init__()
         self._prepare_data(dir)
+
+    def _prepare_data(self, dir):
+        # create self._gold_dict
+        raise NotImplementedError
+    
+    def _get_response_dict(self, list_of_response):
+        response_dict = {}
+        for data in list_of_response:
+            response_dict[int(data['id'])] = data['response']
+        return response_dict
+
+    def evaluate(self, list_of_response: List[Dict]) -> Dict:
+        # return metrics
+        raise NotImplementedError
+
+
+class ChoiceTask(Task):
+    CHOICES = None
+
+    def _extract_choice(self, response):
+        raise NotImplementedError
+    
+    def evaluate(self, list_of_response: List[Dict]) -> Dict:
+        correct_list = []
+        gold_dict= self._gold_dict
+
+        response_dict = self._get_response_dict(list_of_response)
+
+        for idx in self._gold_dict.keys():
+            choice = self._extract_choice(response_dict[idx])
+            correct_list.append(1 if choice == gold_dict[idx] else 0)
+        return {
+            'accuracy': np.mean(correct_list)
+        }
+
+
+class MultipleChoiceTask(ChoiceTask):
+    CHOICES = "ABCDE"
 
     def _extract_choice(self, response):
         if len(response.strip()) == 0:
@@ -103,53 +131,39 @@ class MultipleChoiceTask(Task):
 
         return -1
 
-    def evaluate(self, list_of_response: List[Dict]) -> Dict:
-        correct_list = []
-        gold_dict= self._gold_dict
-
-        response_dict = {}
-        for data in list_of_response:
-            response_dict[data['id']] = data['response']
-
-        for idx in self._gold_dict.keys():
-            choice = self._extract_choice(response_dict[f'{idx}'])
-            correct_list.append(1 if choice == gold_dict[idx] else 0)
-        return {
-            'accuracy': np.mean(correct_list)
-        }
-
 
 class QuestionAnsweringTask(Task):
-    def __init__(self) -> None:
-        self._metric_fns = {"prefix_exact_match": prefix_exact_match}
+    _metric_fns = {"prefix_exact_match": prefix_exact_match}
     
     def evaluate(self, list_of_response: List[Dict]) -> Dict:
+        gold_dict= self._gold_dict
+        response_dict = self._get_response_dict(list_of_response)
+
         metrics = {}
         for m_name, metric_fn in self._metric_fns.items():
             vals = []
-            for inst in tqdm(list_of_response, desc=f"Calculate {m_name}"):
-                references = inst["references"]
-                pred = inst["response"]
+            for idx in self._gold_dict.keys():
+                references = gold_dict[idx]
+                pred = response_dict[idx]
                 vals.append(np.max([metric_fn(ref, pred) for ref in references]))
             metrics[m_name] = np.mean(vals)
         return metrics
 
 
 class SummaryTask(Task):
-    def __init__(self):
-        self._metric_fns = {"rouge1": get_rouge_tc_function("rouge1"),
-                            "rouge2": get_rouge_tc_function("rouge2"),
-                            "rougeL": get_rouge_tc_function("rougeL")}
-        
-    def evaluate(self, list_of_response: List[Dict]) -> Dict:    
+    _metric_fns = {"rouge1": get_rouge_tc_function("rouge1"),
+                   "rouge2": get_rouge_tc_function("rouge2"),
+                   "rougeL": get_rouge_tc_function("rougeL")}
+
+    def evaluate(self, list_of_response: List[Dict]) -> Dict:
+        gold_dict= self._gold_dict
+        response_dict = self._get_response_dict(list_of_response)
+
         metrics = {}
         for m_name, metric_fn in self._metric_fns.items():
             vals = []
-            for inst in tqdm(list_of_response, desc=f"Calculate {m_name}"):
-                references = inst["references"]
-                pred = inst["response"]
-                vals.append(np.max([metric_fn(ref, pred) for ref in references]))
-            
+            for idx in self._gold_dict.keys():
+                vals.append(metric_fn(gold_dict[idx], response_dict[idx]))
             metrics[m_name] = np.mean(vals)
         return metrics
 
@@ -159,7 +173,7 @@ class TTQATask(MultipleChoiceTask):
         data = json.load(open(f'{dir}/TTQA_mc_1.0.0.json'))
         self._gold_dict = {}
         for idx in data:
-            self._gold_dict[idx] = self.CHOICES.index(data[idx]['mc_answer'])
+            self._gold_dict[int(idx)] = self.CHOICES.index(data[idx]['mc_answer'])
 
 
 class TMMLUTask(MultipleChoiceTask):
@@ -167,17 +181,17 @@ class TMMLUTask(MultipleChoiceTask):
         df = pd.read_csv(f'{dir}/data.csv')
         self._gold_dict = {}
         for i, row in df.iterrows():
-            self._gold_dict[i] = self.CHOICES.index(row['content.A'])
+            self._gold_dict[int(i)] = self.CHOICES.index(row['content.A'])
 
 
-class IMDBTask(Task):
+class IMDBTask(ChoiceTask):
     CHOICES = '負正'
 
-    def __init__(self, dir):
+    def _prepare_data(self, dir):
         df = pd.read_csv(f'{dir}/test.csv')
         self._gold_dict = {}
         for i, row in df.iterrows():
-            self._gold_dict[i] = int(row['label'])
+            self._gold_dict[int(i)] = int(row['label'])
 
     def _extract_choice(self, response):
         if len(response.strip()) == 0:
@@ -193,43 +207,30 @@ class IMDBTask(Task):
         if len(found_set) == 1:
             char = found_set.pop()
             return self.CHOICES.index(char)  
-        print(response)
-        print('===')
+
         return -1
-
-    def evaluate(self, list_of_response: List[Dict]) -> Dict:
-        correct_list = []
-        gold_dict= self._gold_dict
-
-        response_dict = {}
-        for data in list_of_response:
-            response_dict[data['id']] = data['response']
-
-        for idx in self._gold_dict.keys():
-            choice = self._extract_choice(response_dict[f'{idx}'])
-            correct_list.append(1 if choice == gold_dict[idx] else 0)
-        return {
-            'accuracy': np.mean(correct_list)
-        }
 
 
 class XSumTCTask(SummaryTask):
-    def __init__(self):
-        super().__init__()
+    def _prepare_data(self, dir):
+        df = pd.read_csv(f'{dir}/test_sub5000.csv')
+        self._gold_dict = {}
+        for i, row in df.iterrows():
+            self._gold_dict[int(i)] = str(row['summary'])
 
 
 class DRCDTask(QuestionAnsweringTask):
-    def __init__(self) -> None:
-        super().__init__()
+    def _prepare_data(self, dir):
+        raise NotImplementedError
 
 
 class FGCTask(QuestionAnsweringTask):
-    def __init__(self) -> None:
-        super().__init__()
+    def _prepare_data(self, dir):
+        raise NotImplementedError
 
 
 EVALUATION_ITEMS = [
-    # ['summarization_xsum_tc', XSumTCTask()],
+    ['summarization_xsum_tc', XSumTCTask('./data/XSum_TC_5k/')],
     # ['drcd', DRCDTask()],
     # ['fgc', FGCTask()],
     ['ttqa_mc', TTQATask('./data/TTQA/')],
@@ -250,5 +251,5 @@ def main(result_path):
 
 
 if __name__ == '__main__':
-    result_path = 'results/tw_llama_v1.0_result.json'
+    result_path = 'results/gpt3.5_result.json'
     main(result_path)

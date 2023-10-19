@@ -1,3 +1,4 @@
+pandas
+numpy
 sumeval
 jieba
-tqdm
