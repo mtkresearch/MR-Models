@@ -3,6 +3,7 @@ import os
 import json
 from typing import List, Dict
 from functools import partial
+from glob import glob
 
 from sumeval.metrics.rouge import RougeCalculator
 import numpy as np
@@ -240,16 +241,20 @@ EVALUATION_ITEMS = [
 ]
 
 
-def main(result_path):
+def evaluate_all(result_path):
     results = json.load(open(result_path))
     metrics = {}
     for name, task in EVALUATION_ITEMS:
         list_of_response = results['results'][name]
         metrics[name] = task.evaluate(list_of_response)
-    print(metrics)
-    print(np.mean([metrics[k]['accuracy'] for k in metrics if 'TMMLU' in k]))
+    return metrics
 
 
 if __name__ == '__main__':
-    result_path = 'results/gpt3.5_result.json'
-    main(result_path)
+    for path in glob('results/*_result.json'):
+        print(f'== {path} ==')
+        metrics = evaluate_all(path)
+        metrics['TMMLU_Avg'] = np.mean([metrics[k]['accuracy'] for k in metrics if 'TMMLU' in k])
+
+        print(metrics)
+        print('====')
