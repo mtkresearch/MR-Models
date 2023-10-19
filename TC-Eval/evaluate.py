@@ -185,7 +185,7 @@ class TMMLUTask(MultipleChoiceTask):
             self._gold_dict[str(i)] = self.CHOICES.index(row['content.A'])
 
 
-class IMDBTask(ChoiceTask):
+class IMDBTCTask(ChoiceTask):
     CHOICES = '負正'
 
     def _prepare_data(self, dir):
@@ -238,7 +238,7 @@ EVALUATION_ITEMS = [
     ['drcd', DRCDTask('./data/DRCD_Test/')],
     # ['fgc', FGCTask()],
     ['ttqa_mc', TTQATask('./data/TTQA/')],
-    ['imdb_tc_sub5000', IMDBTask('./data/IMDB_TC/')],
+    ['imdb_tc_sub5000', IMDBTCTask('./data/IMDB_TC/')],
     *[[f'TMMLU_{subject}', TMMLUTask(f'./data/TMMLU/subjects/{subject}/')]
       for subject in os.listdir('./data/TMMLU/subjects/')]
 ]
