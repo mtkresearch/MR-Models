@@ -188,7 +188,7 @@ class FGCTask(QuestionAnsweringTask):
 EVALUATION_ITEMS = [
     ['summarization_xsum_tc', XSumTCTask()],
     ['drcd', DRCDTask()],
-    ['fgc', FGCTask()]
+    ['fgc', FGCTask()],
     ['ttqa_mc', TTQATask('./data/TTQA/')],
     *[[f'TMMLU_{subject}', TMMLUTask(f'./data/TMMLU/subjects/{subject}/')]
       for subject in os.listdir('./data/TMMLU/subjects/')],
