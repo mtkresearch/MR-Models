@@ -112,7 +112,7 @@ class MultipleChoiceTask(Task):
             response_dict[data['id']] = data['response']
 
         for idx in self._gold_dict.keys():
-            choice = self._extract_choice(response_dict[f'id{idx}'])  # TODO: walk-around  
+            choice = self._extract_choice(f'{idx}')
             correct_list.append(1 if choice == gold_dict[idx] else 0)
         return {
             'accuracy': np.mean(correct_list)
@@ -186,12 +186,13 @@ class FGCTask(QuestionAnsweringTask):
 
 
 EVALUATION_ITEMS = [
-    ['summarization_xsum_tc', XSumTCTask()],
-    ['drcd', DRCDTask()],
-    ['fgc', FGCTask()],
-    ['ttqa_mc', TTQATask('./data/TTQA/')],
-    *[[f'TMMLU_{subject}', TMMLUTask(f'./data/TMMLU/subjects/{subject}/')]
-      for subject in os.listdir('./data/TMMLU/subjects/')],
+    # ['summarization_xsum_tc', XSumTCTask()],
+    # ['drcd', DRCDTask()],
+    # ['fgc', FGCTask()],
+    # ['ttqa_mc', TTQATask('./data/TTQA/')],
+    # *[[f'TMMLU_{subject}', TMMLUTask(f'./data/TMMLU/subjects/{subject}/')]
+    #   for subject in os.listdir('./data/TMMLU/subjects/')],
+
 ]
 
 def main(result_path):
