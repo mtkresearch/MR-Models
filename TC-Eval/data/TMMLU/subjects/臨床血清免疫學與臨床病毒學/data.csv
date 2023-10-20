@@ -1,0 +1,156 @@
+,content.A,content.Q
+0,C,"1.抗原呈獻細胞的胞內體（endosome）中，下列何種分子會先占據MHC class II的胜肽結合位，之後HLA-DM再
+媒介細胞外抗原與此分子交換結合位？ (A)TAP（transporter associated with antigen processing） (B)Calreticulin (C)CLIP（class II-associated invariant chain peptide） (D)HLA-DO"
+1,C,"2.下列有關CD4 T細胞常見功能之敘述，何者錯誤？
+(A)可活化巨噬細胞，增進其消滅病原菌的能力 (B)可幫助B細胞分泌更高親和力的抗體 (C)可直接殺死病毒感染的細胞 (D)可活化嗜酸性球，使其能消滅寄生蟲"
+2,A,"3.下列有關一般的CD8 T細胞之敘述，何者錯誤？
+(A)辨識由抗原呈獻細胞上MHC class II呈獻之抗原片段 (B)可直接毒殺被病毒感染的細胞 (C)IL-2可促其增生 (D)第一型干擾素可促其增生"
+3,B,"4.下列有關NK細胞的敘述，何者錯誤？
+(A)表現TLR-3（toll-like receptor 3） (B)僅表現活化型（activating）受體 (C)病毒感染時，比T細胞作用早 (D)可以辨識 altered MHC class I分子"
+4,B,"5.下列有關B細胞作為抗原呈獻細胞時的特性，何者錯誤？
+(A)B細胞表面穩定表現MHC class II (B)B細胞表面穩定表現高量的CD80和CD86 (C)比樹突細胞不易活化naive T細胞 (D)B細胞以表面免疫球蛋白結合抗原，進行胞吞"
+5,B,"6.下列有關Th17細胞之敘述，何者錯誤？
+(A)可分泌IL-22 (B)主要表現轉錄因子GATA3 (C)可由TGF-β和IL-6誘導分化 (D)有助於細胞外病原菌的清除"
+6,C,"7.下列有關B細胞受體（BCR）複合體相關的訊息傳遞，何者錯誤？ (A)CD21/19/81是BCR複合體之輔助受體(B)Syk激酶能與BCR複合體 Igβ已磷酸化的酪胺酸基結合 (C)ZAP-70激酶能與BCR複合體 Igα已磷酸化的酪胺酸基結合 (D)CD40是BCR複合體之輔助受體
+"
+7,C,8.下列有關膠原凝集素（collectins）之敘述，何者正確？ (A)Surfactant protein A、surfactant protein D及ficolins均屬於其家族之成員 (B)其單體結構之N-terminus為C-type lectin區域，C-terminus則為類似膠原蛋白（collagen-like）之區域 (C)屬於先天性免疫之成員，且為模式識別受體 PRRs（pattern recognition receptors） (D)其結構通常為多聚體，例如mannose-binding lectin結構主要為二聚體或五聚體
+8,D,"10.下列那些細胞具有可識別病原相關分子模式（pathogen-associated molecular patterns, PAMPs）的toll-like
+receptor？①巨噬細胞（macrophage） ②樹突細胞（dendritic cell） ③上皮細胞（epithelial cell） ④肥大細胞（mast cell） ⑤B細胞（B cell） (A)僅①②③ (B)僅③④⑤ (C)僅①②③④ (D)①②③④⑤"
+9,C,"11.下列何者是B細胞的表面分子？①Fc receptors ②MHC class II ③CD19 ④CD21 ⑤CD16
+(A)僅①②③ (B)僅③④⑤ (C)僅①②③④ (D)①②③④⑤"
+10,A,"12.下列那些分子可以經由古典路徑（classical pathway）活化補體？①IgM ②C-reactive protein
+③lipopolysaccharide ④cobra venom factor (A)①② (B)②③ (C)③④ (D)①④"
+11,C,"13.考慮到電荷影響，大部分凝集反應最適合的pH範圍為何？
+(A)4.5～5.4 (B)5.5～6.4 (C)6.5～7.4 (D)7.5～8.4"
+12,A,"14.流式細胞儀操作中，與488nm雷射光成90度的偵測器無法提供下列何種數據？
+(A)細胞大小 (B)細胞顆粒性 (C)紅螢光訊號 (D)綠螢光訊號"
+13,D,"15.下列何種檢測結果的判讀與西方墨點法最相似？
+(A)Rocket immunoelectrophoresis (B)Ouchterlony double diffusion (C)Radial immunodiffusion (D)Immunofixation electrophoresis"
+14,A,"16.下列何種檢測法的陽性判讀是根據酵素與受質作用後產生不可溶產物的訊號？
+(A)ELISPOT (B)流式細胞儀 (C)Direct ELISA (D)Indirect ELISA"
+15,B,"17.嗜中性球被活化後，何種方法可檢測其產生ROS（reactive oxygen species）？
+(A)IL-2 ELISA (B)Dihydrorhodamine（DHR）還原試驗 (C)CD16染色 (D)Frustrated phagocytosis"
+16,B,"18.下列有關急性發炎蛋白（acute phase reactant）之敘述，何者錯誤？
+(A)屬於人體非特異的體液性免疫防衛機制，能夠加強先天性免疫功能 (B)為一群由細菌多醣體（lipopolysaccharide）刺激肝臟細胞而製造約20種的蛋白質 (C)Alpha 1-antitrypsin 在急性期反應發生時，其在血液中濃度呈現增加之趨勢 (D)Serum amyloid A protein在急性期反應發生時，其在血液中濃度會大幅增加"
+17,A,"19.下列有關皮炎芽生菌（Blastomyces dermatitidis）的敘述，何者正確？
+(A)可形成皮膚腫瘤及肺部的疾病 (B)為一種急性細菌性感染疾病 (C)補體固定試驗比免疫擴散法更適合用來偵測 (D)大部分的患者其免疫擴散法檢測為陰性反應"
+18,B,"20.下列何種病毒會引發rubeola？
+(A)Varicella-zoster virus (B)Measles virus (C)Rubella virus (D)Mumps virus"
+19,A,"21.下列檢測梅毒的血清學方法中，何者之原理不屬於螺旋體檢測法？
+(A)TRUST (B)FTA-ABS (C)TP-PA (D)MBIAs（microbead immunoassays）"
+20,B,"22.下列那些細胞激素有利於嗜酸性球的生成與分化？①IL-2 ②IL-3 ③IL-5 ④GM-CSF ⑤IFN-γ
+(A)①②③ (B)②③④ (C)③④⑤ (D)①④⑤"
+21,A,"23.下列有關過敏原皮膚試驗中，以過敏原刺激個體所誘發過敏反應之敘述，何者錯誤？
+(A)立即性反應是因為組織胺作用在血管或神經末梢的H2受體而導致風疹塊及紅斑反應（wheal-and-flare） (B)發生立即性反應的個體，大約50%也會出現後期反應，嚴重者可能會持續24小時或更久 (C)除組織胺外，肥大細胞所釋放之前列腺素（prostaglandins）也參與立即性反應之發生 (D)肥大細胞所釋放之CGRP（calcitonin gene-related peptide）及VEGF（vascular endothelial growth factor）與後 期反應之發生有關"
+22,C,"24.補體活化最主要直接參與在那幾型的過敏反應？
+(A)第一型及第二型 (B)第一型及第三型 (C)第二型及第三型 (D)第二型及第四型"
+23,D,"25.下列何種分子為IgE低親和性接受器（low affinity receptor）？
+(A)CD20 (B)CD21 (C)CD22 (D)CD23"
+24,A,"26.下列何種疾病與anti-cyclic citrullinated peptide antibody（anti-CCP）最相關？
+(A)類風濕性關節炎（rheumatoid arthritis） (B)風濕性心臟病（rheumatic fever） (C)全身性紅斑狼瘡（systemic lupus erythematosus） (D)全身性硬化症（systemic sclerosis）"
+25,C,"27.下列何種人類細胞株常用於臨床上檢測病人的抗核抗體？
+(A)HepG2 (B)HuH7 (C)HEp-2 (D)HMEC-1"
+26,A,"28.下列何種抗體與原發性膽汁性肝硬化（primary biliary cirrhosis, PBC）最相關？
+(A)抗粒線體抗體（anti-mitochondrial antibody, AMA） (B)抗核抗體（anti-nuclear antibody, ANA） (C)抗胃壁細胞抗體（anti-gastric parietal cell antibody） (D)抗紅血球抗體（anti-RBC antibody）"
+27,D,"29.下列有關可溶性抗原（extractable nuclear antigen, ENA）的抗體檢測之敘述，何者正確？
+(A)可以用免疫螢光抗體在Crithidia luciliae上偵測是否有染上動基體（kinetoplast） (B)可以用免疫螢光抗體在Crithidia luciliae上偵測是否有染上生殖核（nucleus） (C)可以用免疫螢光抗體在Crithidia luciliae上偵測是否有染上鞭毛（flagellum） (D)可以用歐氏二重擴散法（Ouchterlony double diffusion） 偵測"
+28,D,"30.下列何者不是全身性紅斑狼瘡患者病徵之典型表現？
+(A)光敏感 (B)多發性關節炎 (C)皮疹 (D)消化性潰瘍"
+29,D,"31.下列何者為mycophenolate mofetil的免疫抑制機制？
+(A)抑制補體媒介的溶解（lysis）作用 (B)阻斷T細胞共刺激（costimulator） (C)抑制IL-2的結合 (D)抑制淋巴球的鳥嘌呤核苷酸（guanine nucleotide）生成"
+30,D,"32.下列何者不適合用來檢測移植排斥反應？
+(A)混合淋巴球反應（MLR） (B)人類白血球組織抗原分型（HLA typing） (C)淋巴球微毒殺試驗（lymphocyte microcytotoxicity method） (D)急性期蛋白（acute phase proteins）"
+31,C,"33.下列有關移植前PRAs（panel reactive antibodies）檢驗之敘述，何者最正確？
+(A)使用移植接受者之淋巴球 (B)用以檢測抗ABO血型之抗體 (C)可用流式細胞儀檢測 (D)可同時測得IgM及IgG抗體"
+32,B,"34.下列何者是造成異體皮膚移植急性排斥之最主要原因？
+(A)接受者體內之抗體反應 (B)接受者體內之T細胞反應 (C)因移植手術的傷口感染 (D)接受者體內自然殺手細胞大量活化"
+33,A,"35.下列何種細胞激素可用於體外增殖自體T細胞以供細胞治療使用？
+(A)IL-2 (B)TNF-α (C)IFN-γ (D)TGF-β"
+34,A,"36.下列何者是免疫抑制劑cyclosporin A的作用機轉？
+(A)抑制T細胞的calcineurin (B)抑制T細胞的DNA合成 (C)抑制T細胞的mTOR訊息傳遞 (D)抑制T細胞從淋巴結移出"
+35,D,"37.下列何種單株抗體不用於治療類風濕性關節炎？
+(A)Certolizumab（anti-TNF-α） (B)Tocilizumab（anti-IL-6R） (C)Rituximab（anti-CD20） (D)Nivolumab（anti-PD-1）"
+36,A,"38.下列何者是口服小兒麻痺疫苗的特性？
+(A)可誘發IgA反應 (B)口服一次終生免疫 (C)不會突變為野生型病毒 (D)為臺灣現在主要的小兒麻痺疫苗"
+37,A,"39.T細胞在胸腺的成熟過程中，會歷經許多不同的階段，下列順序何者正確（DP: double positive; DN:double
+negative; SP: single positive）？ (A)DN1→ DN2→ DN3→ DN4→ DP→ SP (B)SP→ DN1→ DN2→ DN3→ DN4→ DP (C)DP→ DN1→ DN2→ DN3→ DN4→ SP (D)SP→ DP→ DN1→ DN2→ DN3→ DN4"
+38,A,"40.一個B細胞只能表現一種抗體之原因為何？
+(A)Allelic exclusion (B)Somatic hypermutation (C)Class switch (D)Epitope spreading"
+39,B,"41.下列敘述何者錯誤？
+(A)諾瓦克病毒（Norwalk virus）屬於杯狀病毒科（Caliciviridae） (B)人類腦部庫賈氏病（CJD）是由狂犬病毒（Rabies virus）所引起的 (C)A型肝炎病毒（Hepatitis A virus）與諾瓦克病毒（Norwalk virus）皆經由糞口途徑傳染 (D)冠狀病毒（Coronavirus）可能造成一般感冒症狀或嚴重急性呼吸系統症候群"
+40,D,"42.Telbivudine（LdT）可用來治療慢性B型肝炎，主要作用在下列那個病毒蛋白質？
+(A)protein kinase (B)Ｘ蛋白質 (C)核心蛋白質（core protein） (D)DNA聚合酶 （DNA polymerase）"
+41,B,"43.懷疑病人因腸病毒感染引起無菌性腦膜炎（aseptic meningitis）時，下列何種檢體及檢驗方法是最佳建議？
+(A)咽喉拭子，病毒培養 (B)CSF，分子檢驗 (C)血液，分子檢驗 (D)肛門拭子，病毒培養"
+42,D,"44.下列關於病毒照護端檢驗（point-of-care testing）之敘述，何者錯誤？
+(A)試劑通常可在常溫中保存 (B)檢體通常無須傳送，可降低檢驗分析前流程導致之異常 (C)多數可於10～30分鐘完成檢驗報告 (D)CLIA-waived試劑無須執行品管"
+43,C,"45.下列有關抗HIV藥物及其作用機轉配對，何者錯誤？
+(A)Saquinavir是蛋白酶（protease）抑制劑 (B)Lamivudine是反轉錄酶（reverse transcriptase）抑制劑 (C)Nevirapine是嵌入酶（integrase）抑制劑 (D)Maraviroc是CCR5共同接受器的類似物"
+44,B,"46.下列有關目前廣泛施打的流感病毒疫苗之敘述，何者錯誤？
+(A)去活性（inactivated）疫苗 (B)三價疫苗包含Influenza A, B, C各一病毒株 (C)可從雞胚蛋大量複製及純化製作成疫苗 (D)每年須重新評估疫苗病毒株"
+45,B,"47.目前施打的人用疫苗中，下列何者為去活性疫苗（inactivated vaccine）？
+(A)德國麻疹疫苗 (B)狂犬病毒疫苗 (C)麻疹疫苗 (D)腮腺炎疫苗"
+46,A,"48.下列人類疱疹病毒（Human herpesvirus）中，目前何者具有疫苗可用於預防病毒感染？
+(A)水痘帶狀疱疹病毒（Varicella-zoster virus, VZV） (B)巨細胞病毒（Cytomegalovirus, CMV） (C)單純疱疹病毒第一型（Herpes simplex virus type 1, HSV-1） (D)Epstein-Barr Virus（EBV）"
+47,B,"49.下列何種病毒與Chikungunya virus在分類上屬於同一科（family）？
+(A)登革病毒（Dengue virus） (B)辛德畢斯病毒（Sindbis virus） (C)拉沙熱病毒（Lassa fever virus） (D)C型肝炎病毒（HCV）"
+48,B,"50.下列何種病毒主要不是經由吸入呼吸道所產生的分泌物而造成感染？
+(A)德國麻疹病毒（Rubella virus） (B)登革病毒（Dengue virus） (C)腮腺炎病毒（Mumps virus） (D)嚴重急性呼吸系統症候群病毒（SARS-CoV）"
+49,D,"51.關於BK病毒之敘述，下列何者正確？
+(A)不會造成潛伏感染 (B)國人血清抗體陽性率低 (C)經常在肝移植病人造成nephropathy (D)尿液中BK DNA定量分子檢驗，可以有效監控病毒釋出"
+50,A,"52.臨床上懷疑病毒感染中樞神經系統，有關檢驗之敘述，下列何者最適當？
+(A)若懷疑是腸病毒A71型（Enterovirus A71）感染，可同步收集腦脊髓液、咽喉拭子、糞便檢體進行病毒培養 與分離 (B)若懷疑是小兒麻痺病毒（Poliovirus）感染，應取腦部切片進行病毒培養 (C)若懷疑是單純疱疹病毒（Herpes simplex virus）感染，腦脊髓液檢驗不具診斷效果 (D)若懷疑是茲卡病毒（Zika virus）感染，血液抗體檢驗即可確診"
+51,C,"53.下列有關輪狀病毒（Rotavirus）之敘述，何者錯誤？
+(A)具有11個片段的雙股RNA基因體 (B)可導致腸炎，故糞便是適合的檢體來源 (C)臨床上常從細胞培養出病毒後，再進一步檢測病毒抗原 (D)目前有五價人牛基因重組口服疫苗"
+52,B,"54.下列何種病毒已經有臨床人用疫苗？
+(A)多瘤病毒（Polyomavirus） (B)人類乳突病毒（Human papillomavirus） (C)EB病毒（Epstein-Barr virus） (D)諾羅病毒（Norovirus）"
+53,C,"55.將檢體接種細胞後，出現細胞病變，最常用下列何種方式來進行快速鑑定？
+(A)中和試驗（neutralization test） (B)補體結合試驗（complement fixation test） (C)免疫螢光試驗（immunofluorescence assay） (D)西方墨點法（Western blot assay）"
+54,D,"57.下列何種病毒可引發單核球增多症，也是輸血後症候群的常見致病原？
+(A)Herpes simplex virus（HSV） (B)Human papillomavirus（HPV） (C)Varicella-zoster virus（VZV） (D)Cytomegalovirus（CMV）"
+55,C,"58.下列何種症狀最不可能發生於Epstein-Barr virus（EBV）感染？
+(A)白血球數目增加 (B)發燒 (C)血紅素下降 (D)肝脾腫大"
+56,B,"59.下列有關Varicella-zoster virus（VZV）的敘述，何者錯誤？
+(A)又稱Human herpesvirus 3（HHV-3） (B)屬於betaherpesvirus (C)引發的症狀包括水痘及帶狀疱疹 (D)已有減毒疫苗可供臨床使用"
+57,B,"60.下列何種藥物不常用於B型肝炎病毒治療？
+(A)Entecavir (B)Ribavirin (C)Adefovir (D)Telbivudine"
+58,D,"61.下列何者最不可能是腺病毒（Adenovirus）造成的疾病？
+(A)流行性角膜炎（Epidemic keratoconjunctivitis） (B)急性出血性膀胱炎（Acute hemorrhagic cystitis） (C)咽喉結膜熱（Pharyngoconjunctival fever） (D)腦膜炎（Meningitis）"
+59,D,"62.下列何種病毒最不可能引發人類的癌症？
+(A)Hepatitis B virus (B)Hepatitis C virus (C)Epstein-Barr virus (D)Parvovirus B19"
+60,A,"63.在臨床病毒實驗室，下列何者常以細胞培養病毒？
+(A)腸病毒（Enterovirus） (B)諾羅病毒（Norovirus） (C)C型肝炎病毒（Hepatitis C virus） (D)B19小病毒（Parvovirus B19）"
+61,C,"64.有關腺病毒（Adenovirus）的培養及偵測，下列何者正確？
+(A)常規性培養病毒以Vero細胞株進行 (B)HEp-2 細胞株無法培養腺病毒 (C)腺病毒40及41型通常無法細胞培養 (D)可以Shell vial 的方式縮短觀察到細胞病變（cytopathic effect）的時間"
+62,B,"65.下列有關E型肝炎病毒感染，何者正確？
+(A)孕婦傳染新生兒，易造成慢性感染 (B)孕婦感染症狀最為嚴重 (C)長期治療易產生抗藥性病毒株 (D)常與C型肝炎病毒共同感染"
+63,B,"66.下列有關B型肝炎病毒的敘述，何者錯誤？
+(A)所帶的酵素具有反轉錄酶活性 (B)急性肝炎症狀的產生主要是病毒複製完成後，肝細胞破裂所致 (C)大部分的成人感染者會痊癒 (D)母子垂直感染是傳染途徑之一"
+64,B,"67.下列何者可用來製造Smallpox vaccine？
+(A)Cowpox virus (B)Vaccinia virus (C)Variola virus (D)Pseudocowpox virus"
+65,D,"68.下列何者為腺病毒（Adenovirus）第41型所引發的主要臨床症狀？
+(A)結膜角膜炎 (B)上呼吸道感染 (C)紅疹 (D)腸胃道感染"
+66,D,"69.在非疫區對疑似節媒病毒感染發燒之病人病史檢查中，下列何者較不重要？
+(A)旅遊史 (B)職業別 (C)是否接觸動物、蚊子 (D)疾病史"
+67,D,"70.有關A型流感病毒的蛋白質功能的敘述，下列何者最不適當？
+(A)在病毒顆粒中NP蛋白質可結合其病毒RNA (B)M2蛋白質具有離子通道功能 (C)PB1蛋白質為病毒複製酶的組成分之一 (D)成熟病毒顆粒外套膜帶有HA及PA蛋白質"
+68,B,"71.以核酸檢測方法來偵測冠狀病毒時，下列那一段基因區域最適合做為Pan-CoV 分析的標的？
+(A)刺突S基因（Spike protein gene, S gene） (B)複製酶開放讀框 ORF1a/b 基因（replicase ORF1a/b gene） (C)反轉錄酶RT基因（reverse transcriptase） (D)嵌入酶基因（integrase）"
+69,A,"72.下列有關E型肝炎病毒（Hepatitis E virus, HEV）的敘述，何者最適當？
+(A)為不具外套膜之病毒 (B)病毒顆粒帶有一個約7.2kb的負股RNA基因組 (C)只有兩種基因型的HEV可以感染人類 (D)此類病毒不會感染豬"
+70,C,"73.下列有關狂犬病毒（Rabies virus）的敘述，何者最不適當？
+(A)此病毒可以侵犯中樞神經系統 (B)有部分受感染的人會產生恐水症（hydrophobia） (C)疫苗對已經受感染病人並無任何治療效果 (D)此病毒可能存在被感染動物的唾液中"
+71,B,"74.利用現行Human immunodeficiency virus type 1（HIV-1）檢驗試劑，可測得特異性標記在血液中出現的時間順
+序依次為何？① HIV-1 IgG抗體 ② HIV-1 IgM抗體 ③ HIV-1 RNA ④ p24抗原 (A)④③①② (B)③④②① (C)③②④① (D)④①②③"
+72,D,"75.有關輪狀病毒（Rotavirus）感染的敘述，下列何者錯誤？
+(A)可經糞口傳染途徑感染 (B)可造成嬰幼兒腸胃炎及腹瀉症狀 (C)用enzyme-linked immunoassay可直接偵測到受感染者糞便檢體中的病毒 (D)目前仍無有效疫苗可供預防"
+73,B,"76.下列有關流感病毒的敘述，何者正確？
+(A)目前抗病毒藥物克流感僅可用來治療A型流感病毒感染 (B)A型流感病毒可能因為不同亞型（subtypes）的基因片段互換造成抗原移位（antigenic shift） (C)高病原性禽流感病毒A（H5N1）亞型無法感染人類 (D)犬類不會被A型流感病毒感染"
+74,C,"77.下列何種病毒，在分類上與其它三者屬不同科？
+(A)柯沙奇病毒（Coxsackievirus） (B)小兒麻痺病毒（Poliovirus） (C)副流感病毒（Parainfluenza virus） (D)鼻病毒（Rhinovirus）"
+75,A,"78.下列有關伊波拉病毒（Ebola virus）之敘述，何者錯誤？
+(A)屬於桿狀病毒科（Rhabdoviridae） (B)含單股負性RNA (C)含套膜 (D)病毒處理需要生物安全第四級防護（biosafety level 4）"
+76,D,"79.下列何種病毒最不易透過性行為傳染？
+(A)Herpes simplex virus type 2 (B)Hepatitis B virus (C)Human papillomavirus (D)Dengue virus"
+77,B,"80.有關登革病毒（Dengue virus）之敘述，下列何者正確？
+(A)屬於Bunyaviridae (B)可造成休克症狀 (C)含有三個血清型別 (D)所含之病毒基因體為負股RNA片段"

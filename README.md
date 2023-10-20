@@ -18,13 +18,20 @@
 
 ## 新聞
 
-[2023.09.14] Model 7 - C 開放試用 及 [論文](https://github.com/mtkresearch/MR-Models/blob/main/doc/model7c_chat_tech_report_v3.pdf)
+[2023.10.20] 開放繁體中文評測 [TC-Eval](./TC-Eval/)
+
+[2023.09.14] Model 7 - C 開放試用 及 [論文](https://arxiv.org/abs/2309.08448)
 
 [2023.08.15] Model 7 - B 開放試用
 
 [2023.04.10] 開源 Bloom-zh 3B [模型](https://huggingface.co/ckip-joint/bloom-3b-zh) 及 [論文](https://arxiv.org/abs/2303.04715)
 
 [2023.03.07] 開源 Bloom-zh 1B1 [模型](https://huggingface.co/ckip-joint/bloom-1b1-zh) 及 [論文](https://arxiv.org/abs/2303.04715)
+
+## TC-Eval
+
+TC-Eval是一個針對基礎模型的繁體中文評估套件。它包含5個面向，包括上下文問答、知識、摘要、分類和表格理解。詳細資訊請查看[這裡](./TC-Eval/)。
+
 
 ## 模型
 
