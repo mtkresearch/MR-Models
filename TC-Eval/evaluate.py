@@ -4,6 +4,7 @@ import json
 from typing import List, Dict
 from functools import partial
 from glob import glob
+from pprint import pprint
 
 from sumeval.metrics.rouge import RougeCalculator
 import numpy as np
@@ -55,7 +56,7 @@ class Task:
 class ChoiceTask(Task):
     CHOICES = None
 
-    def _extract_choice(self, response):
+    def _extract_choice(self, response, choices=None):
         raise NotImplementedError
     
     def evaluate(self, list_of_response: List[Dict]) -> Dict:
@@ -65,7 +66,10 @@ class ChoiceTask(Task):
         response_dict = self._get_response_dict(list_of_response)
 
         for idx in self._gold_dict.keys():
-            choice = self._extract_choice(response_dict[idx])
+            choice = self._extract_choice(
+                response_dict[idx], 
+                choices=self._choices_dict[idx] if hasattr(self, '_choices_dict') else None
+            )
             correct_list.append(1 if choice == gold_dict[idx] else 0)
         return {
             'accuracy': np.mean(correct_list)
@@ -75,7 +79,7 @@ class ChoiceTask(Task):
 class MultipleChoiceTask(ChoiceTask):
     CHOICES = "ABCDE"
 
-    def _extract_choice(self, response):
+    def _extract_choice(self, response, choices=None):
         if len(response.strip()) == 0:
             return -1
 
@@ -129,6 +133,11 @@ class MultipleChoiceTask(ChoiceTask):
             char = en_chars[0].upper()
             if char in self.CHOICES:
                 return self.CHOICES.index(char.upper())  
+            
+        if choices:
+            for j, choice_str in enumerate(choices):
+                if response.strip().startswith(choice_str):
+                    return j
 
         return -1
 
@@ -144,8 +153,8 @@ class QuestionAnsweringTask(Task):
         for m_name, metric_fn in self._metric_fns.items():
             vals = []
             for idx in self._gold_dict.keys():
-                references = gold_dict[idx]
-                pred = response_dict[idx]
+                references = [r.strip() for r in gold_dict[idx]]
+                pred = response_dict[idx].strip()
                 vals.append(np.max([metric_fn(ref, pred) for ref in references]))
             metrics[m_name] = np.mean(vals)
         return metrics
@@ -171,10 +180,12 @@ class SummaryTask(Task):
 
 class TTQATask(MultipleChoiceTask):
     def _prepare_data(self, dir):
-        data = json.load(open(f'{dir}/TTQA_mc_1.0.0.json'))
+        data = json.load(open(f'{dir}/TTQA_mc_2.0.0.json'))
         self._gold_dict = {}
+        self._choices_dict = {}
         for idx in data:
-            self._gold_dict[str(idx)] = self.CHOICES.index(data[idx]['mc_answer'])
+            self._gold_dict[str(idx)] = data[idx]['answer']
+            self._choices_dict[str(idx)] = data[idx]['choices']
 
 
 class TMMLUTask(MultipleChoiceTask):
@@ -183,6 +194,16 @@ class TMMLUTask(MultipleChoiceTask):
         self._gold_dict = {}
         for i, row in df.iterrows():
             self._gold_dict[str(i)] = self.CHOICES.index(row['content.A'])
+
+
+class PenguinsInTableTCTask(MultipleChoiceTask):
+    def _prepare_data(self, dir):
+        data = json.load(open(f'{dir}/data.json'))
+        self._gold_dict = {}
+        self._choices_dict = {}
+        for idx in data:
+            self._gold_dict[str(idx)] = data[idx]['answer']
+            self._choices_dict[str(idx)] = data[idx]['choices']
 
 
 class IMDBTCTask(ChoiceTask):
@@ -194,7 +215,7 @@ class IMDBTCTask(ChoiceTask):
         for i, row in df.iterrows():
             self._gold_dict[str(i)] = int(row['label'])
 
-    def _extract_choice(self, response):
+    def _extract_choice(self, response, choices=None):
         if len(response.strip()) == 0:
             return -1
 
@@ -230,15 +251,19 @@ class DRCDTask(QuestionAnsweringTask):
 
 class FGCTask(QuestionAnsweringTask):
     def _prepare_data(self, dir):
-        raise NotImplementedError
+        data = json.load(open(f'{dir}/preprocessed_FGC_official_final.json'))
+        self._gold_dict = {}
+        for idx in data:
+            self._gold_dict[str(idx)] = data[idx]['references']
 
 
 EVALUATION_ITEMS = [
-    ['summarization_xsum_tc', XSumTCTask('./data/XSum_TC_5k/')],
-    ['drcd', DRCDTask('./data/DRCD_Test/')],
-    # ['fgc', FGCTask()],
-    ['ttqa_mc', TTQATask('./data/TTQA/')],
-    ['imdb_tc_sub5000', IMDBTCTask('./data/IMDB_TC/')],
+    ['XSum_TC_5k', XSumTCTask('./data/XSum_TC_5k/')],
+    ['DRCD', DRCDTask('./data/DRCD_Test/')],
+    ['FGC', FGCTask('./data/FGC_Test')],
+    ['TTQA', TTQATask('./data/TTQA/')],
+    ['IMDB_TC', IMDBTCTask('./data/IMDB_TC/')],
+    ['PenguinsInTable_TC', PenguinsInTableTCTask('./data/PenguinsInTable_TC')],
     *[[f'TMMLU_{subject}', TMMLUTask(f'./data/TMMLU/subjects/{subject}/')]
       for subject in os.listdir('./data/TMMLU/subjects/')]
 ]
@@ -257,7 +282,7 @@ if __name__ == '__main__':
     for path in glob('results/*_result.json'):
         print(f'== {path} ==')
         metrics = evaluate_all(path)
-        metrics['TMMLU_Avg'] = np.mean([metrics[k]['accuracy'] for k in metrics if 'TMMLU' in k])
+        metrics['TMMLU_Avg'] = {'accuracy': np.mean([metrics[k]['accuracy'] for k in metrics if 'TMMLU' in k])}
 
-        print(metrics)
+        pprint(metrics)
         print('====')
