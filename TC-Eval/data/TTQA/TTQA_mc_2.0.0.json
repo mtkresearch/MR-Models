@@ -888,7 +888,7 @@
             "蘆竹鄉",
             "觀音鄉"
         ],
-        "Answer": 1
+        "answer": 1
     },
     "81": {
         "category": "RELIGION",
@@ -987,7 +987,7 @@
             "東岳湧泉",
             "三芝冷泉"
         ],
-        "Answer": 1
+        "answer": 1
     },
     "90": {
         "category": "HISTORY",
