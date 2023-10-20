@@ -1,6 +1,6 @@
 # TC-Eval
 
-TC-Eval is a Traditional Chinese evaluation suite for foundation models. It covers 5 capabilities, including contextual QA, knowledge, summarization, classification, and table understanding. You may check [our paper](https://arxiv.org/abs/2309.08448) for more details.
+TC-Eval is a Traditional Chinese evaluation suite for foundation models. It covers 5 capabilities, including contextual QA, knowledge, summarization, classification, and table understanding. You may find datasets in [`./data`](./data/) and check [our paper](https://arxiv.org/abs/2309.08448) for more details.
 
 ## Benchmark
 
