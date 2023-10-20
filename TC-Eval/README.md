@@ -8,8 +8,8 @@ TC-Eval is a Traditional Chinese evaluation suite for foundation models. It cove
   - **DRCD** [[1]](#1): DRCD is a Traditional Chinese machine reading comprehension dataset containing 10,014 paragraphs from 2,108 Wikipedia articles and over 30,000 questions. 
   - **FGC** [[2]](#2): FGC dataset is a passage question answering dataset of 750 samples created from Taiwanese news articles and government announcements.
 - **Knowledge**
-  - **TTQA** (created by MediaTek Research, [[3]](#3)): TTQA is for assessing language models’ common sense abilities on Taiwanese terms, comprising 64 passages from Wikipedia about diverse Taiwanese cultural topics, necessitating model comprehension and reasoning. 
-  - **TMMLU** (created by MediaTek Research, [[4]](#4)): Taiwan Massive Multitask Language Understanding (TMMLU) is curated from examinations in Taiwan, consisting of 55 subjects spanning across multiple disciplines, from vocational to academic fields, and covering elementary to professional proficiency levels. It is designed to identify a model’s knowledge and problem-solving blind spots similar to human evaluations.
+  - **TTQA** (provided by MediaTek Research, [[3]](#3)): TTQA is for assessing language models’ common sense abilities on Taiwanese terms, comprising 64 passages from Wikipedia about diverse Taiwanese cultural topics, necessitating model comprehension and reasoning. 
+  - **TMMLU** (provided by MediaTek Research, [[4]](#4)): Taiwan Massive Multitask Language Understanding (TMMLU) is curated from examinations in Taiwan, consisting of 55 subjects spanning across multiple disciplines, from vocational to academic fields, and covering elementary to professional proficiency levels. It is designed to identify a model’s knowledge and problem-solving blind spots similar to human evaluations.
 - **Summarization**
   - **XSum-TC** (translate from [[5]](#5)): Extreme Summarization (XSum) dataset evaluates abstractive summarization with 226,711 BBC news articles across diverse domains, aiming for one-sentence summaries.
 - **Classification**
