@@ -1,0 +1,69 @@
+[
+  {
+    "scenario": "TTQA",
+    "model_name": "tgi",
+    "api_base": "http://colglx0008000:1234",
+    "system_prompt": "",
+    "suffix_inst": "答案：",
+    "prompt_template": "<s> [INST] <<SYS>> {system_prompt} <</SYS>> \n\n {question} \n\n [/INST] {suffix_inst}",
+    "max_new_tokens": 128,
+    "eval_num_samples": 5,
+    "output_dir": "./outputs"
+  },
+  {
+    "scenario": "BB_Penguins_in_a_Table_TC",
+    "model_name": "tgi",
+    "api_base": "http://colglx0008000:1234",
+    "system_prompt": "",
+    "suffix_inst": "答案：",
+    "prompt_template": "<s> [INST] <<SYS>> {system_prompt} <</SYS>> \n\n {question} \n\n [/INST] {suffix_inst}",
+    "max_new_tokens": 128,
+    "eval_num_samples": 5,
+    "output_dir": "./outputs"
+  },
+  {
+    "scenario": "FGC",
+    "model_name": "tgi",
+    "api_base": "http://colglx0008000:1234",
+    "system_prompt": "",
+    "suffix_inst": "答案：",
+    "prompt_template": "<s> [INST] <<SYS>> {system_prompt} <</SYS>> 請根據以下內容回答問題，且答案需盡可能簡短。注意：答案必須為內容的子字串。\n\n{context}\n\n問題：{question}\n\n [/INST] {suffix_inst}",
+    "max_new_tokens": 128,
+    "eval_num_samples": 5,
+    "output_dir": "./outputs"
+  },
+  {
+    "scenario": "DRCD",
+    "model_name": "tgi",
+    "api_base": "http://colglx0008000:1234",
+    "system_prompt": "",
+    "suffix_inst": "答案：",
+    "prompt_template": "<s> [INST] <<SYS>> {system_prompt} <</SYS>> 請根據以下內容回答問題，且答案需盡可能簡短。注意：答案必須為內容的子字串。\n\n{context}\n\n問題：{question}\n\n [/INST] {suffix_inst}",
+    "max_new_tokens": 128,
+    "eval_num_samples": 5,
+    "output_dir": "./outputs"
+  },
+  {
+    "scenario": "XSum_TC",
+    "model_name": "tgi",
+    "api_base": "http://colglx0008000:1234",
+    "system_prompt": "",
+    "suffix_inst": "",
+    "prompt_template": "<s> [INST] <<SYS>> {system_prompt} <</SYS>> \n\n {context} \n\n 根據上述文章以一句話來總結\n\n [/INST] {suffix_inst}",
+    "temperature": 0.3,
+    "max_new_tokens": 128,
+    "eval_num_samples": 5,
+    "output_dir": "./outputs"
+  },
+  {
+    "scenario": "IMDB_TC",
+    "model_name": "tgi",
+    "api_base": "http://colglx0008000:1234",
+    "system_prompt": "",
+    "suffix_inst": "",
+    "prompt_template": "<s> [INST] <<SYS>> {system_prompt} <</SYS>> \n\n {question} \n\n [/INST] {suffix_inst}",
+    "max_new_tokens": 128,
+    "eval_num_samples": 5,
+    "output_dir": "./outputs"
+  }
+]
