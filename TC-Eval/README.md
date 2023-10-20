@@ -80,9 +80,9 @@ reference:
 
 ## Generation
 
-We provide generation scripts in `tgi_runner/`. See `tgi_runner/run.sh` for an example of the usage.
+We provide generation scripts in `result_runner/`. See `result_runner/run.sh` for an example of the usage.
 
-We recommend launching a [`TGI` service](https://huggingface.co/docs/text-generation-inference/main/en/index) to send queries to model. You can set this in a config dictionary. For example, in `tgi_runner/tasks_config.json`, replace `api_base` field with your own local server address.
+We recommend launching a [`TGI` service](https://huggingface.co/docs/text-generation-inference/main/en/index) to send queries to model. You can set this in a config dictionary. For example, in `runner/tasks_config.json`, replace `api_base` field with your own local server address.
 
 
 ## Citation
