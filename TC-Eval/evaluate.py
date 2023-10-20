@@ -259,9 +259,9 @@ class FGCTask(QuestionAnsweringTask):
 
 
 EVALUATION_ITEMS = [
-    # ['XSum_TC_5k', XSumTCTask('./data/XSum_TC_5k/')],
-    # ['DRCD', DRCDTask('./data/DRCD_Test/')],
-    # ['FGC', FGCTask('./data/FGC_Test')],
+    ['XSum_TC_5k', XSumTCTask('./data/XSum_TC_5k/')],
+    ['DRCD', DRCDTask('./data/DRCD_Test/')],
+    ['FGC', FGCTask('./data/FGC_Test')],
     ['TTQA', TTQATask('./data/TTQA/')],
     ['IMDB_TC', IMDBTCTask('./data/IMDB_TC/')],
     ['PenguinsInTable_TC', PenguinsInTableTCTask('./data/PenguinsInTable_TC')],
