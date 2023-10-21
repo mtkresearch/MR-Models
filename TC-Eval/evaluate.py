@@ -137,7 +137,7 @@ class MultipleChoiceTask(ChoiceTask):
             
         if choices:
             for j, choice_str in enumerate(choices):
-                if response.strip().startswith(choice_str):
+                if prefix_exact_match(choice_str, response) > 0:
                     return j
 
         return -1
