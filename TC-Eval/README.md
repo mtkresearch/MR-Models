@@ -45,7 +45,7 @@ reference:
 {
   "name": "MODEL_NAME",
   "results": {
-    "ttqa_mc": [
+    "TTQA": [
       {
         "id": "0",
         "response": "..."
