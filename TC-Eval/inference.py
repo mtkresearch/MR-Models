@@ -40,10 +40,7 @@ def _get_response_model(config):
     return response_model
 
 
-def generation_routine(config: Dict[str, Any])->Dict[str, Any]:
-    # dictionary for generation outputs
-    state_dict = defaultdict(list)
-
+def generation_routine(config: Dict[str, Any], agg: ResultAggregator = None):
     # Set up response model
     response_model = _get_response_model(config)
 
@@ -72,14 +69,13 @@ def generation_routine(config: Dict[str, Any])->Dict[str, Any]:
             outputs = response_model.get_response(input_text, **config)
             output_text = outputs['completions'][0]
 
-            # Log results into state_dict
+            # Log results
             log_state = dict(id=sample['id'], query=input_text, references=sample['references'], response=output_text)
-            state_dict[scenario_name].append(log_state)
+            agg.merge_result({scenario_name: [log_state]})
+            agg.save_agg_result_dict()
         except Exception as e:
             error_text = f"Error in generation loop: {e}"
             print(error_text)
-    
-    return state_dict
 
 
 def run(config_path, model_name):
@@ -90,15 +86,7 @@ def run(config_path, model_name):
 
     # Go through scenarios
     for config in configs:
-        print(config)
-        try:
-            state_dict = generation_routine(config)
-            agg.merge_result(state_dict)
-        except Exception as e:
-            print(f"Error: {e}")
-            agg.save_agg_result_dict()
-
-        agg.save_agg_result_dict()
+        generation_routine(config, agg)
 
 
 if __name__ == '__main__':

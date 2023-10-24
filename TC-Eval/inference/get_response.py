@@ -8,6 +8,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, AutoConfig
 from accelerate import load_checkpoint_and_dispatch
 
 import text_generation as tg
+from tenacity import retry, stop_after_attempt
 
 
 class ResponseModel:
@@ -88,6 +89,7 @@ class OpenAIResponseModel(ResponseModel):
         self.engine = engine
 
     def get_response(self, input_text: str, **kwargs) -> Dict[str, any]:
+        @retry(stop=stop_after_attempt(10))
         def _do_it():
             openai.organization = None
             openai.api_key = self.api_key
