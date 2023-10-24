@@ -2,7 +2,6 @@ from typing import Dict
 from abc import abstractmethod
 
 import openai
-import tiktoken
 
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, AutoConfig

@@ -5,5 +5,5 @@ jieba
 text_generation
 torch
 rich
-numpy
-pandas
+openai
+tqdm

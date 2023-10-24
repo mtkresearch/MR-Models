@@ -52,13 +52,6 @@ def generation_routine(config: Dict[str, Any])->Dict[str, Any]:
     scenario = scenario_cls(**config)
     scenario_name = scenario.name
 
-    # Set up logging
-    output_dir = f"{config['output_dir']}/{scenario_name}"
-    os.makedirs(output_dir, exist_ok=True)
-    result_path = f"{output_dir}/result.json"
-    config['result_path'] = result_path
-    json.dump(config, open(f"{output_dir}/config.json", "w"), ensure_ascii=False, indent=2)
-
     # Get results
     prompt_template = config['prompt_template']
     var_names = set(re.findall(r'\{(\w+)\}', prompt_template))
@@ -96,7 +89,6 @@ def run(config_path, model_name):
     agg = ResultAggregator(model_name)
 
     # Go through scenarios
-    new_configs = []
     for config in configs:
         print(config)
         try:

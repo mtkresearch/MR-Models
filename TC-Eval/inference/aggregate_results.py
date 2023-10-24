@@ -4,7 +4,7 @@ import json
 import glob
 import argparse
 
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Union
 import pandas as pd
 from tqdm import tqdm
 
@@ -65,7 +65,7 @@ class ResultAggregator:
     def create_result_placerholder_dict():
         return _create_placeholder_eval_result_dict()
 
-    def merge_result(self, result_json_path):
+    def merge_result(self, result_json: Union[dict, str]):
         r"""
         Assuming the data format in the json is
         ```
@@ -78,7 +78,9 @@ class ResultAggregator:
         }
         ```
         """
-        jdata = json.load(open(result_json_path, "r"))
+        jdata = result_json
+        if isinstance(result_json, str):
+            jdata = json.load(open(result_json, "r"))
         ds_name = list(jdata.keys())[0]
 
         # Place results into result dict
@@ -98,7 +100,7 @@ class ResultAggregator:
     def save_agg_result_dict(self, agg_result_dir = None):
         rdict = self.to_eval_dict()
         outputs = {'name': self._model_name, "results": rdict}
-
+        
         # Save to result folder
         dest = f"{_CUR_DIR}/../results/{self._model_name}_result.json"
         if agg_result_dir is not None:
@@ -119,6 +121,8 @@ class ResultAggregator:
         The `result.json` is expected to have the following format
 
         """
+        pdict = _create_placeholder_eval_result_dict()
+        
         # Fill the results back to pdict
         result_jpath = glob.glob(f"{inference_results_dir}/**/result.json", recursive=True)
 
