@@ -17,26 +17,19 @@ class Scenario(Dataset):
 
 class DRCD(Scenario):
     name: str = "DRCD"
-    def __init__(self, data_path: str = f"{_CUR_DIR}/../data/DRCD_Test/test.json", **kwargs):
+    def __init__(self, data_path: str = f"{_CUR_DIR}/../data/DRCD_Test/preprocessed_DRCD_test.json", **kwargs):
+        raw_data = json.load(open(data_path, "r"))
+        self._js_ds = [dict(id=str(i), **obj) for i, obj in raw_data.items()]
         
-        all_samples = []
-        with open(data_path, encoding="utf-8") as f:
-            lines = f.readlines()
-        for line in lines:
-            if len(line) > 0:
-                all_samples.append(json.loads(line))
-
-        self._clean_samples = all_samples
-
     def __len__(self):
-        return len(self._clean_samples)
+        return len(self._js_ds)
 
     def __getitem__(self, idx) -> Dict[str, any]:
-        sample = self._clean_samples[idx]
+        sample = self._js_ds[idx]
 
-        context = sample['context']
+        context = sample['paragraph']
         question = sample['question']
-        references = [x['text'] for x in sample["answers"]]
+        references = sample['references']
         idx = sample['id']
 
         return {'context': context, 'question': question, 'references': references, 'id': str(idx)}
@@ -46,7 +39,7 @@ class FGC(Scenario):
     name: str = "FGC"
     def __init__(self, data_path: str = f"{_CUR_DIR}/../data/FGC_Test/preprocessed_FGC_official_final.json", **kwargs):
         raw_data = json.load(open(data_path, "r"))
-        self._js_ds = [dict(id=i, **obj) for i, obj in raw_data.items()]
+        self._js_ds = [dict(id=str(i), **obj) for i, obj in raw_data.items()]
 
     def __len__(self):
         return len(self._js_ds)
@@ -68,7 +61,7 @@ class TTQA(Scenario):
     name: str = "TTQA"
     def __init__(self, data_path: str = f"{_CUR_DIR}/../data/TTQA/TTQA_mc_2.0.0.json", **kwargs):
         raw_data = json.load(open(data_path, "r", encoding="utf-8"))
-        self._js_ds = [dict(id=i, **obj) for i, obj in raw_data.items()]
+        self._js_ds = [dict(id=str(i), **obj) for i, obj in raw_data.items()]
         
     def __len__(self):
         return len(self._js_ds)
@@ -113,7 +106,7 @@ class TMMLU(Scenario):
 
 
 class XSumTC(Scenario):
-    name: str = "XSum_TC"
+    name: str = "XSum_TC_5k"
     def __init__(self, data_path: str = f"{_CUR_DIR}/../data/XSum_TC_5k/test_sub5000.csv", **kwargs):
         self._df = pd.read_csv(data_path)
 
@@ -152,10 +145,10 @@ class IMDBTC(Scenario):
 
 
 class BigBenchPenguinsInATableTC(Scenario):
-    name: str = "BB_Penguins_in_a_Table_TC"
+    name: str = "PenguinsInTable_TC"
     def __init__(self, data_path: str = f"{_CUR_DIR}/../data/PenguinsInTable_TC/data.json", **kwargs):
         raw_data = json.load(open(data_path, "r"))
-        self._js_ds = [dict(id=k, **v) for k, v in raw_data.items()]
+        self._js_ds = [dict(id=str(k), **v) for k, v in raw_data.items()]
 
     def __len__(self):
         return len(self._js_ds)

@@ -2,3 +2,8 @@ pandas
 numpy
 sumeval
 jieba
+text_generation
+torch
+rich
+numpy
+pandas

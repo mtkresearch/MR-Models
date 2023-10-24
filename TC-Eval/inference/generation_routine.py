@@ -1,14 +1,18 @@
+import os
+import sys
 import re
 import json
-import os
 import argparse
 from collections import defaultdict
 from tqdm import tqdm
 from rich import print
 
-from scenarios import BigBenchPenguinsInATableTC, FGC, DRCD, TTQA, XSumTC, TMMLU, IMDBTC
-from get_response import TGIResponseModel, OpenAIResponseModel
+from inference.scenarios import BigBenchPenguinsInATableTC, FGC, DRCD, TTQA, XSumTC, TMMLU, IMDBTC
+from inference.get_response import TGIResponseModel, OpenAIResponseModel
 
+
+_CUR_DIR = os.path.dirname(os.path.realpath(__file__))
+sys.path.append(f"{_CUR_DIR}/..")
 
 _which_scenario = {
     'BB_Penguins_in_a_Table_TC': BigBenchPenguinsInATableTC,
@@ -22,12 +26,12 @@ _which_scenario = {
 
 
 def _get_response_model(config):
-    model_name = config['model_name']
+    resp_model_name = config['resp_model_name']
     response_model = None
-    if model_name == 'tgi':
+    if resp_model_name == 'tgi':
         api_base = config['api_base']
         response_model = TGIResponseModel(api_base)
-    elif model_name == "openai":
+    elif resp_model_name == "openai":
         response_model = OpenAIResponseModel(**config)
     else:
         raise NotImplementedError
@@ -98,9 +102,9 @@ if __name__ == '__main__':
         # generation_routine(config)
         try:
             ng = generation_routine(config)
+            new_configs.append(ng)
         except Exception as e:
             print(f"Error: {e}")
-        new_configs.append(ng)
 
 
 

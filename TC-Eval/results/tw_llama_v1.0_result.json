@@ -55177,7 +55177,117 @@
                 "response": "濁水溪 (B) \n\n\n解析: 濁水溪是台灣中部的一條河流，全長145公里，流域面積為1,450平方公里，主要流經台中市、彰化縣、南投縣和雲林縣，為台灣第三長的河流，僅次於淡水河和高屏"
             }
         ],
-        "TMMLU_中式麵食加工": [
+        "TMMLU/商業道德": [
+          {
+            "id": "0",
+            "response": "TO_BE_EVALUATED"
+          },
+          {
+            "id": "1",
+            "response": "TO_BE_EVALUATED"
+          },
+          {
+            "id": "2",
+            "response": "TO_BE_EVALUATED"
+          },
+          {
+            "id": "3",
+            "response": "TO_BE_EVALUATED"
+          },
+          {
+            "id": "4",
+            "response": "TO_BE_EVALUATED"
+          },
+          {
+            "id": "5",
+            "response": "TO_BE_EVALUATED"
+          },
+          {
+            "id": "6",
+            "response": "TO_BE_EVALUATED"
+          },
+          {
+            "id": "7",
+            "response": "TO_BE_EVALUATED"
+          },
+          {
+            "id": "8",
+            "response": "TO_BE_EVALUATED"
+          },
+          {
+            "id": "9",
+            "response": "TO_BE_EVALUATED"
+          },
+          {
+            "id": "10",
+            "response": "TO_BE_EVALUATED"
+          },
+          {
+            "id": "11",
+            "response": "TO_BE_EVALUATED"
+          },
+          {
+            "id": "12",
+            "response": "TO_BE_EVALUATED"
+          },
+          {
+            "id": "13",
+            "response": "TO_BE_EVALUATED"
+          },
+          {
+            "id": "14",
+            "response": "TO_BE_EVALUATED"
+          },
+          {
+            "id": "15",
+            "response": "TO_BE_EVALUATED"
+          },
+          {
+            "id": "16",
+            "response": "TO_BE_EVALUATED"
+          },
+          {
+            "id": "17",
+            "response": "TO_BE_EVALUATED"
+          },
+          {
+            "id": "18",
+            "response": "TO_BE_EVALUATED"
+          },
+          {
+            "id": "19",
+            "response": "TO_BE_EVALUATED"
+          },
+          {
+            "id": "20",
+            "response": "TO_BE_EVALUATED"
+          },
+          {
+            "id": "21",
+            "response": "TO_BE_EVALUATED"
+          },
+          {
+            "id": "22",
+            "response": "TO_BE_EVALUATED"
+          },
+          {
+            "id": "23",
+            "response": "TO_BE_EVALUATED"
+          },
+          {
+            "id": "24",
+            "response": "TO_BE_EVALUATED"
+          },
+          {
+            "id": "25",
+            "response": "TO_BE_EVALUATED"
+          },
+          {
+            "id": "26",
+            "response": "TO_BE_EVALUATED"
+          }
+        ],
+        "TMMLU/中式麵食加工": [
             {
                 "id": "0",
                 "response": "D"
@@ -55655,7 +55765,7 @@
                 "response": "D"
             }
         ],
-        "TMMLU_中餐烹調-葷食": [
+        "TMMLU/中餐烹調-葷食": [
             {
                 "id": "0",
                 "response": "B"
@@ -55897,7 +56007,7 @@
                 "response": "B"
             }
         ],
-        "TMMLU_平版印刷": [
+        "TMMLU/平版印刷": [
             {
                 "id": "0",
                 "response": "B"
@@ -56139,7 +56249,7 @@
                 "response": "B"
             }
         ],
-        "TMMLU_中醫臨床醫學": [
+        "TMMLU/中醫臨床醫學": [
             {
                 "id": "0",
                 "response": "B"
@@ -57441,7 +57551,7 @@
                 "response": "C"
             }
         ],
-        "TMMLU_普通化學": [
+        "TMMLU/普通化學": [
             {
                 "id": "0",
                 "response": "C"
@@ -57651,7 +57761,7 @@
                 "response": "C"
             }
         ],
-        "TMMLU_中餐烹調─素食": [
+        "TMMLU/中餐烹調─素食": [
             {
                 "id": "0",
                 "response": "D"
@@ -57889,7 +57999,7 @@
                 "response": "B"
             }
         ],
-        "TMMLU_企業管理": [
+        "TMMLU/企業管理": [
             {
                 "id": "0",
                 "response": "D"
@@ -58091,7 +58201,7 @@
                 "response": "C"
             }
         ],
-        "TMMLU_會考國文": [
+        "TMMLU/會考國文": [
             {
                 "id": "0",
                 "response": "D"
@@ -58345,7 +58455,7 @@
                 "response": "D"
             }
         ],
-        "TMMLU_冷凍空調": [
+        "TMMLU/冷凍空調": [
             {
                 "id": "0",
                 "response": "B"
@@ -58571,7 +58681,7 @@
                 "response": "B"
             }
         ],
-        "TMMLU_分科測驗公民與社會": [
+        "TMMLU/分科測驗公民與社會": [
             {
                 "id": "0",
                 "response": "C"
@@ -58681,7 +58791,7 @@
                 "response": "D"
             }
         ],
-        "TMMLU_分科測驗化學": [
+        "TMMLU/分科測驗化學": [
             {
                 "id": "0",
                 "response": "D"
@@ -58711,7 +58821,7 @@
                 "response": "B"
             }
         ],
-        "TMMLU_分科測驗地理": [
+        "TMMLU/分科測驗地理": [
             {
                 "id": "0",
                 "response": "B"
@@ -58813,7 +58923,7 @@
                 "response": "D"
             }
         ],
-        "TMMLU_分科測驗數學甲": [
+        "TMMLU/分科測驗數學甲": [
             {
                 "id": "0",
                 "response": "A"
@@ -58835,7 +58945,7 @@
                 "response": "A"
             }
         ],
-        "TMMLU_機電整合": [
+        "TMMLU/機電整合": [
             {
                 "id": "0",
                 "response": "C"
@@ -59013,7 +59123,7 @@
                 "response": "B"
             }
         ],
-        "TMMLU_分科測驗歷史": [
+        "TMMLU/分科測驗歷史": [
             {
                 "id": "0",
                 "response": "B"
@@ -59167,7 +59277,7 @@
                 "response": "B"
             }
         ],
-        "TMMLU_分科測驗物理": [
+        "TMMLU/分科測驗物理": [
             {
                 "id": "0",
                 "response": "D"
@@ -59205,7 +59315,7 @@
                 "response": "c"
             }
         ],
-        "TMMLU_牙醫學": [
+        "TMMLU/牙醫學": [
             {
                 "id": "0",
                 "response": "B"
@@ -61023,7 +61133,7 @@
                 "response": "C"
             }
         ],
-        "TMMLU_分科測驗生物": [
+        "TMMLU/分科測驗生物": [
             {
                 "id": "0",
                 "response": "B"
@@ -61109,7 +61219,7 @@
                 "response": "B"
             }
         ],
-        "TMMLU_臨床血清免疫學與臨床病毒學": [
+        "TMMLU/臨床血清免疫學與臨床病毒學": [
             {
                 "id": "0",
                 "response": "B"
@@ -61423,7 +61533,7 @@
                 "response": "C"
             }
         ],
-        "TMMLU_國際法": [
+        "TMMLU/國際法": [
             {
                 "id": "0",
                 "response": "C"
@@ -61509,7 +61619,7 @@
                 "response": "a"
             }
         ],
-        "TMMLU_國際關係與近代外交史": [
+        "TMMLU/國際關係與近代外交史": [
             {
                 "id": "0",
                 "response": "D"
@@ -61591,7 +61701,7 @@
                 "response": "B"
             }
         ],
-        "TMMLU_基礎醫學": [
+        "TMMLU/基礎醫學": [
             {
                 "id": "0",
                 "response": "A"
@@ -61897,7 +62007,7 @@
                 "response": "C"
             }
         ],
-        "TMMLU_總體經濟": [
+        "TMMLU/總體經濟": [
             {
                 "id": "0",
                 "response": "A"
@@ -62079,7 +62189,7 @@
                 "response": "b"
             }
         ],
-        "TMMLU_建築塗裝": [
+        "TMMLU/建築塗裝": [
             {
                 "id": "0",
                 "response": "B"
@@ -62321,7 +62431,7 @@
                 "response": "B"
             }
         ],
-        "TMMLU_食品檢驗分析": [
+        "TMMLU/食品檢驗分析": [
             {
                 "id": "0",
                 "response": "B"
@@ -62563,7 +62673,7 @@
                 "response": "C"
             }
         ],
-        "TMMLU_車輛塗裝": [
+        "TMMLU/車輛塗裝": [
             {
                 "id": "0",
                 "response": "B"
@@ -62801,7 +62911,7 @@
                 "response": "B"
             }
         ],
-        "TMMLU_普通物理": [
+        "TMMLU/普通物理": [
             {
                 "id": "0",
                 "response": "A"
@@ -62923,7 +63033,7 @@
                 "response": "D"
             }
         ],
-        "TMMLU_普通生物學": [
+        "TMMLU/普通生物學": [
             {
                 "id": "0",
                 "response": "B"
@@ -63117,7 +63227,7 @@
                 "response": "B"
             }
         ],
-        "TMMLU_製鞋─製配底": [
+        "TMMLU/製鞋─製配底": [
             {
                 "id": "0",
                 "response": "B"
@@ -63347,7 +63457,7 @@
                 "response": "B"
             }
         ],
-        "TMMLU_會考數學": [
+        "TMMLU/會考數學": [
             {
                 "id": "0",
                 "response": "B"
@@ -63377,7 +63487,7 @@
                 "response": "B"
             }
         ],
-        "TMMLU_會計學經濟學": [
+        "TMMLU/會計學經濟學": [
             {
                 "id": "0",
                 "response": "B"
@@ -63543,7 +63653,7 @@
                 "response": "A"
             }
         ],
-        "TMMLU_觀光資源概要": [
+        "TMMLU/觀光資源概要": [
             {
                 "id": "0",
                 "response": "C"
@@ -63737,7 +63847,7 @@
                 "response": "B"
             }
         ],
-        "TMMLU_油壓": [
+        "TMMLU/油壓": [
             {
                 "id": "0",
                 "response": "A"
@@ -63927,7 +64037,7 @@
                 "response": "B"
             }
         ],
-        "TMMLU_法學知識": [
+        "TMMLU/法學知識": [
             {
                 "id": "0",
                 "response": "A"
@@ -64049,7 +64159,7 @@
                 "response": "B"
             }
         ],
-        "TMMLU_營養學": [
+        "TMMLU/營養學": [
             {
                 "id": "0",
                 "response": "A"
@@ -64395,7 +64505,7 @@
                 "response": "B"
             }
         ],
-        "TMMLU_邏輯推理": [
+        "TMMLU/邏輯推理": [
             {
                 "id": "0",
                 "response": "D"
@@ -64457,7 +64567,7 @@
                 "response": "D"
             }
         ],
-        "TMMLU_用電設備檢驗": [
+        "TMMLU/用電設備檢驗": [
             {
                 "id": "0",
                 "response": "B"
@@ -64687,7 +64797,7 @@
                 "response": "A"
             }
         ],
-        "TMMLU_社會工作大意": [
+        "TMMLU/社會工作大意": [
             {
                 "id": "0",
                 "response": "D"
@@ -64889,7 +64999,7 @@
                 "response": "B"
             }
         ],
-        "TMMLU_綜合法政知識": [
+        "TMMLU/綜合法政知識": [
             {
                 "id": "0",
                 "response": "B"
@@ -65119,7 +65229,7 @@
                 "response": "b"
             }
         ],
-        "TMMLU_網路架設": [
+        "TMMLU/網路架設": [
             {
                 "id": "0",
                 "response": "B"
@@ -65353,7 +65463,7 @@
                 "response": "B"
             }
         ],
-        "TMMLU_電路電子學": [
+        "TMMLU/電路電子學": [
             {
                 "id": "0",
                 "response": "D"
@@ -65407,7 +65517,7 @@
                 "response": "D"
             }
         ],
-        "TMMLU_臨床心理學": [
+        "TMMLU/臨床心理學": [
             {
                 "id": "0",
                 "response": "B"
@@ -66445,7 +66555,7 @@
                 "response": "B"
             }
         ],
-        "TMMLU_飛機修護": [
+        "TMMLU/飛機修護": [
             {
                 "id": "0",
                 "response": "B"
@@ -66687,7 +66797,7 @@
                 "response": "B"
             }
         ],
-        "TMMLU_行銷管理": [
+        "TMMLU/行銷管理": [
             {
                 "id": "0",
                 "response": "A"
@@ -66893,7 +67003,7 @@
                 "response": "B"
             }
         ],
-        "TMMLU_裝潢木工": [
+        "TMMLU/裝潢木工": [
             {
                 "id": "0",
                 "response": "C"
@@ -67127,7 +67237,7 @@
                 "response": "C"
             }
         ],
-        "TMMLU_製鞋─製面": [
+        "TMMLU/製鞋─製面": [
             {
                 "id": "0",
                 "response": "C"
@@ -67365,7 +67475,7 @@
                 "response": "B"
             }
         ],
-        "TMMLU_資訊安全": [
+        "TMMLU/資訊安全": [
             {
                 "id": "0",
                 "response": "D"
@@ -67667,7 +67777,7 @@
                 "response": "D"
             }
         ],
-        "TMMLU_計算機數學": [
+        "TMMLU/計算機數學": [
             {
                 "id": "0",
                 "response": "1"
@@ -67709,7 +67819,7 @@
                 "response": "a"
             }
         ],
-        "TMMLU_農田灌溉排水─灌溉水質管理及檢驗項": [
+        "TMMLU/農田灌溉排水─灌溉水質管理及檢驗項": [
             {
                 "id": "0",
                 "response": "B"
@@ -67931,7 +68041,7 @@
                 "response": "D"
             }
         ],
-        "TMMLU_通信技術": [
+        "TMMLU/通信技術": [
             {
                 "id": "0",
                 "response": "B"
@@ -68149,7 +68259,7 @@
                 "response": "A"
             }
         ],
-        "TMMLU_配電電纜裝修": [
+        "TMMLU/配電電纜裝修": [
             {
                 "id": "0",
                 "response": "A"
@@ -68375,7 +68485,7 @@
                 "response": "B"
             }
         ],
-        "TMMLU_金銀珠寶飾品加工": [
+        "TMMLU/金銀珠寶飾品加工": [
             {
                 "id": "0",
                 "response": "B"

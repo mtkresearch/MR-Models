@@ -76,9 +76,12 @@ reference:
 
 ## Generation
 
-We provide generation scripts in `inference/`. See `inference/run.sh` for an example of the usage.
+We provide generation script. Execute the following command to generate results
+```
+python3 inference.py --config ./configs/base.json --model_name my_model
+```
 
-We recommend launching a [`TGI` service](https://huggingface.co/docs/text-generation-inference/main/en/index) to send queries to model. You can set this in a config dictionary. For example, in `inference/tasks_config.json`, replace `api_base` field with your own local server address.
+We recommend launching a [`TGI` service](https://huggingface.co/docs/text-generation-inference/main/en/index) to send queries to model. You can set this in a config dictionary. For example, in `configs/base.json`, replace `api_base` field with your own local server address.
 
 
 ## Citation

@@ -19,17 +19,17 @@ class ResponseModel:
 
 class AutoHFResponseModel(ResponseModel):
     def __init__(self, 
-                 model_name: str,
+                 hf_model_path: str,
                  **kwargs) -> None:
         
         self.device = torch.device("cuda")
 
         # Load model
-        config = AutoConfig.from_pretrained(model_name)
+        config = AutoConfig.from_pretrained(hf_model_path)
         model = AutoModelForCausalLM.from_config(config)
-        self.model = load_checkpoint_and_dispatch(model, model_name, device_map = "auto", no_split_module_classes=model._no_split_modules, dtype=torch.float16)
+        self.model = load_checkpoint_and_dispatch(model, hf_model_path, device_map = "auto", no_split_module_classes=model._no_split_modules, dtype=torch.float16)
         # Load tokenizer
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+        self.tokenizer = AutoTokenizer.from_pretrained(hf_model_path)
 
     def get_response(self, input_text: str, **kwargs) -> Dict[str, any]:
         encoded_inputs = self.tokenizer(input_text, return_tensor="pt").to(self.device)
