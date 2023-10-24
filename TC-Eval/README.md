@@ -17,29 +17,13 @@ TC-Eval is a Traditional Chinese evaluation suite for foundation models. It cove
 - **Table Understanding**
   - **Penguins-in-a-Table-TC** (translate from [[7]](#7)): The “penguins in a table” task contained in BIG-bench asks a language model to answer questions about the animals contained in a table, or multiple tables, described in the context.
 
-reference:
-
-<a id="1">[1]</a> Chih Chieh Shao, Trois Liu, Yuting Lai, Yiying Tseng, and Sam Tsai. DRCD: A Chinese machine reading comprehension dataset, 2019.
-
-<a id="2">[2]</a> STPI. 2020 「科技大擂台與AI對話」訓練資料集, 2020.
-
-<a id="3">[3]</a> Philipp Ennen, Po-Chun Hsu, Chan-Jan Hsu, Chang-Le Liu, Yen-Chen Wu, Yin-Hsiang Liao, Chin-Tung Lin, Da-Shan Shiu, and Wei-Yun Ma. Extending the pre-training of bloom for improved support of Traditional Chinese: Models, methods and results, 2023.
-
-<a id="4">[4]</a> Chan-Jan Hsu, Chang-Le Liu, Feng-Ting Liao, Po-Chun Hsu, Yi-Chang Chen, and Da-shan Shiu. Advancing the Evaluation of Traditional Chinese Language Models: Towards a Comprehensive Benchmark Suite, 2023.
-
-<a id="5">[5]</a> Shashi Narayan, Shay B. Cohen, and Mirella Lapata. Don’t give me the details, just the summary! topic- aware convolutional neural networks for extreme summarization. ArXiv, abs/1808.08745, 2018.
-
-<a id="6">[6]</a> Andrew L. Maas, Raymond E. Daly, Peter T. Pham, Dan Huang, Andrew Y. Ng, and Christopher Potts. Learning word vectors for sentiment analysis. In Proceedings of the 49th Annual Meeting of the Associ- ation for Computational Linguistics: Human Language Technologies, pages 142–150, Portland, Oregon, USA, June 2011. Association for Computational Linguistics.
-
-<a id="7">[7]</a> BIG-bench authors. Beyond the imitation game: Quantifying and extrapolating the capabilities of language models. Transactions on Machine Learning Research, 2023. ISSN 2835-8856.
-
-## Evaluate your models
+## Evaluation with your results
 
 1. `pip install -r requirements.txt`
 
 2. Please follow the instruction in `data/DRCD_Test/README.md` and `data/FGC_Test/README.md` to prepare the dataset DRCD and FGC.
 
-3. Put your results in `results/{MODEL_NAME}_result.json` with the format as following:
+3. After the generation of your model, please place your results in `results/{MODEL_NAME}_result.json` with the format as follows:
 
 ```json
 {
@@ -74,7 +58,7 @@ reference:
 
 4. Run evaluation with `python evaluate.py`
 
-## Generation
+## Generation with your model
 
 We provide generation script. Execute the following command to generate results
 ```
@@ -96,3 +80,21 @@ We recommend launching a [`TGI` service](https://huggingface.co/docs/text-genera
     primaryClass={cs.CL}
 }
 ```
+
+
+## Reference
+
+<a id="1">[1]</a> Chih Chieh Shao, Trois Liu, Yuting Lai, Yiying Tseng, and Sam Tsai. DRCD: A Chinese machine reading comprehension dataset, 2019.
+
+<a id="2">[2]</a> STPI. 2020 「科技大擂台與AI對話」訓練資料集, 2020.
+
+<a id="3">[3]</a> Philipp Ennen, Po-Chun Hsu, Chan-Jan Hsu, Chang-Le Liu, Yen-Chen Wu, Yin-Hsiang Liao, Chin-Tung Lin, Da-Shan Shiu, and Wei-Yun Ma. Extending the pre-training of bloom for improved support of Traditional Chinese: Models, methods and results, 2023.
+
+<a id="4">[4]</a> Chan-Jan Hsu, Chang-Le Liu, Feng-Ting Liao, Po-Chun Hsu, Yi-Chang Chen, and Da-shan Shiu. Advancing the Evaluation of Traditional Chinese Language Models: Towards a Comprehensive Benchmark Suite, 2023.
+
+<a id="5">[5]</a> Shashi Narayan, Shay B. Cohen, and Mirella Lapata. Don’t give me the details, just the summary! topic- aware convolutional neural networks for extreme summarization. ArXiv, abs/1808.08745, 2018.
+
+<a id="6">[6]</a> Andrew L. Maas, Raymond E. Daly, Peter T. Pham, Dan Huang, Andrew Y. Ng, and Christopher Potts. Learning word vectors for sentiment analysis. In Proceedings of the 49th Annual Meeting of the Associ- ation for Computational Linguistics: Human Language Technologies, pages 142–150, Portland, Oregon, USA, June 2011. Association for Computational Linguistics.
+
+<a id="7">[7]</a> BIG-bench authors. Beyond the imitation game: Quantifying and extrapolating the capabilities of language models. Transactions on Machine Learning Research, 2023. ISSN 2835-8856.
+
