@@ -110,6 +110,6 @@ class OpenAIResponseModel(ResponseModel):
             error: str = f"OpenAI error: {e}"
             print(error)
             
-        completions = [c['message']['contnet'] for c in outputs['choices']]
+        completions = [c['message']['content'] for c in outputs['choices']]
         
         return {"completions": completions}
