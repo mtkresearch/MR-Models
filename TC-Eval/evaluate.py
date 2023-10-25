@@ -282,10 +282,29 @@ def evaluate_all(result_path):
 
 
 if __name__ == '__main__':
+    df_dict = {}
     for path in glob(f'{_CUR_DIR}/results/*_result.json'):
         print(f'== {path} ==')
         metrics = evaluate_all(path)
         metrics['TMMLU_Avg'] = {'accuracy': np.mean([metrics[k]['accuracy'] for k in metrics if 'TMMLU' in k])}
 
         pprint(metrics)
+        
+        # Dumping results into dictionary for benchmark.md
+        model_name = '_'.join(path.split('/')[-1].split('_')[:-1])
+        task_names, metric_names, model_vals = [], [], []
+        for tn, titm in metrics.items():
+            for mn, val in titm.items():
+                task_names.append(tn)
+                metric_names.append(mn)
+                model_vals.append(val)
+        if 'task_name' not in df_dict and 'metric' not in df_dict:
+            df_dict['task_name'] = task_names
+            df_dict['metric'] = metric_names
+
+        df_dict[model_name] = model_vals
         print('====')
+
+    with open('benchmark.md', 'w') as f:
+        markdown_txt = pd.DataFrame(df_dict).to_markdown()
+        f.write(markdown_txt)
