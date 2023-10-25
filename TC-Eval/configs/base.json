@@ -10,11 +10,11 @@
     },
     "prompt_config": {
       "model_template": "llama2",
-      "sys_prompt": "",
+      "sys_prompt": "Put system prompt here",
       "prefix_query": "",
-      "suffix_query": "答案：",
+      "suffix_query": " 答案：",
       "query_template": null
     },
-    "eval_num_samples": -1
+    "run_num_samples": -1
   }
 ]

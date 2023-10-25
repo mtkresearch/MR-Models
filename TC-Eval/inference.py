@@ -44,18 +44,14 @@ def generation_routine(config: Dict[str, Any], agg: ResultAggregator = None):
             break
 
         input_text = get_task_query_func(**sample)
-        try:
-            outputs = response_model.get_response(input_text, **config)
-            output_text = outputs['completions'][0]
+        outputs = response_model.get_response(input_text, **config)
+        output_text = outputs['completions'][0]
 
-            # Log results
-            log_state = dict(id=sample['id'], query=input_text, references=sample['references'], response=output_text)
-            agg.merge_result({task_name: [log_state]})
-            agg.save_agg_result_dict()
-        except Exception as e:
-            error_text = f"Error in generation loop: {e}"
-            print(error_text)
-
+        # Log results
+        log_state = dict(id=sample['id'], query=input_text, references=sample['references'], response=output_text)
+        agg.merge_result({task_name: [log_state]})
+        agg.save_agg_result_dict()
+        
 
 def run(config_path):
     configs = json.load(open(config_path, "r"))

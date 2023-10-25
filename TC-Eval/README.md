@@ -62,8 +62,9 @@ TC-Eval is a Traditional Chinese evaluation suite for foundation models. It cove
 
 We provide generation script. Execute the following command to generate results
 ```
-python3 inference.py --config ./configs/base.json --model_name my_model
+python3 inference.py --config ./configs/base.json
 ```
+See `configs/base.json` or `configs/base_all_tasks.json` for example settings of inference tasks.
 
 We recommend launching a [`TGI` service](https://huggingface.co/docs/text-generation-inference/main/en/index) to send queries to model. You can set this in a config dictionary. For example, in `configs/base.json`, replace `api_base` field with your own local server address.
 

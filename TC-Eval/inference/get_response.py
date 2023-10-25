@@ -67,9 +67,19 @@ class TGIResponseModel(ResponseModel):
                           'do_sample': kwargs.get('do_sample', False),
                           'temperature': kwargs.get('temperature', None),
                           'max_new_tokens': kwargs.get('max_new_tokens', 128)}
-        outputs = self._client.generate(input_text, **generation_cfg)
-        generated_text = outputs.generated_text
 
+        @retry(stop=stop_after_attempt(10))
+        def _do_it():
+            outputs = self._client.generate(input_text, **generation_cfg)
+            return outputs
+
+        try:
+            outputs = _do_it()
+        except Exception as e:
+            error: str = f"TGI error: {e}"
+            print(error)
+
+        generated_text = outputs.generated_text
         return {"completions": [generated_text]}
 
 

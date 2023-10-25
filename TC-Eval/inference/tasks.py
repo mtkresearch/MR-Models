@@ -33,10 +33,11 @@ class Task:
         """
         input_vars = dict(question=question, context=context)
         var_names = set(re.findall(r'\{(\w+)\}', query_template))
-        for k, v in kwargs:
+        for k, v in kwargs.items():
             if k in var_names:
                 input_vars[k] = v
-        query = query_template.format(input_vars)
+        assert 'question' in var_names or 'context' in var_names, "{question} or {context} vairable has to appear in query_template"
+        query = query_template.format(**input_vars)
         task_query = f"{prefix_query}{model_template_func(query)}{suffix_query}"
         return task_query
 
@@ -46,9 +47,9 @@ _DEFAULT_QUERY_TEMPLATE = {
     "FGC": "請根據以下內容回答問題，且答案需盡可能簡短。注意：答案必須為內容的子字串。\n\n{context}\n\n問題：{question}\n\n",
     "TTQA": "{question}",
     "TMMLU": "{question}",
-    "XSum_TC": "請閱讀以下評論，並回答此評論是正面還是負面，如果是正面，請回答\'正面\';，如果是負面，請回答\'負面\'：\n\n評論：{context}\n\n",
-    "IMDB_TC": "\n\n {context} \n\n 根據上述文章以一句話來總結\n\n",
-    "BB_Penguins_in_a_Table_TC": "{question}",
+    "IMDB_TC": "請閱讀以下評論，並回答此評論是正面還是負面，如果是正面，請回答\'正面\';，如果是負面，請回答\'負面\'：\n\n評論：{context}\n\n",
+    "XSum_TC_5k": "\n\n {context} \n\n 根據上述文章以一句話來總結\n\n",
+    "PenguinsInTable_TC": "{question}"
 }
 
 
@@ -56,14 +57,17 @@ def get_task_query_func(task_name, **prompt_config) -> callable:
     query_template = prompt_config.get('query_template', None)
     if query_template is None:
         query_template = _DEFAULT_QUERY_TEMPLATE[task_name]
-        print(f"User defined query templated not provided; use default = {query_template}")
+        print(f"Task@{task_name}: User defined query templated not provided; use default = {query_template}")
     
     model_template_func = partial(ALL_MODEL_TEMPLATE_FUNC[prompt_config.get("model_template", "default")], **prompt_config)
-
+    pconfig = {"prefix_query": prompt_config.get("prefix_query", ""), 
+               "suffix_query": prompt_config.get("suffix_query", ""),
+               "sys_prompt": prompt_config.get("sys_prompt", "")
+    }
     return partial(Task.get_task_query, 
                    query_template=query_template, 
-                   model_template_func=model_template_func
-                   **prompt_config)
+                   model_template_func=model_template_func,
+                   **pconfig)
 
 
 def get_task(task_name, prompt_config) -> Tuple[Dataset, callable]:

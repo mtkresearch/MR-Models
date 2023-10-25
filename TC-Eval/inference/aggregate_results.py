@@ -87,6 +87,8 @@ class ResultAggregator:
         for s in jdata[ds_name]:
             idx_str = str(s['id'])
             self._pdict[ds_name][idx_str]['response'] = s['response']
+            self._pdict[ds_name][idx_str]['query'] = s['query']
+            self._pdict[ds_name][idx_str]['references'] = s['references']
 
     def to_eval_dict(self) -> Dict[str, List[Dict[str, Any]]]:
         # Convert result dict to final output format
@@ -106,7 +108,7 @@ class ResultAggregator:
         if agg_result_dir is not None:
             dest = f"{agg_result_dir}/{self._model_name}_result.json"
         json.dump(outputs, open(dest, "w"), indent=2, ensure_ascii=False)
-        print(f".... dump aggregated results to {dest}")
+        # print(f".... dump aggregated results to {dest}")
 
 
     def aggregate_inference_results_for_evaluation(self, inference_results_dir):

@@ -84,7 +84,6 @@ class TTQA(Dataset):
 class TMMLU(Dataset):
     def __init__(self, data_dir: str = f"{_CUR_DIR}/../data/TMMLU/subjects", subject: str = None, **kwargs):
         assert subject is not None, f"subject = {subject} invalid"
-        self.name = f"{self.name}/{subject}"
         data_path = f"{data_dir}/{subject}/data.csv"
         self._df = pd.read_csv(data_path)
 
@@ -167,16 +166,16 @@ class BigBenchPenguinsInATableTC(Dataset):
         return {'question': question, 'references': references, 'id': str(sample['id'])}
 
 
-ALL_DATASETS = [
-    {'name': 'TTQA', 'dataset': TTQA},
-    {'name': 'DRCD', 'dataset': DRCD},
-    {'name': 'FGC', 'dataset': FGC},
-    {'name': 'XSum_TC', 'dataset': XSumTC},
-    {'name': 'IMDB_TC', 'dataset': IMDBTC},
-    {'name': 'BB_Penguins_in_a_Table_TC', 'dataset': BigBenchPenguinsInATableTC},
-    *[{'name': f'TMMLU/{subject}', 'dataset': partial(TMMLU, subject=f'{subject}')} 
-      for subject in os.listdir(f'{_CUR_DIR}/../data/TMMLU/subjects/')]
-]
+ALL_DATASETS = {
+    'TTQA': TTQA,
+    'DRCD': DRCD,
+    'FGC': FGC,
+    'XSum_TC_5k': XSumTC,
+    'IMDB_TC': IMDBTC,
+    'PenguinsInTable_TC': BigBenchPenguinsInATableTC,
+    **{f'TMMLU/{subject}': partial(TMMLU, subject=f'{subject}')
+      for subject in os.listdir(f'{_CUR_DIR}/../data/TMMLU/subjects/')}
+}
 
 if __name__ == '__main__':
     ds = BigBenchPenguinsInATableTC()
