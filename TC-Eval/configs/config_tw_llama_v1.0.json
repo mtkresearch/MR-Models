@@ -4,8 +4,7 @@
     "resp_model_name": "tgi",
     "api_base": "http://colglx0008000:1234",
     "generation_config": {
-      "max_new_tokens": 128,
-      "temperature": 0
+      "max_new_tokens": 128
     }
   },
   "tasks": [
@@ -57,6 +56,11 @@
         "prefix_query": "",
         "suffix_query": "",
         "query_template": null
+      },
+      "generation_config": {
+        "max_new_tokens": 128,
+        "do_sample": true,
+        "temperature": 0.3
       }
     },
     {

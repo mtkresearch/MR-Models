@@ -37,6 +37,12 @@ def generation_routine(response_model: ResponseModel,
     dataset_cls, get_task_query_func = get_task(task_name, prompt_config)
     dataset = dataset_cls()
     
+    # Setup generation config
+    gen_config = dict(**common_config['generation_config'])
+    if 'generation_config' in task_config:
+        gen_config.update(task_config["generation_config"])
+        print(f"Task specific generation config found. Overriding the common generation config. See \n{gen_config}")
+    
     run_num_samples = common_config.get('num_samples', -1)
     run_num_samples = min(run_num_samples, len(dataset)) if run_num_samples != -1 else len(dataset)
     for i, sample in tqdm(enumerate(dataset), desc=task_name, total=run_num_samples):
@@ -44,7 +50,7 @@ def generation_routine(response_model: ResponseModel,
             break
 
         input_text = get_task_query_func(**sample)
-        outputs = response_model.get_response(input_text, **common_config['generation_config'])
+        outputs = response_model.get_response(input_text, **gen_config)
         output_text = outputs['completions'][0]
 
         # Log results

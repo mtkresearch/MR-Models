@@ -68,7 +68,6 @@ class TGIResponseModel(ResponseModel):
                           'temperature': kwargs.get('temperature', None),
                           'max_new_tokens': kwargs.get('max_new_tokens', 128)}
 
-        @retry(stop=stop_after_attempt(10))
         def _do_it():
             outputs = self._client.generate(input_text, **generation_cfg)
             return outputs
