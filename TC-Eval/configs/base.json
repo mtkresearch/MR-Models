@@ -1,10 +1,20 @@
-{
-  "model_name": "some_model",
-  "resp_model_name": "tgi",
-  "api_base": "http://colglx0008000:1234",
-  "system_prompt": "",
-  "generation_config": {
-    "max_new_tokens": 128
-  },
-  "debug_num_samples": -1
-}
+[
+  {
+    "model_name": "my_model",
+    "task_name": "task_name",
+    "resp_model_name": "tgi",
+    "api_base": "http://colglx0008000:1234",
+    "generation_config": {
+      "max_new_tokens": 128,
+      "temperature": 0
+    },
+    "prompt_config": {
+      "model_template": "llama2",
+      "sys_prompt": "",
+      "prefix_query": "",
+      "suffix_query": "答案：",
+      "query_template": null
+    },
+    "eval_num_samples": -1
+  }
+]

@@ -3,6 +3,8 @@ import re
 import json
 from typing import Dict
 
+from functools import partial
+
 from torch.utils.data import Dataset
 from datasets import load_from_disk
 from rich import print
@@ -130,9 +132,9 @@ class IMDBTC(Dataset):
         _lzh = {0: "負面", 1: "正面"}[label]
         references = [_lzh]
 
-        question = f"請閱讀以下評論，並回答此評論是正面還是負面，如果是正面，請回答\'正面\';，如果是負面，請回答\'負面\'：\n\n評論：{context}\n\n"
+        # question = f"請閱讀以下評論，並回答此評論是正面還是負面，如果是正面，請回答\'正面\';，如果是負面，請回答\'負面\'：\n\n評論：{context}\n\n"
 
-        return {'question': question, 'references': references, 'id': str(idx)}
+        return {'context': context, 'references': references, 'id': str(idx)}
 
 
 class BigBenchPenguinsInATableTC(Dataset):
@@ -165,9 +167,15 @@ class BigBenchPenguinsInATableTC(Dataset):
         return {'question': question, 'references': references, 'id': str(sample['id'])}
 
 
-ALL_DatasetS = [
-    {'name': 'TTQA', 'dataset': TTQA()},
-    ...
+ALL_DATASETS = [
+    {'name': 'TTQA', 'dataset': TTQA},
+    {'name': 'DRCD', 'dataset': DRCD},
+    {'name': 'FGC', 'dataset': FGC},
+    {'name': 'XSum_TC', 'dataset': XSumTC},
+    {'name': 'IMDB_TC', 'dataset': IMDBTC},
+    {'name': 'BB_Penguins_in_a_Table_TC', 'dataset': BigBenchPenguinsInATableTC},
+    *[{'name': f'TMMLU/{subject}', 'dataset': partial(TMMLU, subject=f'{subject}')} 
+      for subject in os.listdir(f'{_CUR_DIR}/../data/TMMLU/subjects/')]
 ]
 
 if __name__ == '__main__':

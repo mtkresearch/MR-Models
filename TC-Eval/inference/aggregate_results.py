@@ -121,8 +121,6 @@ class ResultAggregator:
         The `result.json` is expected to have the following format
 
         """
-        pdict = _create_placeholder_eval_result_dict()
-        
         # Fill the results back to pdict
         result_jpath = glob.glob(f"{inference_results_dir}/**/result.json", recursive=True)
 
