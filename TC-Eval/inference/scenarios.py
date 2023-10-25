@@ -1,22 +1,18 @@
 import os
 import re
+import json
 from typing import Dict
+
 from torch.utils.data import Dataset
 from datasets import load_from_disk
 from rich import print
-import json
 import numpy as np
 import pandas as pd
 
 _CUR_DIR = os.path.dirname(os.path.realpath(__file__))
 
 
-class Scenario(Dataset):
-    name: str = None
-
-
-class DRCD(Scenario):
-    name: str = "DRCD"
+class DRCD(Dataset):
     def __init__(self, data_path: str = f"{_CUR_DIR}/../data/DRCD_Test/preprocessed_DRCD_test.json", **kwargs):
         raw_data = json.load(open(data_path, "r"))
         self._js_ds = [dict(id=str(i), **obj) for i, obj in raw_data.items()]
@@ -35,8 +31,7 @@ class DRCD(Scenario):
         return {'context': context, 'question': question, 'references': references, 'id': str(idx)}
 
 
-class FGC(Scenario):
-    name: str = "FGC"
+class FGC(Dataset):
     def __init__(self, data_path: str = f"{_CUR_DIR}/../data/FGC_Test/preprocessed_FGC_official_final.json", **kwargs):
         raw_data = json.load(open(data_path, "r"))
         self._js_ds = [dict(id=str(i), **obj) for i, obj in raw_data.items()]
@@ -57,8 +52,7 @@ class FGC(Scenario):
         return {'context': context, 'question': question, 'references': references, 'id': str(sample['id'])}
 
 
-class TTQA(Scenario):
-    name: str = "TTQA"
+class TTQA(Dataset):
     def __init__(self, data_path: str = f"{_CUR_DIR}/../data/TTQA/TTQA_mc_2.0.0.json", **kwargs):
         raw_data = json.load(open(data_path, "r", encoding="utf-8"))
         self._js_ds = [dict(id=str(i), **obj) for i, obj in raw_data.items()]
@@ -85,8 +79,7 @@ class TTQA(Scenario):
         return {'question': question, 'references': references, 'id': str(sample['id'])}
 
 
-class TMMLU(Scenario):
-    name: str = "TMMLU"
+class TMMLU(Dataset):
     def __init__(self, data_dir: str = f"{_CUR_DIR}/../data/TMMLU/subjects", subject: str = None, **kwargs):
         assert subject is not None, f"subject = {subject} invalid"
         self.name = f"{self.name}/{subject}"
@@ -105,8 +98,7 @@ class TMMLU(Scenario):
         return {'question': question, 'references': references, 'id': int(idx)}
 
 
-class XSumTC(Scenario):
-    name: str = "XSum_TC_5k"
+class XSumTC(Dataset):
     def __init__(self, data_path: str = f"{_CUR_DIR}/../data/XSum_TC_5k/test_sub5000.csv", **kwargs):
         self._df = pd.read_csv(data_path)
 
@@ -122,8 +114,7 @@ class XSumTC(Scenario):
         return {'context': context, 'references': references, 'id': str(idx)}
 
 
-class IMDBTC(Scenario):
-    name:str = "IMDB_TC"
+class IMDBTC(Dataset):
     def __init__(self, data_path: str = f"{_CUR_DIR}/../data/IMDB_TC/test.csv", **kwargs):
         self._df = pd.read_csv(data_path)
 
@@ -144,8 +135,7 @@ class IMDBTC(Scenario):
         return {'question': question, 'references': references, 'id': str(idx)}
 
 
-class BigBenchPenguinsInATableTC(Scenario):
-    name: str = "PenguinsInTable_TC"
+class BigBenchPenguinsInATableTC(Dataset):
     def __init__(self, data_path: str = f"{_CUR_DIR}/../data/PenguinsInTable_TC/data.json", **kwargs):
         raw_data = json.load(open(data_path, "r"))
         self._js_ds = [dict(id=str(k), **v) for k, v in raw_data.items()]
@@ -174,6 +164,11 @@ class BigBenchPenguinsInATableTC(Scenario):
 
         return {'question': question, 'references': references, 'id': str(sample['id'])}
 
+
+ALL_DatasetS = [
+    {'name': 'TTQA', 'dataset': TTQA()},
+    ...
+]
 
 if __name__ == '__main__':
     ds = BigBenchPenguinsInATableTC()
