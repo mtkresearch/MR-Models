@@ -5,7 +5,7 @@ from typing import Dict, Any
 from tqdm import tqdm
 from rich import print
 
-from inference.get_response import TGIResponseModel, OpenAIResponseModel
+from inference.get_response import TGIResponseModel, OpenAIResponseModel, ResponseModel
 from inference.aggregate_results import ResultAggregator
 from inference.tasks import get_task
 
@@ -27,24 +27,24 @@ def _get_response_model(config):
     return response_model
 
 
-def generation_routine(config: Dict[str, Any], agg: ResultAggregator = None):
-    # Set up response model
-    response_model = _get_response_model(config)
-
+def generation_routine(response_model: ResponseModel,
+                       common_config: Dict[str, Any], 
+                       task_config: Dict[str, Any], 
+                       agg: ResultAggregator = None):
     # Setup task
-    task_name = config['task_name']
-    prompt_config = config['prompt_config']
+    task_name = task_config['task_name']
+    prompt_config = task_config['prompt_config']
     dataset_cls, get_task_query_func = get_task(task_name, prompt_config)
     dataset = dataset_cls()
     
-    run_num_samples = config['run_num_samples']
+    run_num_samples = common_config.get('num_samples', -1)
     run_num_samples = min(run_num_samples, len(dataset)) if run_num_samples != -1 else len(dataset)
     for i, sample in tqdm(enumerate(dataset), desc=task_name, total=run_num_samples):
         if i > run_num_samples:
             break
 
         input_text = get_task_query_func(**sample)
-        outputs = response_model.get_response(input_text, **config)
+        outputs = response_model.get_response(input_text, **common_config['generation_config'])
         output_text = outputs['completions'][0]
 
         # Log results
@@ -54,16 +54,21 @@ def generation_routine(config: Dict[str, Any], agg: ResultAggregator = None):
         
 
 def run(config_path):
-    configs = json.load(open(config_path, "r"))
+    config = json.load(open(config_path, "r"))
+    
+    common_config = config['common']
+    task_configs = config['tasks']
     
     # Create dummy placeholder
-    model_name = configs[0]['model_name']
+    model_name = common_config['model_name']
     agg = ResultAggregator(model_name)
-    assert len(set([c['model_name'] for c in configs])) == 1, f"Do not support inferencing multiple LM models atm."
+
+    # Load response model
+    response_model = _get_response_model(common_config)
 
     # Go through scenarios
-    for config in configs:
-        generation_routine(config, agg)
+    for task_config in task_configs:
+        generation_routine(response_model, common_config, task_config, agg)
 
 
 if __name__ == '__main__':

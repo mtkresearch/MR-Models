@@ -84,12 +84,12 @@ class TGIResponseModel(ResponseModel):
 
 
 class OpenAIResponseModel(ResponseModel):
-    def __init__(self, 
-                 api_base: str = None, 
+    def __init__(self,  
                  api_key: str = None,
+                 engine: str = None,
                  api_type: str = None,
                  api_version: str = None,
-                 engine: str = None,
+                 api_base: str = "https://api.openai.com/v1",
                  **kwargs):
         
         self.api_base = api_base
