@@ -77,7 +77,7 @@ def run(config_path):
     response_model = _get_response_model(default_config)
 
     # Go through tasks
-    tasks = config['tasks']
+    tasks = config['task_specific']
     task_configs = [deep_merge(default_config, t) for t in tasks]    
     for task_config in task_configs:
         print(task_config)

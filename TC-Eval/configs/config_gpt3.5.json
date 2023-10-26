@@ -15,7 +15,7 @@
       "query_template": null
     }
   },
-  "tasks": [
+  "task_specific": [
     {
       "task_name": "DRCD",
       "prompt_config": {
