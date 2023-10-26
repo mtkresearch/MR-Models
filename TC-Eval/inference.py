@@ -8,7 +8,7 @@ from rich import print
 from inference.get_response import TGIResponseModel, OpenAIResponseModel, ResponseModel
 from inference.aggregate_results import ResultAggregator
 from inference.tasks import get_task
-from inference.utils import task_config_check
+from inference.utils import task_config_check, deep_merge
 
 
 _CUR_DIR = os.path.dirname(os.path.realpath(__file__))
@@ -29,19 +29,22 @@ def _get_response_model(config):
 
 def _get_gen_config(config):
     resp_model_name = config['resp_model_name']
-    return {'tgi': config['tgi_generation_config'],
-            'openai': config['openai_generation_config']
-            }[resp_model_name]
+    if resp_model_name == 'tgi':
+        return config["tgi_generation_config"]
+    elif resp_model_name == "openai":
+        return config["openai_generation_config"]
+    else:
+        raise NotImplementedError
     
 
 def generation_routine(response_model: ResponseModel,
                        config: Dict[str, Any],
-                       agg: ResultAggregator = None)
+                       agg: ResultAggregator = None):
     # Setup task
     task_name = config['task_name']
     prompt_config = config['prompt_config']
     dataset_cls, get_task_query_func = get_task(task_name, prompt_config)
-    dataset = dataset_cls()
+    dataset = dataset_cls(**config)
     
     # Setup generation config
     gen_config = _get_gen_config(config)
@@ -75,9 +78,9 @@ def run(config_path):
 
     # Go through tasks
     tasks = config['tasks']
-    # Create task specific configs
-    task_configs = [dict(**default_cfg_path).update(t) for t in tasks]    
+    task_configs = [deep_merge(default_config, t) for t in tasks]    
     for task_config in task_configs:
+        print(task_config)
         task_config_check(task_config)
         generation_routine(response_model, task_config, agg)
 
