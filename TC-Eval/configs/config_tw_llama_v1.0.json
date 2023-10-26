@@ -2,7 +2,7 @@
   "default": {
     "model_name": "tw_llama_v1.0",
     "resp_model_name": "tgi",
-    "api_base": "http://colglx0008000:1234",
+    "api_base": "YOUR_TGI_ADDRESS",
     "tgi_generation_config": {
       "max_new_tokens": 128,
       "do_sample": false,
