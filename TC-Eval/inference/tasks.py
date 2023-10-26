@@ -18,17 +18,16 @@ class Task:
                        context: str = "",
                        query_template: str = "{question}{context}",
                        model_template_func: callable = lambda x: x,
-                       prefix_query: str = "",
-                       suffix_query: str = "",
+                       prefix_resp: str = "",
                        **kwargs):
         r"""
         A full `task_query` consists of three parts as follows:
-             [3]                 [2]                 [1]              [2]                  [3]
-        <prefix_query> <model_template_wrap_front> <query> <model_template_wrap_back> <suffix_query>
+                   [2]                 [1]              [2]                  [3]
+         <model_template_wrap_front> <query> <model_template_wrap_back> <prefix_resp>
         
         [1]: query constructed by user defined `query_template` and data from scenarios, i.e. `question` and `context`
         [2]: wrapping of query by model template callable, e.g. `[INST] {query} [/INST]` as in llama or `USER: {query}` as in vincuna format
-        [3]: `prefix_query` and `suffix_query` defined by the user.
+        [3]: `prefix_resp` defined by the user.
 
         """
         input_vars = dict(question=question, context=context)
@@ -38,7 +37,7 @@ class Task:
                 input_vars[k] = v
         assert 'question' in var_names or 'context' in var_names, "{question} or {context} vairable has to appear in query_template"
         query = query_template.format(**input_vars)
-        task_query = f"{prefix_query}{model_template_func(query)}{suffix_query}"
+        task_query = f"{model_template_func(query)}{prefix_resp}"
         return task_query
 
 
@@ -60,8 +59,7 @@ def get_task_query_func(task_name, **prompt_config) -> callable:
         print(f"Task@{task_name}: User defined query templated not provided; use default = {query_template}")
     
     model_template_func = partial(ALL_MODEL_TEMPLATE_FUNC[prompt_config.get("model_template", "default")], **prompt_config)
-    pconfig = {"prefix_query": prompt_config.get("prefix_query", ""), 
-               "suffix_query": prompt_config.get("suffix_query", ""),
+    pconfig = {"prefix_resp": prompt_config.get("prefix_resp", ""),
                "sys_prompt": prompt_config.get("sys_prompt", "")
     }
     return partial(Task.get_task_query, 

@@ -12,8 +12,7 @@
     "prompt_config": {
       "model_template": "llama2",
       "sys_prompt": "",
-      "prefix_query": "",
-      "suffix_query": "",
+      "prefix_resp": "",
       "query_template": null
     }
   },
@@ -21,25 +20,25 @@
     {
       "task_name": "DRCD",
       "prompt_config": {
-        "suffix_query": " 答案： "
+        "prefix_resp": " 答案： "
       }
     },
     {
       "task_name": "FGC",
       "prompt_config": {
-        "suffix_query": " 答案： "
+        "prefix_resp": " 答案： "
       }
     },
     {
       "task_name": "TTQA",
       "prompt_config": {
-        "suffix_query": " 答案： "
+        "prefix_resp": " 答案： "
       }
     },
     {
       "task_name": "PenguinsInTable_TC",
       "prompt_config": {
-        "suffix_query": " 答案： "
+        "prefix_resp": " 答案： "
       }
     },
     {
