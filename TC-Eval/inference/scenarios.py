@@ -100,8 +100,12 @@ class TMMLU(Dataset):
 
 
 class XSumTC(Dataset):
-    def __init__(self, data_path: str = f"{_CUR_DIR}/../data/XSum_TC_5k/test_sub5000.csv", **kwargs):
+    def __init__(self,
+                 data_path: str = f"{_CUR_DIR}/../data/XSum_TC_5k/test_sub5000.csv",
+                 doc_max_length: str = 1024,
+                 **kwargs):
         self._df = pd.read_csv(data_path)
+        self._doc_max_length = doc_max_length
 
     def __len__(self):
         return len(self._df)
@@ -109,10 +113,16 @@ class XSumTC(Dataset):
     def __getitem__(self, idx) -> Dict[str, any]:
         sample = self._df.iloc[idx]
 
-        context = sample['document']
-        references = [sample['summary']]
+        context = XSumTC._truncate_text(sample['document'], self._doc_max_length)
+        summary = XSumTC._truncate_text(sample['summary'])
+        references = [summary]
 
         return {'context': context, 'references': references, 'id': str(idx)}
+
+    @staticmethod
+    def _truncate_text(text: str, text_max_len: int = None) -> str:
+        truncated_text = text.replace("\n", " ")[:text_max_len]
+        return truncated_text
 
 
 class IMDBTC(Dataset):

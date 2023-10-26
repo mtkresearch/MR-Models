@@ -1,13 +1,14 @@
 import os
 import json
 import argparse
-from typing import Dict, Any
+from typing import Dict, Any, Tuple
 from tqdm import tqdm
 from rich import print
 
 from inference.get_response import TGIResponseModel, OpenAIResponseModel, ResponseModel
 from inference.aggregate_results import ResultAggregator
 from inference.tasks import get_task
+from inference.utils import task_config_check
 
 
 _CUR_DIR = os.path.dirname(os.path.realpath(__file__))
@@ -15,7 +16,6 @@ _CUR_DIR = os.path.dirname(os.path.realpath(__file__))
 
 def _get_response_model(config):
     resp_model_name = config['resp_model_name']
-    response_model = None
     if resp_model_name == 'tgi':
         api_base = config['api_base']
         response_model = TGIResponseModel(api_base)
@@ -27,23 +27,26 @@ def _get_response_model(config):
     return response_model
 
 
+def _get_gen_config(config):
+    resp_model_name = config['resp_model_name']
+    return {'tgi': config['tgi_generation_config'],
+            'openai': config['openai_generation_config']
+            }[resp_model_name]
+    
+
 def generation_routine(response_model: ResponseModel,
-                       common_config: Dict[str, Any], 
-                       task_config: Dict[str, Any], 
-                       agg: ResultAggregator = None):
+                       config: Dict[str, Any],
+                       agg: ResultAggregator = None)
     # Setup task
-    task_name = task_config['task_name']
-    prompt_config = task_config['prompt_config']
+    task_name = config['task_name']
+    prompt_config = config['prompt_config']
     dataset_cls, get_task_query_func = get_task(task_name, prompt_config)
     dataset = dataset_cls()
     
     # Setup generation config
-    gen_config = dict(**common_config['generation_config'])
-    if 'generation_config' in task_config:
-        gen_config.update(task_config["generation_config"])
-        print(f"Task specific generation config found. Overriding the common generation config. See \n{gen_config}")
-    
-    run_num_samples = common_config.get('num_samples', -1)
+    gen_config = _get_gen_config(config)
+
+    run_num_samples = config.get('num_samples', -1)
     run_num_samples = min(run_num_samples, len(dataset)) if run_num_samples != -1 else len(dataset)
     for i, sample in tqdm(enumerate(dataset), desc=task_name, total=run_num_samples):
         if i > run_num_samples:
@@ -61,20 +64,22 @@ def generation_routine(response_model: ResponseModel,
 
 def run(config_path):
     config = json.load(open(config_path, "r"))
-    
-    common_config = config['common']
-    task_configs = config['tasks']
+    default_config = config['default']
     
     # Create dummy placeholder
-    model_name = common_config['model_name']
+    model_name = default_config['model_name']
     agg = ResultAggregator(model_name)
 
     # Load response model
-    response_model = _get_response_model(common_config)
+    response_model = _get_response_model(default_config)
 
-    # Go through scenarios
+    # Go through tasks
+    tasks = config['tasks']
+    # Create task specific configs
+    task_configs = [dict(**default_cfg_path).update(t) for t in tasks]    
     for task_config in task_configs:
-        generation_routine(response_model, common_config, task_config, agg)
+        task_config_check(task_config)
+        generation_routine(response_model, task_config, agg)
 
 
 if __name__ == '__main__':
