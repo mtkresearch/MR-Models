@@ -1,52 +1,42 @@
 import os
 import re
+import json
 from typing import Dict
+
+from functools import partial
+
 from torch.utils.data import Dataset
 from datasets import load_from_disk
 from rich import print
-import json
 import numpy as np
 import pandas as pd
 
 _CUR_DIR = os.path.dirname(os.path.realpath(__file__))
 
 
-class Scenario(Dataset):
-    name: str = None
-
-
-class DRCD(Scenario):
-    name: str = "DRCD"
-    def __init__(self, data_path: str = f"{_CUR_DIR}/../data/DRCD_Test/test.json", **kwargs):
+class DRCD(Dataset):
+    def __init__(self, data_path: str = f"{_CUR_DIR}/../data/DRCD_Test/preprocessed_DRCD_test.json", **kwargs):
+        raw_data = json.load(open(data_path, "r"))
+        self._js_ds = [dict(id=str(i), **obj) for i, obj in raw_data.items()]
         
-        all_samples = []
-        with open(data_path, encoding="utf-8") as f:
-            lines = f.readlines()
-        for line in lines:
-            if len(line) > 0:
-                all_samples.append(json.loads(line))
-
-        self._clean_samples = all_samples
-
     def __len__(self):
-        return len(self._clean_samples)
+        return len(self._js_ds)
 
     def __getitem__(self, idx) -> Dict[str, any]:
-        sample = self._clean_samples[idx]
+        sample = self._js_ds[idx]
 
-        context = sample['context']
+        context = sample['paragraph']
         question = sample['question']
-        references = [x['text'] for x in sample["answers"]]
+        references = sample['references']
         idx = sample['id']
 
         return {'context': context, 'question': question, 'references': references, 'id': str(idx)}
 
 
-class FGC(Scenario):
-    name: str = "FGC"
+class FGC(Dataset):
     def __init__(self, data_path: str = f"{_CUR_DIR}/../data/FGC_Test/preprocessed_FGC_official_final.json", **kwargs):
         raw_data = json.load(open(data_path, "r"))
-        self._js_ds = [dict(id=i, **obj) for i, obj in raw_data.items()]
+        self._js_ds = [dict(id=str(i), **obj) for i, obj in raw_data.items()]
 
     def __len__(self):
         return len(self._js_ds)
@@ -64,11 +54,10 @@ class FGC(Scenario):
         return {'context': context, 'question': question, 'references': references, 'id': str(sample['id'])}
 
 
-class TTQA(Scenario):
-    name: str = "TTQA"
+class TTQA(Dataset):
     def __init__(self, data_path: str = f"{_CUR_DIR}/../data/TTQA/TTQA_mc_2.0.0.json", **kwargs):
         raw_data = json.load(open(data_path, "r", encoding="utf-8"))
-        self._js_ds = [dict(id=i, **obj) for i, obj in raw_data.items()]
+        self._js_ds = [dict(id=str(i), **obj) for i, obj in raw_data.items()]
         
     def __len__(self):
         return len(self._js_ds)
@@ -92,11 +81,9 @@ class TTQA(Scenario):
         return {'question': question, 'references': references, 'id': str(sample['id'])}
 
 
-class TMMLU(Scenario):
-    name: str = "TMMLU"
+class TMMLU(Dataset):
     def __init__(self, data_dir: str = f"{_CUR_DIR}/../data/TMMLU/subjects", subject: str = None, **kwargs):
         assert subject is not None, f"subject = {subject} invalid"
-        self.name = f"{self.name}/{subject}"
         data_path = f"{data_dir}/{subject}/data.csv"
         self._df = pd.read_csv(data_path)
 
@@ -112,10 +99,13 @@ class TMMLU(Scenario):
         return {'question': question, 'references': references, 'id': int(idx)}
 
 
-class XSumTC(Scenario):
-    name: str = "XSum_TC"
-    def __init__(self, data_path: str = f"{_CUR_DIR}/../data/XSum_TC_5k/test_sub5000.csv", **kwargs):
+class XSumTC(Dataset):
+    def __init__(self,
+                 data_path: str = f"{_CUR_DIR}/../data/XSum_TC_5k/test_sub5000.csv",
+                 doc_max_length: str = 1024,
+                 **kwargs):
         self._df = pd.read_csv(data_path)
+        self._doc_max_length = doc_max_length
 
     def __len__(self):
         return len(self._df)
@@ -123,14 +113,19 @@ class XSumTC(Scenario):
     def __getitem__(self, idx) -> Dict[str, any]:
         sample = self._df.iloc[idx]
 
-        context = sample['document']
-        references = [sample['summary']]
+        context = XSumTC._truncate_text(sample['document'], self._doc_max_length)
+        summary = XSumTC._truncate_text(sample['summary'])
+        references = [summary]
 
         return {'context': context, 'references': references, 'id': str(idx)}
 
+    @staticmethod
+    def _truncate_text(text: str, text_max_len: int = None) -> str:
+        truncated_text = text.replace("\n", " ")[:text_max_len]
+        return truncated_text
 
-class IMDBTC(Scenario):
-    name:str = "IMDB_TC"
+
+class IMDBTC(Dataset):
     def __init__(self, data_path: str = f"{_CUR_DIR}/../data/IMDB_TC/test.csv", **kwargs):
         self._df = pd.read_csv(data_path)
 
@@ -146,16 +141,15 @@ class IMDBTC(Scenario):
         _lzh = {0: "負面", 1: "正面"}[label]
         references = [_lzh]
 
-        question = f"請閱讀以下評論，並回答此評論是正面還是負面，如果是正面，請回答\'正面\';，如果是負面，請回答\'負面\'：\n\n評論：{context}\n\n"
+        # question = f"請閱讀以下評論，並回答此評論是正面還是負面，如果是正面，請回答\'正面\';，如果是負面，請回答\'負面\'：\n\n評論：{context}\n\n"
 
-        return {'question': question, 'references': references, 'id': str(idx)}
+        return {'context': context, 'references': references, 'id': str(idx)}
 
 
-class BigBenchPenguinsInATableTC(Scenario):
-    name: str = "BB_Penguins_in_a_Table_TC"
+class BigBenchPenguinsInATableTC(Dataset):
     def __init__(self, data_path: str = f"{_CUR_DIR}/../data/PenguinsInTable_TC/data.json", **kwargs):
         raw_data = json.load(open(data_path, "r"))
-        self._js_ds = [dict(id=k, **v) for k, v in raw_data.items()]
+        self._js_ds = [dict(id=str(k), **v) for k, v in raw_data.items()]
 
     def __len__(self):
         return len(self._js_ds)
@@ -181,6 +175,17 @@ class BigBenchPenguinsInATableTC(Scenario):
 
         return {'question': question, 'references': references, 'id': str(sample['id'])}
 
+
+ALL_DATASETS = {
+    'TTQA': TTQA,
+    'DRCD': DRCD,
+    'FGC': FGC,
+    'XSum_TC_5k': XSumTC,
+    'IMDB_TC': IMDBTC,
+    'PenguinsInTable_TC': BigBenchPenguinsInATableTC,
+    **{f'TMMLU/{subject}': partial(TMMLU, subject=f'{subject}')
+      for subject in os.listdir(f'{_CUR_DIR}/../data/TMMLU/subjects/')}
+}
 
 if __name__ == '__main__':
     ds = BigBenchPenguinsInATableTC()

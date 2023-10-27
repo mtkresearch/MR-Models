@@ -1,0 +1,215 @@
+{
+  "default": {
+    "model_name": "tw_llama_v1.0",
+    "resp_model_name": "tgi",
+    "api_base": "YOUR_TGI_ADDRESS",
+    "tgi_generation_config": {
+      "max_new_tokens": 128,
+      "do_sample": false,
+      "temperature": null,
+      "best_of": 1
+    },
+    "prompt_config": {
+      "model_template": "llama2",
+      "sys_prompt": "",
+      "prefix_resp": "",
+      "query_template": null
+    }
+  },
+  "task_specific": [
+    {
+      "task_name": "DRCD",
+      "prompt_config": {
+        "prefix_resp": " 答案： "
+      }
+    },
+    {
+      "task_name": "FGC",
+      "prompt_config": {
+        "prefix_resp": " 答案： "
+      }
+    },
+    {
+      "task_name": "TTQA",
+      "prompt_config": {
+        "prefix_resp": " 答案： "
+      }
+    },
+    {
+      "task_name": "PenguinsInTable_TC",
+      "prompt_config": {
+        "prefix_resp": " 答案： "
+      }
+    },
+    {
+      "task_name": "XSum_TC_5k",
+      "doc_max_length": 1024,
+      "tgi_generation_config": {
+        "do_sample": true,
+        "temperature": 0.3
+      }
+    },
+    {
+      "task_name": "IMDB_TC"
+    },
+    {
+      "task_name": "TMMLU/國際法"
+    },
+    {
+      "task_name": "TMMLU/國際關係與近代外交史"
+    },
+    {
+      "task_name": "TMMLU/牙醫學"
+    },
+    {
+      "task_name": "TMMLU/網路架設"
+    },
+    {
+      "task_name": "TMMLU/飛機修護"
+    },
+    {
+      "task_name": "TMMLU/營養學"
+    },
+    {
+      "task_name": "TMMLU/電路電子學"
+    },
+    {
+      "task_name": "TMMLU/分科測驗公民與社會"
+    },
+    {
+      "task_name": "TMMLU/中餐烹調-葷食"
+    },
+    {
+      "task_name": "TMMLU/綜合法政知識"
+    },
+    {
+      "task_name": "TMMLU/法學知識"
+    },
+    {
+      "task_name": "TMMLU/機電整合"
+    },
+    {
+      "task_name": "TMMLU/邏輯推理"
+    },
+    {
+      "task_name": "TMMLU/中醫臨床醫學"
+    },
+    {
+      "task_name": "TMMLU/計算機數學"
+    },
+    {
+      "task_name": "TMMLU/油壓"
+    },
+    {
+      "task_name": "TMMLU/分科測驗歷史"
+    },
+    {
+      "task_name": "TMMLU/分科測驗數學甲"
+    },
+    {
+      "task_name": "TMMLU/製鞋─製配底"
+    },
+    {
+      "task_name": "TMMLU/臨床血清免疫學與臨床病毒學"
+    },
+    {
+      "task_name": "TMMLU/分科測驗化學"
+    },
+    {
+      "task_name": "TMMLU/會計學經濟學"
+    },
+    {
+      "task_name": "TMMLU/分科測驗地理"
+    },
+    {
+      "task_name": "TMMLU/裝潢木工"
+    },
+    {
+      "task_name": "TMMLU/金銀珠寶飾品加工"
+    },
+    {
+      "task_name": "TMMLU/建築塗裝"
+    },
+    {
+      "task_name": "TMMLU/中餐烹調─素食"
+    },
+    {
+      "task_name": "TMMLU/用電設備檢驗"
+    },
+    {
+      "task_name": "TMMLU/分科測驗生物"
+    },
+    {
+      "task_name": "TMMLU/分科測驗物理"
+    },
+    {
+      "task_name": "TMMLU/平版印刷"
+    },
+    {
+      "task_name": "TMMLU/社會工作大意"
+    },
+    {
+      "task_name": "TMMLU/會考數學"
+    },
+    {
+      "task_name": "TMMLU/資訊安全"
+    },
+    {
+      "task_name": "TMMLU/臨床心理學"
+    },
+    {
+      "task_name": "TMMLU/農田灌溉排水─灌溉水質管理及檢驗項"
+    },
+    {
+      "task_name": "TMMLU/製鞋─製面"
+    },
+    {
+      "task_name": "TMMLU/企業管理"
+    },
+    {
+      "task_name": "TMMLU/總體經濟"
+    },
+    {
+      "task_name": "TMMLU/食品檢驗分析"
+    },
+    {
+      "task_name": "TMMLU/基礎醫學"
+    },
+    {
+      "task_name": "TMMLU/會考國文"
+    },
+    {
+      "task_name": "TMMLU/商業道德"
+    },
+    {
+      "task_name": "TMMLU/行銷管理"
+    },
+    {
+      "task_name": "TMMLU/冷凍空調"
+    },
+    {
+      "task_name": "TMMLU/普通物理"
+    },
+    {
+      "task_name": "TMMLU/普通生物學"
+    },
+    {
+      "task_name": "TMMLU/通信技術"
+    },
+    {
+      "task_name": "TMMLU/普通化學"
+    },
+    {
+      "task_name": "TMMLU/觀光資源概要"
+    },
+    {
+      "task_name": "TMMLU/中式麵食加工"
+    },
+    {
+      "task_name": "TMMLU/配電電纜裝修"
+    },
+    {
+      "task_name": "TMMLU/車輛塗裝"
+    }
+  ]
+}

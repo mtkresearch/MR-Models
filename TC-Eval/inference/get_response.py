@@ -2,13 +2,13 @@ from typing import Dict
 from abc import abstractmethod
 
 import openai
-import tiktoken
 
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, AutoConfig
 from accelerate import load_checkpoint_and_dispatch
 
 import text_generation as tg
+from tenacity import retry, stop_after_attempt
 
 
 class ResponseModel:
@@ -19,17 +19,17 @@ class ResponseModel:
 
 class AutoHFResponseModel(ResponseModel):
     def __init__(self, 
-                 model_name: str,
+                 hf_model_path: str,
                  **kwargs) -> None:
         
         self.device = torch.device("cuda")
 
         # Load model
-        config = AutoConfig.from_pretrained(model_name)
+        config = AutoConfig.from_pretrained(hf_model_path)
         model = AutoModelForCausalLM.from_config(config)
-        self.model = load_checkpoint_and_dispatch(model, model_name, device_map = "auto", no_split_module_classes=model._no_split_modules, dtype=torch.float16)
+        self.model = load_checkpoint_and_dispatch(model, hf_model_path, device_map = "auto", no_split_module_classes=model._no_split_modules, dtype=torch.float16)
         # Load tokenizer
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+        self.tokenizer = AutoTokenizer.from_pretrained(hf_model_path)
 
     def get_response(self, input_text: str, **kwargs) -> Dict[str, any]:
         encoded_inputs = self.tokenizer(input_text, return_tensor="pt").to(self.device)
@@ -67,19 +67,28 @@ class TGIResponseModel(ResponseModel):
                           'do_sample': kwargs.get('do_sample', False),
                           'temperature': kwargs.get('temperature', None),
                           'max_new_tokens': kwargs.get('max_new_tokens', 128)}
-        outputs = self._client.generate(input_text, **generation_cfg)
-        generated_text = outputs.generated_text
 
+        def _do_it():
+            outputs = self._client.generate(input_text, **generation_cfg)
+            return outputs
+
+        try:
+            outputs = _do_it()
+        except Exception as e:
+            error: str = f"TGI error: {e}"
+            print(error)
+
+        generated_text = outputs.generated_text
         return {"completions": [generated_text]}
 
 
 class OpenAIResponseModel(ResponseModel):
-    def __init__(self, 
-                 api_base: str = None, 
+    def __init__(self,  
                  api_key: str = None,
+                 engine: str = None,
                  api_type: str = None,
                  api_version: str = None,
-                 engine: str = None,
+                 api_base: str = "https://api.openai.com/v1",
                  **kwargs):
         
         self.api_base = api_base
@@ -89,15 +98,24 @@ class OpenAIResponseModel(ResponseModel):
         self.engine = engine
 
     def get_response(self, input_text: str, **kwargs) -> Dict[str, any]:
+        @retry(stop=stop_after_attempt(10))
         def _do_it():
             openai.organization = None
             openai.api_key = self.api_key
             openai.api_base = self.api_base
             openai.api_type = self.api_type
             openai.api_version = self.api_version
-
+            
+            # Setup messages
+            messages = []
+            if 'sys_prompt' in kwargs:
+                messages.append({"role": "system", "content": kwargs['sys_prompt']})
+            messages.append({"role": "user", "content": input_text})
+            if 'prefix_resp' in kwargs:
+                messages.append({"role": "assistant", "content": kwargs['prefix_resp']})
+            
             raw_request = {'engine': self.engine,
-                           'messages': [{"role": "user", "content": input_text}],
+                           'messages': messages,
                            'temperature': kwargs.get('temperature', None)}
             extra_cfg=dict(headers={'Host': 'mlop-azure-gateway.mediatek.inc', 'X-User-Id': 'mtk53598'})
             raw_request.update(**extra_cfg)
@@ -109,6 +127,6 @@ class OpenAIResponseModel(ResponseModel):
             error: str = f"OpenAI error: {e}"
             print(error)
             
-        completions = [c['message']['contnet'] for c in outputs['choices']]
+        completions = [c['message']['content'] for c in outputs['choices']]
         
         return {"completions": completions}

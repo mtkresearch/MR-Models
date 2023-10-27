@@ -10,6 +10,8 @@ from sumeval.metrics.rouge import RougeCalculator
 import numpy as np
 import pandas as pd
 
+_CUR_DIR = os.path.dirname(os.path.realpath(__file__))
+
 
 def prefix_exact_match(gold: str, pred: str) -> float:
     if not pred:
@@ -259,14 +261,14 @@ class FGCTask(QuestionAnsweringTask):
 
 
 EVALUATION_ITEMS = [
-    ['XSum_TC_5k', XSumTCTask('./data/XSum_TC_5k/')],
-    ['DRCD', DRCDTask('./data/DRCD_Test/')],
-    ['FGC', FGCTask('./data/FGC_Test')],
-    ['TTQA', TTQATask('./data/TTQA/')],
-    ['IMDB_TC', IMDBTCTask('./data/IMDB_TC/')],
-    ['PenguinsInTable_TC', PenguinsInTableTCTask('./data/PenguinsInTable_TC')],
-    *[[f'TMMLU_{subject}', TMMLUTask(f'./data/TMMLU/subjects/{subject}/')]
-      for subject in os.listdir('./data/TMMLU/subjects/')]
+    ['XSum_TC_5k', XSumTCTask(f'{_CUR_DIR}/data/XSum_TC_5k/')],
+    ['DRCD', DRCDTask(f'{_CUR_DIR}/data/DRCD_Test/')],
+    ['FGC', FGCTask(f'{_CUR_DIR}/data/FGC_Test')],
+    ['TTQA', TTQATask(f'{_CUR_DIR}/data/TTQA/')],
+    ['IMDB_TC', IMDBTCTask(f'{_CUR_DIR}/data/IMDB_TC/')],
+    ['PenguinsInTable_TC', PenguinsInTableTCTask(f'{_CUR_DIR}/data/PenguinsInTable_TC')],
+    *[[f'TMMLU/{subject}', TMMLUTask(f'{_CUR_DIR}/data/TMMLU/subjects/{subject}/')]
+      for subject in os.listdir(f'{_CUR_DIR}/data/TMMLU/subjects/')]
 ]
 
 
@@ -280,10 +282,29 @@ def evaluate_all(result_path):
 
 
 if __name__ == '__main__':
-    for path in glob('results/*_result.json'):
+    df_dict = {}
+    for path in glob(f'{_CUR_DIR}/results/*_result.json'):
         print(f'== {path} ==')
         metrics = evaluate_all(path)
         metrics['TMMLU_Avg'] = {'accuracy': np.mean([metrics[k]['accuracy'] for k in metrics if 'TMMLU' in k])}
 
         pprint(metrics)
+        
+        # Dumping results into dictionary for benchmark.md
+        model_name = '_'.join(path.split('/')[-1].split('_')[:-1])
+        task_names, metric_names, model_vals = [], [], []
+        for tn, titm in metrics.items():
+            for mn, val in titm.items():
+                task_names.append(tn)
+                metric_names.append(mn)
+                model_vals.append(val)
+        if 'task_name' not in df_dict and 'metric' not in df_dict:
+            df_dict['task_name'] = task_names
+            df_dict['metric'] = metric_names
+
+        df_dict[model_name] = model_vals
         print('====')
+
+    with open('benchmark.md', 'w') as f:
+        markdown_txt = pd.DataFrame(df_dict).to_markdown()
+        f.write(markdown_txt)
