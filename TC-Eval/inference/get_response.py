@@ -105,9 +105,17 @@ class OpenAIResponseModel(ResponseModel):
             openai.api_base = self.api_base
             openai.api_type = self.api_type
             openai.api_version = self.api_version
-
+            
+            # Setup messages
+            messages = []
+            if 'sys_prompt' in kwargs:
+                messages.append({"role": "system", "content": kwargs['sys_prompt']})
+            messages.append({"role": "user", "content": input_text})
+            if 'prefix_resp' in kwargs:
+                messages.append({"role": "assistant", "content": kwargs['prefix_resp']})
+            
             raw_request = {'engine': self.engine,
-                           'messages': [{"role": "user", "content": input_text}],
+                           'messages': messages,
                            'temperature': kwargs.get('temperature', None)}
             extra_cfg=dict(headers={'Host': 'mlop-azure-gateway.mediatek.inc', 'X-User-Id': 'mtk53598'})
             raw_request.update(**extra_cfg)

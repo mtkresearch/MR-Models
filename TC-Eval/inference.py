@@ -27,12 +27,15 @@ def _get_response_model(config):
     return response_model
 
 
-def _get_gen_config(config):
+def _get_resp_config(config):
     resp_model_name = config['resp_model_name']
     if resp_model_name == 'tgi':
         return config["tgi_generation_config"]
     elif resp_model_name == "openai":
-        return config["openai_generation_config"]
+        prompt_cfg = config['prompt_config']
+        sys_prompt = prompt_cfg.get("sys_prompt", "")
+        prefix_resp = prompt_cfg.get("prefix_resp", "")
+        return {**config["openai_generation_config"], 'sys_prompt': sys_prompt, 'prefix_resp': prefix_resp}
     else:
         raise NotImplementedError
     
@@ -47,7 +50,7 @@ def generation_routine(response_model: ResponseModel,
     dataset = dataset_cls(**config)
     
     # Setup generation config
-    gen_config = _get_gen_config(config)
+    resp_config = _get_resp_config(config)
 
     run_num_samples = config.get('num_samples', -1)
     run_num_samples = min(run_num_samples, len(dataset)) if run_num_samples != -1 else len(dataset)
@@ -56,7 +59,7 @@ def generation_routine(response_model: ResponseModel,
             break
 
         input_text = get_task_query_func(**sample)
-        outputs = response_model.get_response(input_text, **gen_config)
+        outputs = response_model.get_response(input_text, **resp_config)
         output_text = outputs['completions'][0]
 
         # Log results

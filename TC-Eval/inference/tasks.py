@@ -14,6 +14,20 @@ from inference.scenarios import ALL_DATASETS
 
 class Task:
     @staticmethod
+    def _construct_query(question: str = "",
+                         context: str = "", 
+                         query_template: str = "{question}{context}",
+                         **kwargs):
+        input_vars = dict(question=question, context=context)
+        var_names = set(re.findall(r'\{(\w+)\}', query_template))
+        for k, v in kwargs.items():
+            if k in var_names:
+                input_vars[k] = v
+        assert 'question' in var_names or 'context' in var_names, "{question} or {context} vairable has to appear in query_template"
+        query = query_template.format(**input_vars)
+        return query
+        
+    @staticmethod
     def get_task_query(question: str = "",
                        context: str = "",
                        query_template: str = "{question}{context}",
@@ -30,13 +44,10 @@ class Task:
         [3]: `prefix_resp` defined by the user.
 
         """
-        input_vars = dict(question=question, context=context)
-        var_names = set(re.findall(r'\{(\w+)\}', query_template))
-        for k, v in kwargs.items():
-            if k in var_names:
-                input_vars[k] = v
-        assert 'question' in var_names or 'context' in var_names, "{question} or {context} vairable has to appear in query_template"
-        query = query_template.format(**input_vars)
+        query = Task._construct_query(question, context, query_template)
+        if kwargs["model_template"] == "openai":
+            # {prefix_resp} will be fed in at the api side; see OpenAIResponseModel
+            task_query = f"{model_template_func(query)}"
         task_query = f"{model_template_func(query)}{prefix_resp}"
         return task_query
 
@@ -58,9 +69,11 @@ def get_task_query_func(task_name, **prompt_config) -> callable:
         query_template = _DEFAULT_QUERY_TEMPLATE[task_name]
         print(f"Task@{task_name}: User defined query templated not provided; use default = {query_template}")
     
-    model_template_func = partial(ALL_MODEL_TEMPLATE_FUNC[prompt_config.get("model_template", "default")], **prompt_config)
+    mt_opt = prompt_config.get("model_template", "default")
+    model_template_func = partial(ALL_MODEL_TEMPLATE_FUNC[mt_opt], **prompt_config)
     pconfig = {"prefix_resp": prompt_config.get("prefix_resp", ""),
-               "sys_prompt": prompt_config.get("sys_prompt", "")
+               "sys_prompt": prompt_config.get("sys_prompt", ""),
+               "model_template": mt_opt
     }
     return partial(Task.get_task_query, 
                    query_template=query_template, 

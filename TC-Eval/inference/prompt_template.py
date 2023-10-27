@@ -13,17 +13,6 @@ class Llama2Template(ModelTemplate):
         
         out_text = template.format(query=query, sys_prompt=sys_prompt)
         return out_text
-
-
-class OpenAITemplate(ModelTemplate):
-    @staticmethod
-    def apply(query: str, **kwargs):
-        template = "{sys_prompt} \n------\n {query}"
-        assert 'sys_prompt' in kwargs, f"sys_prompt text not found; openai template = {template}"
-        sys_prompt = kwargs['sys_prompt']
-        
-        out_text = template.format(query=query, sys_prompt=sys_prompt)
-        return out_text
         
 
 class VicunaTemplate(ModelTemplate):
@@ -42,5 +31,5 @@ ALL_MODEL_TEMPLATE_FUNC={
     'default': ModelTemplate.apply,
     'llama2': Llama2Template.apply,
     'vicuna': VicunaTemplate.apply,
-    'openai': OpenAITemplate.apply
+    'openai': ModelTemplate.apply
 }
