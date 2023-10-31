@@ -5,7 +5,7 @@
 |  2 | XSum_TC_5k                              | rougeL             |        0.13827  |      0.00402876 | 0.119608  |
 |  3 | DRCD                                    | prefix_exact_match |        0.770398 |      0.724592   | 0.783567  |
 |  4 | FGC                                     | prefix_exact_match |        0.38     |      0.32       | 0.36      |
-|  5 | TTQA                                    | accuracy           |        0.61165  |      0.495146   | 0.708738  |
+|  5 | TTQA                                    | accuracy           |        0.650485 |      0.533981   | 0.747573  |
 |  6 | IMDB_TC                                 | accuracy           |        0.9156   |      0.9286     | 0.9406    |
 |  7 | PenguinsInTable_TC                      | accuracy           |        0.268456 |      0.221477   | 0.402685  |
 |  8 | TMMLU/國際法                            | accuracy           |        0.571429 |      0.190476   | 0.47619   |

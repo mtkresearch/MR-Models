@@ -183,7 +183,7 @@ class SummaryTask(Task):
 
 class TTQATask(MultipleChoiceTask):
     def _prepare_data(self, dir):
-        data = json.load(open(f'{dir}/TTQA_mc_2.0.0.json'))
+        data = json.load(open(f'{dir}/TTQA_mc.json'))
         self._gold_dict = {}
         self._choices_dict = {}
         for idx in data:
