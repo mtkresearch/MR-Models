@@ -1,6 +1,6 @@
 {   
     "0": {
-        "category": "RELIGION",
+        "category": "CULTURE",
         "question": "台灣新移民的最大來源地為何處?",
         "choices": [
             "中港澳",
@@ -105,7 +105,7 @@
             "加羅湖",
             "濛濛湖",
             "翠峰湖",
-            " 燕子湖"
+            "燕子湖"
         ],
         "answer": 2
     },
@@ -693,7 +693,7 @@
         "answer": 3
     },
     "63": {
-        "category": "",
+        "category": "CULTURE",
         "question": "它於1975年5月在台北成立，並且創《草根詩刊》。該社成員有張香華、羅青、李男、詹澈、邱豐松、白靈等人，羅青是社長。它的創社宗旨具體呈現在〈草根宣言〉(刊載在《草根詩刊》創刊號)裡，內容為：「對過去，我們尊敬而不迷戀，對未來，我們謹慎而有信心。我們擁抱傳統，但不排斥西方，過去擁抱與過分的排斥，都是變態。我們的態度是了解第一，然後吸收、消化、創造。創造是我們最終的目的。同時，我們也知道要有專一狂熱的精神，創造方能有成，我們願意把這份精神獻給我們所能擁有的土地：台灣。」此外，該詩社相當重視詩的藝術性與普及性。它的名稱是：",
         "choices": [
             "草根詩社",
@@ -704,7 +704,7 @@
         "answer": 0
     },
     "64": {
-        "category": "",
+        "category": "CULTURE",
         "question": "它是台灣霹靂國際多媒體於1988年創立，自電視劇《霹靂金光》開始的一系列布袋戲電視劇作品或其跨媒體製作系列，以每齣劇集名稱前皆冠以「霹靂」兩字而得名。它的名稱是：",
         "choices": [
             "《霹靂布袋戲》,霹靂布袋戲",
@@ -759,7 +759,7 @@
         "answer": 0
     },
     "69": {
-        "category": "",
+        "category": "CULTURE",
         "question": "新台幣兩百元鈔票上的人物是下列何者？",
         "choices": [
             "孫中山",
@@ -814,8 +814,8 @@
         "answer": 2
     },
     "74": {
-        "category": "RELIGION",
-        "question": "南投溪頭除了有妖怪村外還有甚麼自然特產",
+        "category": "GEOGRAPHY",
+        "question": "南投溪頭除了有妖怪村外還有甚麼自然景點",
         "choices": [
             "杉樹",
             "孟宗竹林",
@@ -825,7 +825,7 @@
         "answer": 1
     },
     "75": {
-        "category": "RELIGION",
+        "category": "GEOGRAPHY",
         "question": "台灣最北與最南端的燈塔分別為哪兩座？",
         "choices": [
             "富貴角燈塔、鵝鑾鼻燈塔",
@@ -891,7 +891,7 @@
         "answer": 1
     },
     "81": {
-        "category": "RELIGION",
+        "category": "GEOGRAPHY",
         "question": "除了阿里山有檜木神木群，北部哪裡也有神木群？",
         "choices": [
             "陽明山",
@@ -935,7 +935,7 @@
         "answer": 2
     },
     "85": {
-        "category": "FOOD",
+        "category": "ANIMAL",
         "question": "花蓮縣餅是甚麼？",
         "choices": [
             "麻糬",
@@ -979,7 +979,7 @@
         "answer": 3
     },
     "89": {
-        "category": "RELIGION",
+        "category": "GEOGRAPHY",
         "question": "台灣除了溫泉輩出以外，冷泉也是赫赫有名。俗稱的東方威尼斯，指的是哪一座冷泉呢？",
         "choices": [
             "北埔冷泉",
@@ -1012,7 +1012,7 @@
         "answer": 1
     },
     "92": {
-        "category": "",
+        "category": "CULTURE",
         "question": "鶯歌有名的東西是什麼？",
         "choices": [
             "陶瓷",
@@ -1023,7 +1023,7 @@
         "answer": 0
     },
     "93": {
-        "category": "",
+        "category": "CULTURE",
         "question": "請問，捷運上不會放哪種語言的廣播？",
         "choices": [
             "英文",
@@ -1034,7 +1034,7 @@
         "answer": 3
     },
     "94": {
-        "category": "",
+        "category": "CULTURE",
         "question": "台灣的垃圾車是什麼顏色的？",
         "choices": [
             "黃色",
@@ -1045,7 +1045,7 @@
         "answer": 0
     },
     "95": {
-        "category": "RELIGION",
+        "category": "GEOGRAPHY",
         "question": "台灣西部的地形是什麼？",
         "choices": [
             "平原",
@@ -1056,7 +1056,7 @@
         "answer": 0
     },
     "96": {
-        "category": "",
+        "category": "CULTURE",
         "question": "八部合音是哪一族原住民的特色？",
         "choices": [
             "阿美族",
@@ -1067,18 +1067,18 @@
         "answer": 1
     },
     "97": {
-        "category": "",
+        "category": "PEOPLE",
         "question": "下列哪一位歌手是原住民？",
         "choices": [
             "周杰倫",
             "周興哲",
             "王心凌",
-            "A Lin"
+            "張惠妹"
         ],
         "answer": 3
     },
     "98": {
-        "category": "RELIGION",
+        "category": "GEOGRAPHY",
         "question": "臺北市是屬於下列哪一種地形區？",
         "choices": [
             "台地",
@@ -1089,7 +1089,7 @@
         "answer": 1
     },
     "99": {
-        "category": "RELIGION",
+        "category": "GEOGRAPHY",
         "question": "台灣唯一不靠海的縣市？",
         "choices": [
             "台北市",
@@ -1100,7 +1100,7 @@
         "answer": 1
     },
     "100": {
-        "category": "RELIGION",
+        "category": "GEOGRAPHY",
         "question": "下列哪一個台灣島嶼屬於火山島？",
         "choices": [
             "小琉球",
@@ -1111,7 +1111,7 @@
         "answer": 3
     },
     "101": {
-        "category": "RELIGION",
+        "category": "GEOGRAPHY",
         "question": "台灣東部的海岸為？",
         "choices": [
             "岬灣",
@@ -1122,7 +1122,7 @@
         "answer": 2
     },
     "102": {
-        "category": "RELIGION",
+        "category": "GEOGRAPHY",
         "question": "哪一條河，是台灣少數能終年行船的河流？",
         "choices": [
             "高屏溪",
