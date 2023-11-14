@@ -12,4 +12,4 @@ Please reference https://scidm.nchc.org.tw/dataset/grandchallenge2020
 4. Run `python preprocess.py`
 
 ## License
-Please refer to the license of [data source](https://scidm.nchc.org.tw/dataset/grandchallenge2020).
+Please refer to the license of [source data](https://scidm.nchc.org.tw/dataset/grandchallenge2020).
