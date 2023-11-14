@@ -10,3 +10,6 @@ Please reference https://scidm.nchc.org.tw/dataset/grandchallenge2020
 2. Register and download `fgc-testing-data.zip`
 3. Upzip `fgc-testing-data.zip`
 4. Run `python preprocess.py`
+
+## License
+Please refer to the license of [data source](https://scidm.nchc.org.tw/dataset/grandchallenge2020).
