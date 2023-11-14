@@ -8,3 +8,6 @@ Please reference https://github.com/DRCKnowledgeTeam/DRCD
 
 1. Download test data by `wget -O DRCD_test.json https://raw.githubusercontent.com/DRCKnowledgeTeam/DRCD/master/DRCD_test.json`
 2. Run `python preprocess.py`
+
+## License
+Please refer to the original [repository](https://github.com/DRCKnowledgeTeam/DRCD).
