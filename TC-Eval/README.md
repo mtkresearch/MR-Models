@@ -100,4 +100,4 @@ We recommend launching a [`TGI` service](https://huggingface.co/docs/text-genera
 <a id="7">[7]</a> BIG-bench authors. Beyond the imitation game: Quantifying and extrapolating the capabilities of language models. Transactions on Machine Learning Research, 2023. ISSN 2835-8856.
 
 ## License
-We follow the original license of each benchmark. Please check `LICENSE` of each benchmark in `./data`.
+We follow the original license of each benchmark. Please check the `LICENSE` or `README` of each benchmark in `./data`.
