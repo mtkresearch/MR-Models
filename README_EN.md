@@ -16,6 +16,8 @@ Currently, we offer interactive trial in form of a chatbot Playground familiar t
 
 ## News
 
+[2024.01.12] Open source Breeze-7B [model](https://huggingface.co/MediaTek-Research/Breeze-7B-Instruct-v0.1) 
+
 [2023.10.20] Release benchmark [TC-Eval](./TC-Eval/)
 
 [2023.09.14] Model 7 - C open for trial and [paper](https://arxiv.org/abs/2309.08448)
