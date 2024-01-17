@@ -18,6 +18,8 @@
 
 ## 新聞
 
+[2024.01.12] Breeze-7B 系列[模型開放](https://huggingface.co/MediaTek-Research/Breeze-7B-Instruct-v0.1)
+
 [2023.10.20] 開放繁體中文評測 [TC-Eval](./TC-Eval/)
 
 [2023.09.14] Model 7 - C 開放試用 及 [論文](https://arxiv.org/abs/2309.08448)
@@ -31,7 +33,6 @@
 ## TC-Eval
 
 TC-Eval是一個針對基礎模型的繁體中文評估套件。它包含5個面向，包括上下文問答、知識、摘要、分類和表格理解。詳細資訊請查看[這裡](./TC-Eval/)。
-
 
 ## 模型
 
