@@ -30,7 +30,7 @@ def _create_placeholder_eval_result_dict() -> Dict[str, Dict[str, Any]]:
     pdict['FGC'] = {str(k): {"response": _resp_status} for k, v in data.items()}
 
     # TTQA
-    data = json.load(open(f'{_CUR_DIR}/../data/TTQA/TTQA_mc_2.0.0.json'))
+    data = json.load(open(f'{_CUR_DIR}/../data/TTQA/TTQA_mc.json'))
     pdict['TTQA'] = {str(k): {"response": _resp_status} for k, v in data.items()}
 
     # XSum_TC
