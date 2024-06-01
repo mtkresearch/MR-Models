@@ -55,7 +55,7 @@ class FGC(Dataset):
 
 
 class TTQA(Dataset):
-    def __init__(self, data_path: str = f"{_CUR_DIR}/../data/TTQA/TTQA_mc_2.0.0.json", **kwargs):
+    def __init__(self, data_path: str = f"{_CUR_DIR}/../data/TTQA/TTQA_mc.json", **kwargs):
         raw_data = json.load(open(data_path, "r", encoding="utf-8"))
         self._js_ds = [dict(id=str(i), **obj) for i, obj in raw_data.items()]
         
