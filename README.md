@@ -38,6 +38,12 @@ TC-Eval是一個針對基礎模型的繁體中文評估套件。它包含5個面
 
 ## 模型
 
+### Breeze 2
+
+[The Breeze 2 Herd of Models: Traditional Chinese LLMs Based on LLaMA with Vision-Aware and Function-Calling Capabilities](https://huggingface.co/collections/MediaTek-Research/breeze-2-67863158443a06a72dd29900)
+
+Breeze 2 is a suite of advanced multi-modal language models, available in 3B and 8B parameter configurations, specifically designed to enhance Traditional Chinese language representation. Building upon the LLaMA 3.2, Breeze 2 continues pretraining on an extensive corpus to enhance the linguistic and cultural heritage of Traditional Chinese. It incorporates vision-aware capabilities through a visual encoder and a bridge module, and supports function-calling via prompt templates and post-training on function-calling data.
+
 ### Model 7
 
 Model 7 是聯發創新基地研發的語言模型，具有雙語（正體中文和英文）和基本多輪對話能力, version C-Chat 於 2023-09-14 開放試用。模型表現請參見[評測論文](https://arxiv.org/abs/2309.08448)與[TC-Eval](./TC-Eval/)。
@@ -163,16 +169,3 @@ BLOOM-zh 是由中研院 CKIP Lab、聯發創新基地、以及國家教育研�
 
 該模型於 2023-03-07 [釋出](https://huggingface.co/ckip-joint/bloom-1b1-zh)，目前不再更新。
 
-## 團隊
-
-總指導: 許大山 (Da-Shan Shiu)  
-  
-成員 (按字母順序排列):  
-- 許湛然 (Chan-Jan Hsu)
-- 劉昶樂 (Chang-Le Liu)
-- 鍾起鳴 (Chi-Ming Chung)
-- 廖峰挺 (Feng-Ting Liao)
-- 菲利普 艾能 (Philipp Ennen)
-- 許博竣 (Po-Chun Hsu)
-- 吳彥諶 (Yen-Chen Wu)
-- 陳宜昌 (Yi-Chang Chen)
