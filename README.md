@@ -18,6 +18,8 @@
 
 ## 新聞
 
+[2025.01.24] Breeze 2 系列[模型開源](https://huggingface.co/collections/MediaTek-Research/breeze-2-67863158443a06a72dd29900)
+
 [2024.01.12] Breeze-7B 系列[模型開放](https://huggingface.co/MediaTek-Research/Breeze-7B-Instruct-v0.1)
 
 [2023.10.20] 開放繁體中文評測 [TC-Eval](./TC-Eval/)
