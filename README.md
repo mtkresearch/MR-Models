@@ -6,16 +6,6 @@
 
 [聯發創新基地（MediaTek Research）](https://www.mtkresearch.com/) 致力於研究基礎模型。我們將研究體現在適合正體中文使用者的模型上，並在使用權許可的情況下，提供模型給學術界研究或產業界使用。
 
-## 試用
-
-我們提供試用申請，試用期間在正常使用量的前提下我們願意提供所需計算資源。
-
-申請方法如下：請先閱讀並同意我們的[使用條款](./APP-LICENSE)，並在上傳申請表單([連結](https://www.surveycake.com/s/y6yDM))之後，我們會根據您所提供的資料，寄出審核後包含使用連結的通知信，請稍稍等候。
-
-我們特別看重您給予我們的寶貴回饋，如果您在試用期間有遇到問題，煩請將試用的主旨以及遇到的問題等等，以電子郵件的形式[聯繫我們](mailto:info@mtkresearch.com)或直接在此[提報問題](https://github.com/mtkresearch/MR-LLM/issues)。
-
-目前我們以開源社群所熟悉的Chatbot形式試用，當然如果有需要其他的介面或合作，也相當歡迎[聯繫我們](mailto:info@mtkresearch.com)來談其他可能性。
-
 ## 新聞
 
 [2025.01.24] Breeze 2 系列[模型開源](https://huggingface.co/collections/MediaTek-Research/breeze-2-67863158443a06a72dd29900)
@@ -32,9 +22,6 @@
 
 [2023.03.07] 開源 Bloom-zh 1B1 [模型](https://huggingface.co/ckip-joint/bloom-1b1-zh) 及 [論文](https://arxiv.org/abs/2303.04715)
 
-## TC-Eval
-
-TC-Eval是一個針對基礎模型的繁體中文評估套件。它包含5個面向，包括上下文問答、知識、摘要、分類和表格理解。詳細資訊請查看[這裡](./TC-Eval/)。
 
 ## 模型
 
@@ -162,6 +149,10 @@ Model 7 是聯發創新基地研發的語言模型，具有雙語（正體中文
 BLOOM-zh 是由中研院 CKIP Lab、聯發創新基地、以及國家教育研究院共同合作開發的項目，該釋出模型僅針對非商業研究目的使用。相關的技術與評估可以參考此[論文](https://arxiv.org/abs/2303.04715)。
 
 該模型於 2023-04-10 [釋出](https://huggingface.co/ckip-joint/bloom-3b-zh)，目前不再更新。
+
+## TC-Eval
+
+TC-Eval是一個針對基礎模型的繁體中文評估套件。它包含5個面向，包括上下文問答、知識、摘要、分類和表格理解。詳細資訊請查看[這裡](./TC-Eval/)。
 
 ### BLOOM-zh-1B1
 
