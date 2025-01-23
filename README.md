@@ -2,8 +2,6 @@
 
 ![](./assets/starry_night.jpg)
 
-##### (You can find English version [here](README_EN.md).)
-
 [聯發創新基地（MediaTek Research）](https://www.mtkresearch.com/) 致力於研究基礎模型。我們將研究體現在適合正體中文使用者的模型上，並在使用權許可的情況下，提供模型給學術界研究或產業界使用。
 
 ## 新聞
