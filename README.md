@@ -12,6 +12,8 @@
 
 [2024.08.10] BreeXe 系列 [模型開源](https://huggingface.co/MediaTek-Research/Breexe-8x7B-Instruct-v0_1)
 
+[2024.07.03] 發布 MR 模型使用套件 [mtkresearch](https://github.com/mtkresearch/mtkresearch) 並上架到 [PyPi](https://pypi.org/project/mtkresearch/)  
+
 [2024.05.24] Generative Fusion Decoding (GFD) [技術發表](https://arxiv.org/abs/2405.14259) 以及 Breezper [實作程式碼發布](https://github.com/mtkresearch/generative-fusion-decoding) 
 
 [2024.01.12] Breeze-7B 系列 [模型開源](https://huggingface.co/MediaTek-Research/Breeze-7B-Instruct-v0.1) 及 [論文發表](https://arxiv.org/abs/2403.02712)
