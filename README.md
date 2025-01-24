@@ -6,7 +6,7 @@
 
 ## 新聞
 
-[2025.01.24] Breeze 2 系列 [模型開源](https://huggingface.co/collections/MediaTek-Research/breeze-2-67863158443a06a72dd29900) 及 [論文發表](./docs/Breeze2.pdf)
+[2025.01.24] Breeze 2 系列 [模型開源](https://huggingface.co/collections/MediaTek-Research/breeze-2-67863158443a06a72dd29900) 及 [論文發表](https://arxiv.org/abs/2501.13921)
 
 [2024.09.23] Breeze FC [模型開源](https://huggingface.co/MediaTek-Research/Breeze-7B-FC-v1_0) 及 [論文發表](https://arxiv.org/abs/2412.01130)
 
@@ -29,7 +29,7 @@
 
 ### Breeze 2
 
-【[Paper](https://github.com/mtkresearch/MR-Models/blob/main/Breeze2.pdf)】【[Kaggle Demo](https://www.kaggle.com/code/ycckaggle/breeze-2-demo)】【[Collection](https://huggingface.co/collections/MediaTek-Research/breeze-2-67863158443a06a72dd29900)】 
+【[Paper](https://arxiv.org/abs/2501.13921)】【[Kaggle Demo](https://www.kaggle.com/code/ycckaggle/breeze-2-demo)】【[Collection](https://huggingface.co/collections/MediaTek-Research/breeze-2-67863158443a06a72dd29900)】 
 
 Breeze 2 模型系列：具備視覺感知與函數調用能力的繁體中文大型語言模型
 
