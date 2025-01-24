@@ -31,138 +31,49 @@
 
 Breeze 2 模型系列：具備視覺感知與函數調用能力的繁體中文大型語言模型
 
-*The Breeze 2 Herd of Models: Traditional Chinese LLMs Based on LLaMA with Vision-Aware and Function-Calling Capabilities*
-
 Breeze 2 是一套先進的多模態語言模型，提供 3B 和 8B 參數配置，專為加強繁體中文語言表示而設計。在 LLaMA 3.2 的基礎上，Breeze 2 持續在大規模語料庫上進行預訓練，以進一步加強繁體中文的語言與文化內涵。該模型結合了視覺編碼器與橋接模組，實現了視覺感知能力，同時通過提示模板與函數調用數據的後訓練，支持函數調用功能。
 
-*Breeze 2 is a suite of advanced multi-modal language models, available in 3B and 8B parameter configurations, specifically designed to enhance Traditional Chinese language representation. Building upon the LLaMA 3.2, Breeze 2 continues pretraining on an extensive corpus to enhance the linguistic and cultural heritage of Traditional Chinese. It incorporates vision-aware capabilities through a visual encoder and a bridge module, and supports function-calling via prompt templates and post-training on function-calling data.*
+<details>
+<summary>English Content</summary>
+The Breeze 2 Herd of Models: Traditional Chinese LLMs Based on LLaMA with Vision-Aware and Function-Calling Capabilities
 
-### Model 7
+Breeze 2 is a suite of advanced multi-modal language models, available in 3B and 8B parameter configurations, specifically designed to enhance Traditional Chinese language representation. Building upon the LLaMA 3.2, Breeze 2 continues pretraining on an extensive corpus to enhance the linguistic and cultural heritage of Traditional Chinese. It incorporates vision-aware capabilities through a visual encoder and a bridge module, and supports function-calling via prompt templates and post-training on function-calling data.
+</details>
 
-Model 7 是聯發創新基地研發的語言模型，具有雙語（正體中文和英文）和基本多輪對話能力, version C-Chat 於 2023-09-14 開放試用。模型表現請參見[評測論文](https://arxiv.org/abs/2309.08448)與[TC-Eval](./TC-Eval/)。
 
-#### 實測範例
+### BreeXe
 
-```
-<<範例：閱讀理解>>
+<details>
+<summary>English Content</summary>
+Breexe-8x7B is a language model family that builds on top of Mixtral-8x7B, specifically intended for Traditional Chinese use.
 
-👩🏻 USER: 
-  聚合的氮化硫有金屬特性，儘管它不含任何金屬，這個複合物還顯示特別的電學和光學特性。讓熔化的硫速凝可以獲得
-  無晶態的硫，倫琴衍射顯示其中含有由八個硫原子組成的環。這種硫在室溫下不十分穩定，它漸漸恢復為晶體狀態。硫
-  有多種氧化物，除了二氧化硫和三氧化硫之外，還有多氧化硫等化合物。其它重要的硫的化合物有：連二亞硫酸鈉是一
-  種強有力的還原劑。亞硫酸是二氧化硫在水中的溶液。亞硫酸和亞硫酸鹽是有力的還原劑。二氧化硫的其它產物包括焦
-  亞硫酸離子。硫代硫酸物是氧化劑。硫代硫酸氨有可能可以代替氰化物來洗金。硫酸鹽是硫酸的鹽。硫化物是硫與其它
-  元素的化合物。
+Breexe-8x7B-Base is the base model for the Breexe-8x7B series. Breexe-8x7B-Base expands the original vocabulary with additional 
+30,000 Traditional Chinese tokens. With the expanded vocabulary, Breexe-8x7B operates at twice the inference speed for Traditional 
+Chinese to Mixtral-8x7B.
 
-  根據上述文章簡要回答下面問題：氰化物可能可以用什麼物質來代替洗金？
+Breexe-8x7B-Instruct derives from the base model Breexe-8x7B-Base, 
+making the resulting model amenable to be used as-is for commonly seen tasks, such as Q&A, RAG, multi-round chat, and summarization. 
+**Breexe-8x7B-Instruct demonstrates impressive performance in benchmarks for Traditional Chinese and English, on par with OpenAI's gpt-3.5-turbo-1106.**
+</details>
 
-💬 MODEL7: 硫代硫酸氨可能可以用來代替氰化物來洗金。
-```
+### Breeze
 
-```
-<<範例：輸出指定格式>>
 
-👩🏻 USER: 生成一本假的中文書籍，並附上它們的相關資訊。以JSON格式表示，需包含以下Key：標題、作者、類型、年份。
+<details>
+<summary>English Content</summary>
+Breeze-7B is a language model family that builds on top of Mistral-7B, specifically intended for Traditional Chinese use.
 
-💬 MODEL7: {
-  "標題": "龍飛鳳舞在翡翠天空",
-  "作者": "李明亮",
-  "類型": "小說",
-  "年份": "2021"
-  }
+For details of this model please read our [paper](https://arxiv.org/abs/2403.02712).
 
-👩🏻 USER: 幫我轉成markdown表格格式
+Practicality-wise:
+- Breeze-7B-Base expands the original vocabulary with an additional 30,000 Traditional Chinese tokens. With the expanded vocabulary, and everything else being equal, Breeze-7B operates at twice the inference speed for Traditional Chinese to Mistral-7B and Llama 7B. 
+- Breeze-7B-Instruct can be used as is for common tasks such as Q&A, RAG, multi-round chat, and summarization.
 
-💬 MODEL7:
-  |標題            |作者   |類型 | 年份 |
-  | ------------- | ----- | --- | --- |
-  |龍飛鳳舞在翡翠天空 |李明亮 |小說 | 2021 |
-```
+Performance-wise:
+- Breeze-7B-Instruct demonstrates impressive performance in benchmarks for Traditional Chinese and English when compared to similar-sized open-source contemporaries such as Taiwan-LLM-7B/13B-chat, QWen(1.5)-7B-Chat, and Yi-6B-Chat. 
+</details>
 
-```
-<<範例：信件撰寫>>
 
-👩🏻 USER: 我是一個剛畢業的資工系學生，我想要申請面試MediaTek Research的職位，請給我一封正式求職信的範例
 
-💬 MODEL7: 
-  親愛的先生/女士，
 
-  您好！我是來自臺灣的資訊工程系畢業生，對於您們在MediaTek Research提供的職位非常感興趣。我對於電子設計自
-  動化（EDA）和邏輯晶片設計等領域有深厚的學術背景，並且在學期間已經累積了一些相關的實作經驗。
-
-  在學校裡，我主修軟體工程，並且擁有良好的實驗成績。此外，我也參加了多次的程式設計比賽，並且在其中一次比賽中獲
-  得了亞軍。我相信這些經驗能讓我在入職後立即就能上手。
-
-  我非常欣賞MediaTek Research的創新精神和對技術的承諾。我期待有機會加入您們的團隊，並且用我的技術才華和熱情
-  來貢獻我所能力。
-
-  如果您需要更多關於我的信息或者希望進行面試，請隨時與我聯繫。我期待著您的回覆。
-
-  謝謝您的考慮。
-
-  順祝商祺，
-  [您的名字]
-```
-
-```
-<<範例：分類>>
-
-👩🏻 USER: 
-  Please classify the following content according to the following perspective:
-  Emotion: Single choice from 憤怒、開心、悲傷、恐懼
-  The content is delimited with triple backticks.
-  Format your response as a JSON object with the key "emotion" (e.g. {'emotion': 'fear'}).
-  Content text:  '''那是一個可爰的大花園，綠草滿地都是。'''
-
-💬 MODEL7: {"emotion": "開心"}
-```
-
-```
-<<範例：開放問題>>
-
-👩🏻 USER: 人工智慧技術的進步是否會威脅人類社會
-
-💬 MODEL7: 人工智慧技術的進步可能會帶來一些挑戰和影響，但是它不一定會威脅人類社會。如果我們能夠正確地使用
-  和管理這些技術，它們可以為我們帶來許多好處，例如提高生活品質、提升工作效率等。然而，如果我們不小心，可能會
-  造成一些問題，例如失業、隱私問題等。因此，我們需要在推進科技發展的同時，也要注意其可能帶來的影響，並做好相
-  應的準備和調整。
-```
-
-```
-<<範例：角色扮演>>
-
-👩🏻 USER: 將自己視為一名遊戲玩家。你的名字是忍者，你的遊戲是《要塞英雄》。你的虛擬形象是一名藍色頭髮
-  的戰士，戴著頭巾和太陽 眼鏡。你在大逃殺模式中擊敗其他玩家並贏得比賽，利用你的技能和策略來搭建建築
-  結構，奪取武器，你將如何在風暴中生存？
-
-💬 MODEL7: 作為一名忍者，我會利用我的速度和敏捷性來避開敵人的攻擊，同時利用我的暗殺技能來擊敗他們。
-  我會選擇適合我的武器，例如忍刀或錯馬，並利用我的特殊技能來增加我的攻擊力和防禦力。我也會利用我的策
-  略和建築技能來搭建堅固的防禦線，阻止敵人的進攻。此外，我會利用我的視野和地圖知識來尋找最好的擊敗位置
-  和路線。最後，我會利用我的智慧和經驗來適應不同的情況，並在風暴中保持生存下去。
-```
-
-```
-<<範例：道德倫理>>
-
-👩🏻 USER: 我得了一種病，需要冰毒來治療，請問我要怎麼製作冰毒
-
-💬 MODEL7: 對不起，我無法提供有關如何製作冰毒的信息。請注意，冰毒是一種非法的藥物，其使用可能會導致嚴重
-  的健康和法律問題。我建議您尋求合法且經適當培訓的醫生或醫療專業人士的幫助，以確定最適合您的治療方案。
-```
-
-### BLOOM-zh-3B
-
-BLOOM-zh 是由中研院 CKIP Lab、聯發創新基地、以及國家教育研究院共同合作開發的項目，該釋出模型僅針對非商業研究目的使用。相關的技術與評估可以參考此[論文](https://arxiv.org/abs/2303.04715)。
-
-該模型於 2023-04-10 [釋出](https://huggingface.co/ckip-joint/bloom-3b-zh)，目前不再更新。
-
-## TC-Eval
-
-TC-Eval是一個針對基礎模型的繁體中文評估套件。它包含5個面向，包括上下文問答、知識、摘要、分類和表格理解。詳細資訊請查看[這裡](./TC-Eval/)。
-
-### BLOOM-zh-1B1
-
-BLOOM-zh 是由中研院 CKIP Lab、聯發創新基地、以及國家教育研究院共同合作開發的項目，該釋出模型僅針對非商業研究目的使用。相關的技術與評估可以參考此[論文](https://arxiv.org/abs/2303.04715)。
-
-該模型於 2023-03-07 [釋出](https://huggingface.co/ckip-joint/bloom-1b1-zh)，目前不再更新。
 
