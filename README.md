@@ -10,7 +10,9 @@
 
 [2024.09.23] Breeze FC [模型開源](https://huggingface.co/MediaTek-Research/Breeze-7B-FC-v1_0) 及 [論文發表](https://arxiv.org/abs/2412.01130)
 
-[2024.01.12] Breeze-7B 系列[模型開放](https://huggingface.co/MediaTek-Research/Breeze-7B-Instruct-v0.1)
+[2024.04.09] BreeXe 系列[模型開放](https://huggingface.co/MediaTek-Research/Breexe-8x7B-Instruct-v0_1)
+
+[2024.01.12] Breeze-7B 系列[模型開放](https://huggingface.co/MediaTek-Research/Breeze-7B-Instruct-v0.1)及 [論文發表](https://arxiv.org/abs/2403.02712)
 
 [2023.10.20] 開放繁體中文評測 [TC-Eval](./TC-Eval/)
 
@@ -42,6 +44,13 @@ Breeze 2 is a suite of advanced multi-modal language models, available in 3B and
 
 
 ### BreeXe
+【[Collection](https://huggingface.co/collections/MediaTek-Research/breeze-7b-and-breexe-8x7b-65a67144880ad716173d7d87)】 
+
+Breexe-8x7B 是一個語言模型家族，基於 Mixtral-8x7B 開發，專門針對繁體中文使用。
+
+Breexe-8x7B-Base 是 Breexe-8x7B 系列的基礎模型。Breexe-8x7B-Base 擴展了原始詞彙表，新增了 30,000 個繁體中文詞彙。在詞彙表擴展的情況下，Breexe-8x7B 在繁體中文推理速度上是 Mixtral-8x7B 的兩倍。
+
+Breexe-8x7B-Instruct 是基於 Breexe-8x7B-Base 的衍生模型，使得該模型可以直接用於常見任務，如問答、檔案檢索生成（RAG）、多輪對話和摘要。**Breexe-8x7B-Instruct 在繁體中文和英文基準測試中表現出色，與 OpenAI 的 gpt-3.5-turbo-1106 相媲美。**
 
 <details>
 <summary>English Content</summary>
@@ -57,7 +66,17 @@ making the resulting model amenable to be used as-is for commonly seen tasks, su
 </details>
 
 ### Breeze
+【[Paper](https://arxiv.org/abs/2403.02712)】【[Collection](https://huggingface.co/collections/MediaTek-Research/breeze-7b-and-breexe-8x7b-65a67144880ad716173d7d87)】 
 
+Breeze-7B 是一個語言模型家族，基於 Mistral-7B 開發，專門針對繁體中文使用。
+有關此模型的詳細資訊，請參閱我們的[論文](https://arxiv.org/abs/2403.02712)。
+
+實用性方面：
+- Breeze-7B-Base 擴增了原始詞表，新增了 30,000 個繁體中文詞彙。在詞彙表擴增且其他條件相同的情況下，Breeze-7B 在繁體中文推理速度上是 Mistral-7B 和 Llama 7B 的兩倍。
+- Breeze-7B-Instruct 可直接用於常見任務，如問答、檔案檢索生成 (RAG)、多輪對話和摘要。
+
+性能方面：
+- Breeze-7B-Instruct 在繁體中文和英文基準測試中表現出色，與同類型的開源模型如 Taiwan-LLM-7B/13B-chat、QWen(1.5)-7B-Chat 和 Yi-6B-Chat 相比，具有顯著優勢。
 
 <details>
 <summary>English Content</summary>
