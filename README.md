@@ -26,6 +26,9 @@
 
 [2023.03.07] 開源 Bloom-zh 1B1 [模型](https://huggingface.co/ckip-joint/bloom-1b1-zh) 及 [論文](https://arxiv.org/abs/2303.04715)
 
+## Next
+
+- SEALION
 
 ## 模型
 
