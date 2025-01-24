@@ -4,7 +4,7 @@
 
 [聯發創新基地（MediaTek Research）](https://i.mediatek.com/mediatekresearch) 致力於研究基礎模型。我們將研究體現在適合正體中文使用者的模型上，並在使用權許可的情況下，提供模型給學術界研究或產業界使用。
 
-## Milestone
+## Milestones
 
 [2025.01.24] Breeze 2 系列 [模型開源](https://huggingface.co/collections/MediaTek-Research/breeze-2-67863158443a06a72dd29900) 及 [論文發表](https://arxiv.org/abs/2501.13921)
 
@@ -28,11 +28,7 @@
 
 [2023.03.07] 開源 Bloom-zh 1B1 [模型](https://huggingface.co/ckip-joint/bloom-1b1-zh) 及 [論文](https://arxiv.org/abs/2303.04715)
 
-## Next
-
-- SEALION
-
-## Achievement
+## Models
 
 ### Breeze 2
 
