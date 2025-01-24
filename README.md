@@ -16,7 +16,7 @@
 
 [2024.01.12] Breeze-7B 系列 [模型開源](https://huggingface.co/MediaTek-Research/Breeze-7B-Instruct-v0.1) 及 [論文發表](https://arxiv.org/abs/2403.02712)
 
-[2023.10.20] 開放繁體中文評測 [TC-Eval](./TC-Eval/)
+[2023.10.20] 開放繁體中文評測 TC-Eval (new version: [TCEval-v2](https://github.com/mtkresearch/TCEval))
 
 [2023.09.14] Model 7 - C 開放試用 及 [論文](https://arxiv.org/abs/2309.08448)
 
