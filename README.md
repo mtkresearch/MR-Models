@@ -10,7 +10,9 @@
 
 [2024.09.23] Breeze FC [模型開源](https://huggingface.co/MediaTek-Research/Breeze-7B-FC-v1_0) 及 [論文發表](https://arxiv.org/abs/2412.01130)
 
-[2024.04.09] BreeXe 系列 [模型開源](https://huggingface.co/MediaTek-Research/Breexe-8x7B-Instruct-v0_1)
+[2024.08.10] BreeXe 系列 [模型開源](https://huggingface.co/MediaTek-Research/Breexe-8x7B-Instruct-v0_1)
+
+[2024.05.24] Generative Fusion Decoding (GFD) [技術發表](https://arxiv.org/abs/2405.14259) 以及 Breezper [實作程式碼發布](https://github.com/mtkresearch/generative-fusion-decoding) 
 
 [2024.01.12] Breeze-7B 系列 [模型開源](https://huggingface.co/MediaTek-Research/Breeze-7B-Instruct-v0.1)及 [論文發表](https://arxiv.org/abs/2403.02712)
 
