@@ -57,7 +57,7 @@ Breexe-8x7B 是一個語言模型家族，基於 Mixtral-8x7B 開發，專門針
 
 Breexe-8x7B-Base 是 Breexe-8x7B 系列的基礎模型。Breexe-8x7B-Base 擴展了原始詞彙表，新增了 30,000 個繁體中文詞彙。在詞彙表擴展的情況下，Breexe-8x7B 在繁體中文推理速度上是 Mixtral-8x7B 的兩倍。
 
-Breexe-8x7B-Instruct 是基於 Breexe-8x7B-Base 的衍生模型，使得該模型可以直接用於常見任務，如問答、檔案檢索生成（RAG）、多輪對話和摘要。**Breexe-8x7B-Instruct 在繁體中文和英文基準測試中表現出色，與 OpenAI 的 gpt-3.5-turbo-1106 相媲美。**
+Breexe-8x7B-Instruct 是基於 Breexe-8x7B-Base 的衍生模型，使得該模型可以直接用於常見任務，如問答、檔案檢索生成（RAG）、多輪對話和摘要。 Breexe-8x7B-Instruct 在繁體中文和英文基準測試中表現出色，與 OpenAI 的 gpt-3.5-turbo-1106 相媲美。
 
 <details>
 <summary>English Content</summary>
@@ -69,7 +69,7 @@ Chinese to Mixtral-8x7B.
 
 Breexe-8x7B-Instruct derives from the base model Breexe-8x7B-Base, 
 making the resulting model amenable to be used as-is for commonly seen tasks, such as Q&A, RAG, multi-round chat, and summarization. 
-**Breexe-8x7B-Instruct demonstrates impressive performance in benchmarks for Traditional Chinese and English, on par with OpenAI's gpt-3.5-turbo-1106.**
+Breexe-8x7B-Instruct demonstrates impressive performance in benchmarks for Traditional Chinese and English, on par with OpenAI's gpt-3.5-turbo-1106.
 </details>
 
 ### Breeze
