@@ -6,7 +6,7 @@
 
 ## Milestones
 
-[2025.01.24] Breeze 2 系列 [模型開源](https://huggingface.co/collections/MediaTek-Research/breeze-2-67863158443a06a72dd29900) 及 [論文發表](https://arxiv.org/abs/2501.13921); 包含 BreezyVoice 語音合成模型 [模型開源](https://huggingface.co/collections/MediaTek-Research/BreezyVoice-300M) 及 [論文發表](https://arxiv.org/abs/2501.17790)
+[2025.01.24] Breeze 2 系列 [模型開源](https://huggingface.co/collections/MediaTek-Research/breeze-2-67863158443a06a72dd29900) 及 [論文發表](https://arxiv.org/abs/2501.13921); 包含 BreezyVoice 語音合成模型 [模型開源]([https://huggingface.co/collections/MediaTek-Research/BreezyVoice-300M](https://huggingface.co/MediaTek-Research/BreezyVoice-300M/tree/main)) 及 [論文發表](https://arxiv.org/abs/2501.17790)
 
 [2024.09.23] Breeze FC [模型開源](https://huggingface.co/MediaTek-Research/Breeze-7B-FC-v1_0) 及 [論文發表](https://arxiv.org/abs/2412.01130)
 
@@ -36,7 +36,7 @@
 
 Breeze 2 模型系列：具備視覺感知與函數調用能力的繁體中文大型語言模型
 
-Breeze 2 是一套先進的多模態語言模型，提供 3B 和 8B 參數配置，專為加強繁體中文語言表示而設計。在 LLaMA 3.2 的基礎上，Breeze 2 持續在大規模語料庫上進行預訓練，以進一步加強繁體中文的語言與文化內涵。該模型結合了視覺編碼器與橋接模組，實現了視覺感知能力，同時通過提示模板與函數調用數據的後訓練，支持函數調用功能。
+Breeze 2 是一套先進的多模態模型家族。包含多模態語言模型以及語音合成模型。多模態語言模型提供 3B 和 8B 參數配置，專為加強繁體中文語言表示而設計。在 LLaMA 3.2 的基礎上，Breeze 2 持續在大規模語料庫上進行預訓練，以進一步加強繁體中文的語言與文化內涵。該模型結合了視覺編碼器與橋接模組，實現了視覺感知能力，同時通過提示模板與函數調用數據的後訓練，支持函數調用功能。語音合成模型支援繁體中文、英文以及注音輸入，中文語音輸出，並支援聲音克隆(Voice Cloning)。
 
 <details>
 <summary>English Content</summary>
