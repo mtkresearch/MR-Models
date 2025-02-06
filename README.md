@@ -6,7 +6,7 @@
 
 ## Milestones
 
-[2025.01.24] Breeze 2 系列 [模型開源](https://huggingface.co/collections/MediaTek-Research/breeze-2-67863158443a06a72dd29900) 及 [論文發表](https://arxiv.org/abs/2501.13921); 包含 BreezyVoice 語音合成模型 [模型開源]([https://huggingface.co/collections/MediaTek-Research/BreezyVoice-300M](https://huggingface.co/MediaTek-Research/BreezyVoice-300M/tree/main)) 及 [論文發表](https://arxiv.org/abs/2501.17790)
+[2025.01.24] Breeze 2 系列 [模型開源](https://huggingface.co/collections/MediaTek-Research/breeze-2-67863158443a06a72dd29900) 及 [論文發表](https://arxiv.org/abs/2501.13921); 包含 BreezyVoice 語音合成模型 [模型開源](https://huggingface.co/MediaTek-Research/BreezyVoice-300M/tree/main) 及 [論文發表](https://arxiv.org/abs/2501.17790)
 
 [2024.09.23] Breeze FC [模型開源](https://huggingface.co/MediaTek-Research/Breeze-7B-FC-v1_0) 及 [論文發表](https://arxiv.org/abs/2412.01130)
 
