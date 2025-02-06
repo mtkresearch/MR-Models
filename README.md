@@ -32,7 +32,7 @@
 
 ### Breeze 2
 
-【[Paper](https://arxiv.org/abs/2501.13921)】【[Kaggle Demo](https://www.kaggle.com/code/ycckaggle/breeze-2-demo)】【[Collection](https://huggingface.co/collections/MediaTek-Research/breeze-2-67863158443a06a72dd29900)
+【[Paper](https://arxiv.org/abs/2501.13921)】【[Kaggle Demo](https://www.kaggle.com/code/ycckaggle/breeze-2-demo)】【[Collection](https://huggingface.co/collections/MediaTek-Research/breeze-2-67863158443a06a72dd29900)】
 
 【[TTS Paper](https://arxiv.org/abs/2501.17790)】【[TTS Kaggle Demo](https://www.kaggle.com/code/a24998667/breeze-2-demo)】【[TTS GitHub](https://github.com/Splend1d/BreezyVoice)】 
 
