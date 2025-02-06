@@ -42,7 +42,7 @@ Breeze 2 是一套先進的多模態模型家族。包含多模態語言模型�
 <summary>English Content</summary>
 The Breeze 2 Herd of Models: Traditional Chinese LLMs Based on LLaMA with Vision-Aware and Function-Calling Capabilities
 
-Breeze 2 is a suite of advanced multi-modal language models, available in 3B and 8B parameter configurations, specifically designed to enhance Traditional Chinese language representation. Building upon the LLaMA 3.2, Breeze 2 continues pretraining on an extensive corpus to enhance the linguistic and cultural heritage of Traditional Chinese. It incorporates vision-aware capabilities through a visual encoder and a bridge module, and supports function-calling via prompt templates and post-training on function-calling data.
+Breeze 2 is a suite of advanced multi-modal models, including multi-modal language models and speech synthesis models. The multi-modal language models are available in 3B and 8B parameter configurations, specifically designed to enhance Traditional Chinese language representation. Building upon the LLaMA 3.2, Breeze 2 continues pretraining on an extensive corpus to further enhance the linguistic and cultural heritage of Traditional Chinese. It incorporates vision-aware capabilities through a visual encoder and a bridge module, and supports function-calling via prompt templates and post-training on function-calling data. The speech synthesis model supports Traditional Chinese, English, and Bopomofo input, with Chinese speech output, and also supports voice cloning.
 </details>
 
 
