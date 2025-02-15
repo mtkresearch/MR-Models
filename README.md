@@ -34,7 +34,7 @@
 
 【[Paper](https://arxiv.org/abs/2501.13921)】【[Kaggle Demo](https://www.kaggle.com/code/ycckaggle/breeze-2-demo)】【[Collection](https://huggingface.co/collections/MediaTek-Research/breeze-2-67863158443a06a72dd29900)】
 
-【[TTS Paper](https://arxiv.org/abs/2501.17790)】【[TTS Kaggle Demo](https://www.kaggle.com/code/a24998667/breezyvoice-playground?scriptVersionId=220741112)】【[TTS GitHub](https://github.com/Splend1d/BreezyVoice)】 
+【[TTS Paper](https://arxiv.org/abs/2501.17790)】【[TTS Kaggle Demo](https://www.kaggle.com/code/a24998667/breezyvoice-playground)】【[TTS GitHub](https://github.com/mtkresearch/BreezyVoice)】 
 
 Breeze 2 是一套先進的多模態模型家族。包含多模態語言模型以及語音合成模型。多模態語言模型提供 3B 和 8B 參數配置，專為加強繁體中文語言表示而設計。在 LLaMA 3.2 的基礎上，Breeze 2 持續在大規模語料庫上進行預訓練，以進一步加強繁體中文的語言與文化內涵。該模型結合了視覺編碼器與橋接模組，實現了視覺感知能力，同時通過提示模板與函數調用數據的後訓練，支持函數調用功能。語音合成模型支援繁體中文、英文以及注音輸入，中文語音輸出，並支援聲音複製(Voice Cloning)。
 
